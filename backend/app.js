@@ -25,31 +25,40 @@ var port = 3001;
 
 
 // Mongodb Config
-mongoose.connect(process.env.DB_URL); // Connect to database on Server
-console.log("Connecting too " + process.env.DB_URL)
-var db = mongoose.connection;
+if(process.env.DB_URL != undefined){
+  mongoose.connect(process.env.DB_URL); // Connect to database on Server
+  console.log("Connecting too " + process.env.DB_URL)
+  var db = mongoose.connection;
 
-db.once('open', function() {
-  // we're connected!
-  logger.log("info", "Status Code " + mongoose.connection.readyState + " Connected");
+  db.once('open', function() {
+    // we're connected!
+    logger.log("info", "Status Code " + mongoose.connection.readyState + " Connected");
 
-});
+  });
 
-// When the connection is disconnected
-db.on('disconnected', function () {
-  logger.log("info", 'Mongoose default connection disconnected');
-});
+  // When the connection is disconnected
+  db.on('disconnected', function () {
+    logger.log("info", 'Mongoose default connection disconnected');
+  });
 
-db.on('error', function(){
-  logger.log("error", "ERROR Status Code " + mongoose.connection.readyState);
-});
-
+  db.on('error', function(){
+    logger.log("error", "ERROR Status Code " + mongoose.connection.readyState);
+  });
+}else{
+  logger.log("error","You are missing the .env file");
+  logger.log("error","Create a .env file and fill in the DB_URL param");
+}
 // If the Node process ends, close the Mongoose connection
 process.on('SIGINT', function() {
-  db.close(function () {
-    logger.log('info', 'Mongoose default connection disconnected through app termination');
+  if(db == undefined){
+    logger.log('error', "SIGNIT recieved Process Closing");
     process.exit(0);
-  });
+  }else{
+    db.close(function () {
+      logger.log('error', 'Mongoose default connection disconnected through app termination');
+      process.exit(0);
+    });
+  }
 });
 
 
@@ -73,4 +82,4 @@ app.use('/api', apiRouter);
 
 app.listen(port);
 
-console.log("Server Started on PORT " + port);
+logger.log('info',"Server Started on PORT " + port);
