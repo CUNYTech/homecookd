@@ -3,6 +3,12 @@ import {Router, Route,Switch} from 'react-router-dom';
 import history from './Utils/history'
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import FlatButton from 'material-ui/FlatButton';
+
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import HomePage from './Scenes/Home/HomePage';
 
@@ -28,7 +34,40 @@ function handleClick(){
   alert("TEST");
 }
 
+class Login extends Component {
+  static muiName = 'FlatButton';
+
+  render() {
+    return (
+      <FlatButton {...this.props} label="Login" />
+    );
+  }
+}
+
+const Logged = (props) => (
+  <IconMenu
+    {...props}
+    iconButtonElement={
+      <IconButton><MoreVertIcon /></IconButton>
+    }
+    targetOrigin={{horizontal: 'right', vertical: 'top'}}
+    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+  >
+    <MenuItem primaryText="Refresh" />
+    <MenuItem primaryText="Help" />
+    <MenuItem primaryText="Sign out" />
+  </IconMenu>
+);
+
+
+
 class App extends Component {
+  state = {
+    logged :true
+  }
+  handleChange = (event, logged) => {
+    this.setState({logged: logged});
+  }
   render() {
     return (
 
@@ -37,7 +76,7 @@ class App extends Component {
       <AppBar
           title="HomeCookd"
           onTitleClick={handleClick}
-          iconClassNameRight="muidocs-icon-navigation-expand-more"/>
+          iconElementRight={this.state.logged ? <Logged /> : <Login />}/>
 
         <Routes/>
         </MuiThemeProvider>
