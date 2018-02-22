@@ -27,9 +27,8 @@ var port = 3001;
 // Mongodb Config
 if(process.env.DB_URL != undefined){
   mongoose.connect(process.env.DB_URL); // Connect to database on Server
-  console.log("Connecting too " + process.env.DB_URL)
+  logger.log("info","Connecting too " + process.env.DB_URL)
   var db = mongoose.connection;
-
   db.once('open', function() {
     // we're connected!
     logger.log("info", "Status Code " + mongoose.connection.readyState + " Connected");
@@ -48,6 +47,7 @@ if(process.env.DB_URL != undefined){
   logger.log("error","You are missing the .env file");
   logger.log("error","Create a .env file and fill in the DB_URL param");
 }
+
 // If the Node process ends, close the Mongoose connection
 process.on('SIGINT', function() {
   if(db == undefined){
