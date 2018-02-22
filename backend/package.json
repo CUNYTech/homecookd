@@ -4,6 +4,7 @@
   "description": "Backend api for homecookd",
   "main": "app.js",
   "scripts": {
+    "install": "mkdir logs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
@@ -16,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/CUNYTech/homecookd/issues"
   },
-  "homepage": "https://github.com/CUNYTech/homecookd#readme"
+  "homepage": "https://github.com/CUNYTech/homecookd#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "hat": "0.0.3",
+    "mongoose": "^5.0.6",
+    "winston": "^2.4.0"
+  }
 }
