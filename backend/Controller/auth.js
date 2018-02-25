@@ -1,4 +1,5 @@
 var Customer = require("../Models/customerSchema");
+var Seller = require("../Models/sellerSchema");
 
 var bcrypt = require("bcryptjs");
 
@@ -8,6 +9,41 @@ const saltRounds = 10; // how many times to salt the password
 
 // 
 var rack = hat.rack(64, 16);
+
+
+exports.registerSeller = (req, res) => {
+    if(req.body.email === undefined || req.body.password === undefined || req.body.name === undefined){
+        res.status(400);
+        res.json( {err: "Incomplete request"} );
+        console.log("Incomplete request");
+    }else{
+        Seller.find( {email : {$regex: new RegExp("^" + req.body.email + "$", "i")}}, function (err, docs){
+            if (!docs.length){
+                var tempSeller = new Seller();
+                tempSeller.email = req.body.email;
+                tempSeller.api_token = rack();
+                tempSeller.name = req.body.name;
+                tempSeller.account_approved = false;
+                bcrypt.hash(req.body.password, saltRounds, function(err, hash){
+                    tempSeller.password_hash = hash;
+                    tempSeller.save(function(err){
+                        if (err){
+                            console.log("Error while saving ");
+                            res.send(err);
+                        }
+
+                        res.status(201);
+                        res.json( {message: "Succesfully registered", api_token: tempSeller.api_token} );
+                    });
+                });
+            }else{
+                res.status(400);
+                res,json( {error: "Email belongs to another user"} );
+            }
+        });
+    }
+}
+
 
 // this should be changed to registerCustomer
 exports.registerUser = (req, res) => {
@@ -29,16 +65,14 @@ exports.registerUser = (req, res) => {
                             tempCustomer.password_hash = hash;
                             tempCustomer.save(function(err){
                                 if(err){
-                                    console.log("Error with password");
+                                    console.log("Error while saving ");
                                     res.send(err);
                                 }
 
                                 res.status(201);
-                                res.json( {message: "Succesfully registered"} );
+                                res.json( {message: "Succesfully registered", api_token: tempCustomer.api_token} );
                             });
                         });
-
-
                     }
                     else {
                         res.status(400);
