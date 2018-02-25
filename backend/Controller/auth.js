@@ -9,6 +9,7 @@ const saltRounds = 10; // how many times to salt the password
 // 
 var rack = hat.rack(64, 16);
 
+// this should be changed to registerCustomer
 exports.registerUser = (req, res) => {
     if (req.body.email === undefined || req.body.password === undefined || req.body.name === undefined || req.body.userName === undefined){
         res.status(400);
