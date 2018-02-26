@@ -23,8 +23,8 @@ class RegisterForm extends Component{
     render(){
         return(
           // <h2>Register</h2>
-          <Paper className="container">
-                <TextField floatingLabelText="First Name" name="name[first]" type="text" value={this.state.firstName} onChange={this.handleFormChange} />
+          <Paper className="container" onSubmit={this.handleFormSubmit}>
+                <TextField floatingLabelText="First Name" name="name[first]" type="text" value={this.state.lastName} onChange={this.handleFormChange} />
                 <TextField floatingLabelText="Last Name" name="name[last]" type="text" value={this.state.lastName} onChange={this.handleFormChange} />
                 <TextField floatingLabelText="Email" name="email" type="test" value={this.state.email} onChange={this.handleFormChange} />
                 <TextField floatingLabelText="Username" name="username" type="text" value={this.state.username} onChange={this.handleFormChange} />
