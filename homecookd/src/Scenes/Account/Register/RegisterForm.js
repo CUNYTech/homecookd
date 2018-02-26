@@ -11,6 +11,7 @@ class RegisterForm extends Component{
             firstName: '',
             lastName: '',
             email: '',
+            username: '',
             password: ''
         };
 
