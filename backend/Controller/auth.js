@@ -1,4 +1,4 @@
-var Customer = require("../Models/customerSchema");
+var User = require("../Models/userSchema");
 
 var bcrypt = require("bcryptjs");
 
@@ -11,43 +11,38 @@ var rack = hat.rack(64, 16);
 
 exports.registerUser = (req, res) => {
     if (req.body.email === undefined || req.body.password === undefined || req.body.name === undefined || req.body.userName === undefined){
-        res.status(400);
-        res.json({error: "Incomplete request"});
+        res.status(400).json( {error: "Incomplete request"} );
         console.log("Incomplete request");
     }else{
-        Customer.find({email : {$regex : new RegExp("^" + req.body.email + "$", "i")}}, function (err, docs){
+        User.find( {email: {$regex : new RegExp("^" + req.body.email + "$" + "i")}},function (err, docs){
             if(!docs.length){
-                Customer.find({userName : {$regex : new RegExp("^" + req.body.userName + "$", "i")}}, function (err, docs){
-                    if(!docs.length){
-                        var tempCustomer = new Customer();
-                        tempCustomer.email = req.body.email;
-                        tempCustomer.api_token = rack();
-                        tempCustomer.name = req.body.name;
-                        tempCustomer.userName = req.body.userName;
+                User.find( {userName: {$regex : new RegExp("^" + req.body.userName + "$" + "i")}}, function(err, docs){
+                    if (!docs.length){
+                        var tempUser = new User();
+                        tempUser.name = req.body.name;
+                        tempUser.email = req.body.email;
+                        tempUser.userName = req.body.userName;
+                        tempUser.api_token = rack();
                         bcrypt.hash(req.body.password, saltRounds, function(err, hash){
-                            tempCustomer.password_hash = hash;
-                            tempCustomer.save(function(err){
-                                if(err){
-                                    console.log("Error with password");
+                            tempUser.password_hash = hash;
+                            tempUser.save(function(err){
+                                if (err){
+                                    console.log("Error while saving to database ");
                                     res.send(err);
                                 }
 
                                 res.status(201);
-                                res.json( {message: "Succesfully registered"} );
+                                res.json( {message: "Sucesfully registered", api_token: tempUser.api_token} );
                             });
                         });
-
-
-                    }
-                    else {
+                    }else{
                         res.status(400);
-                        res.json( {error: "Username belongs to another user"} );
+                        res.json( {message: "Username belongs to another user"} );
                     }
-                });
+                }); 
             }else{
-
                 res.status(400);
-                res,json( {error: "Email belongs to another user"} );
+                res.json( {message: "Email belongs to antoher user"} );
             }
         });
     }

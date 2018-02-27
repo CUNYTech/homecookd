@@ -14,6 +14,9 @@ const auth = require('../Controller/auth');
 // Base API Route
 router.get('/', apiHome.getApi);
 router.post('/', apiHome.postApi);
+
+
+// Register Users(customer and seller) Route 
 router.post('/register', auth.registerUser);
 
 
