@@ -6,12 +6,19 @@ const router = express.Router();
 
 // Controller Imports
 const apiHome = require('../Controller/apiHome');
+const auth = require('../Controller/auth');
+
 
 
 // API
 // Base API Route
 router.get('/', apiHome.getApi);
 router.post('/', apiHome.postApi);
+
+
+// Register Users(customer and seller) Route 
+router.post('/register/customer', auth.registerUser);
+router.post('/register/seller',auth.registerSeller);
 
 
 // 404 path
