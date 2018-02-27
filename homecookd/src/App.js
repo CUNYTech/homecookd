@@ -13,6 +13,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import HomePage from './Scenes/Home/HomePage';
 
 import LoginForm from './Scenes/Account/Login/LoginForm';
+import RegisterForm from './Scenes/Account/Register/RegisterForm'
 import Error404 from './Scenes/Error404'
 
 import './App.css';
@@ -23,6 +24,7 @@ const Routes = () => (
     <Switch>
     <Route  exact path = "/" component = {HomePage} />
     <Route path = '/Login' component = {LoginForm}/>
+    <Route path = '/Register' component = {RegisterForm} />
     <Route  component={Error404} /> {/* 404 Route*/}
 
     </Switch>
@@ -79,8 +81,7 @@ class App extends Component {
           iconElementRight={this.state.logged ? <Logged /> : <Login />}/>
 
         <Routes/>
-        </MuiThemeProvider>
-
+      </MuiThemeProvider>
     );
   }
 }
