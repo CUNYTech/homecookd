@@ -24,7 +24,7 @@ const Routes = () => (
     <Switch>
     <Route  exact path = "/" component = {HomePage} />
     <Route path = '/Login' component = {LoginForm}/>
-    <Route path ='/Register' component = {RegisterForm} />
+    <Route path = '/Register' component = {RegisterForm} />
     <Route  component={Error404} /> {/* 404 Route*/}
 
     </Switch>
@@ -81,6 +81,7 @@ class App extends Component {
           iconElementRight={this.state.logged ? <Logged /> : <Login />}/>
 
         <Routes/>
+        <RegisterForm />
       </MuiThemeProvider>
     );
   }

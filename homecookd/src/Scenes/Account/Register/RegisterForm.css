@@ -1,8 +1,13 @@
-.container {
+.form {
   display: flex;
   flex-direction: column;
   width: 20em;
-  margin: 0 auto;
+  margin: 2em auto;
   padding: 0 2em 2em 2em;
-  /*align-items: center;*/
+  color: rgb(92, 95, 99);
+  background-color: #919396;
+}
+
+.formTitle {
+  margin: 1em auto 0 auto;
 }

@@ -31,13 +31,14 @@ class RegisterForm extends Component{
     render(){
         return(
           // <h2>Register</h2>
-          <Paper className="container" onSubmit={this.handleFormSubmit}>
-                <TextField floatingLabelText="First Name" name="firstName" type="text" value={this.state.firstName} onChange={this.handleFormChange} />
-                <TextField floatingLabelText="Last Name" name="lastName" type="text" value={this.state.lastName} onChange={this.handleFormChange} />
-                <TextField floatingLabelText="Email" name="email" type="test" value={this.state.email} onChange={this.handleFormChange} />
-                <TextField floatingLabelText="Username" name="username" type="text" value={this.state.username} onChange={this.handleFormChange} />
-                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleFormChange} />
-                <RaisedButton href="/" label="Register" primary={true}  />
+          <Paper className="form" onSubmit={this.handleFormSubmit}>
+            <h2 className="formTitle">Register</h2>
+            <TextField floatingLabelText="First Name" name="firstName" type="text" value={this.state.firstName} onChange={this.handleFormChange} />
+            <TextField floatingLabelText="Last Name" name="lastName" type="text" value={this.state.lastName} onChange={this.handleFormChange} />
+            <TextField floatingLabelText="Email" name="email" type="test" value={this.state.email} onChange={this.handleFormChange} />
+            <TextField floatingLabelText="Username" name="username" type="text" value={this.state.username} onChange={this.handleFormChange} />
+            <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleFormChange} />
+            <RaisedButton href="/" label="Register" primary={true}  />
           </Paper>
         )
     }
