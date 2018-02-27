@@ -81,7 +81,6 @@ class App extends Component {
           iconElementRight={this.state.logged ? <Logged /> : <Login />}/>
 
         <Routes/>
-        <RegisterForm />
       </MuiThemeProvider>
     );
   }
