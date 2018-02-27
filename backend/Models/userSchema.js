@@ -1,18 +1,23 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var registerSeller = new Schema({
+
+var registerUser = new Schema({
     name: {
         first: String,
         last: String
     },
-    password_has: String,
+    password_hash: String,
     email: String,
+    userName: String,
     createDate: {
         type: Date,
         default: Date.now
     },
     api_token: String,
+    // user will customize its account to be a seler, but will need to wait to get approved by photo and video
+    seller: Boolean,
+    account_proved: Boolean,
     businessName: String,
     orders: [],
     rating: Number,
@@ -27,6 +32,5 @@ var registerSeller = new Schema({
         },
         lat: Number,
         long: Number
-    },
-    account_proved: Boolean
+    }
 });
