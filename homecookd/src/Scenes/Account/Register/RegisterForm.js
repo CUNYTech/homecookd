@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton';
 import './RegisterForm.css'
-
+import {registerCustomer} from '../../../Utils/auth.js';
 class RegisterForm extends Component{
     constructor(props){
         super(props);
@@ -11,12 +11,14 @@ class RegisterForm extends Component{
             firstName: '',
             lastName: '',
             email: '',
-            username: '',
+            userName: '',
             password: ''
         };
 
         this.handleFormChange = this.handleFormChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
+        this.registerCustomer = registerCustomer.bind(this);
+
     }
 
     handleFormChange(e){
@@ -25,6 +27,31 @@ class RegisterForm extends Component{
         this.setState({[name]: value})
     }
     handleFormSubmit(e){
+        alert("TEST");
+        const email = this.state.email;
+        const userName = this.state.userName;
+        const firstName = this.state.firstName;
+        const lastName = this.state.lastName;
+        const password = this.state.password;
+        this.registerCustomer(email,userName,password,firstName,lastName);
+
+        //call our axios promise, then retrieve the token from axios
+      this.registerCustomer(email,userName,password,firstName,lastName)
+          .then( response => {
+            var api_token = response.data.api_token;
+            if(api_token.length > 0) {
+              localStorage.setItem('api_token',api_token);
+
+              this.props.history.push('/')
+            }
+            else this.OpenPopUp();
+          })
+          .catch( error => {
+            localStorage.removeItem('api_token');
+            alert(error.response.data.error);
+            // alert(error);
+            // this.OpenPopUp();
+          })
         e.preventDefault();
     }
 
@@ -33,12 +60,12 @@ class RegisterForm extends Component{
           // <h2>Register</h2>
           <Paper className="form" onSubmit={this.handleFormSubmit}>
             <h2 className="formTitle">Register</h2>
-            <TextField floatingLabelText="First Name" name="firstName" type="text" value={this.state.firstName} onChange={this.handleFormChange} />
+            <TextField autoFocus floatingLabelText="First Name" name="firstName" type="text" value={this.state.firstName} onChange={this.handleFormChange} />
             <TextField floatingLabelText="Last Name" name="lastName" type="text" value={this.state.lastName} onChange={this.handleFormChange} />
             <TextField floatingLabelText="Email" name="email" type="test" value={this.state.email} onChange={this.handleFormChange} />
-            <TextField floatingLabelText="Username" name="username" type="text" value={this.state.username} onChange={this.handleFormChange} />
+            <TextField floatingLabelText="Username" name="userName" type="text" value={this.state.userName} onChange={this.handleFormChange} />
             <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleFormChange} />
-            <RaisedButton href="/" label="Register" primary={true}  />
+            <RaisedButton onClick={this.handleFormSubmit} label="Register" primary={true}  />
           </Paper>
         )
     }
