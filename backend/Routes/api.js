@@ -17,8 +17,7 @@ router.post('/', apiHome.postApi);
 
 
 // Register Users(customer and seller) Route 
-router.post('/register/customer', auth.registerUser);
-router.post('/register/seller',auth.registerSeller);
+router.post('/register', auth.registerUser);
 
 
 // 404 path

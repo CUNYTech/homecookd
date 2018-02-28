@@ -1,24 +1,23 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var registerSeller = new Schema({
+
+var userSchema = new Schema({
     name: {
         first: String,
         last: String
     },
-    password_has: String,
+    password_hash: String,
     email: String,
+    userName: String,
     createDate: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     },
     api_token: String,
-    businessName: String,
     orders: [],
-    rating: Number,
     reviews: [],
     foodItems: [],
-    businessType: String,
     location: {
         address: {
             street: String,
@@ -27,6 +26,7 @@ var registerSeller = new Schema({
         },
         lat: Number,
         long: Number
-    },
-    account_proved: Boolean
+    }
 });
+
+module.exports = mongoose.model('User',userSchema);
