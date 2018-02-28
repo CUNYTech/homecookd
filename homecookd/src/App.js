@@ -13,6 +13,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import HomePage from './Scenes/Home/HomePage';
 
 import LoginForm from './Scenes/Account/Login/LoginForm';
+import RegisterForm from './Scenes/Account/Register/RegisterForm'
 import Error404 from './Scenes/Error404'
 
 import './App.css';
@@ -23,6 +24,7 @@ const Routes = () => (
     <Switch>
     <Route  exact path = "/" component = {HomePage} />
     <Route path = '/Login' component = {LoginForm}/>
+    <Route path = '/Register' component = {RegisterForm} />
     <Route  component={Error404} /> {/* 404 Route*/}
 
     </Switch>
@@ -31,7 +33,7 @@ const Routes = () => (
 )
 
 function handleClick(){
-  alert("TEST");
+  // alert("TEST");
 }
 
 class Login extends Component {
@@ -39,7 +41,7 @@ class Login extends Component {
 
   render() {
     return (
-      <FlatButton {...this.props} label="Login" />
+      <FlatButton {...this.props} href="/login" label="Login" />
     );
   }
 }
@@ -62,9 +64,15 @@ const Logged = (props) => (
 
 
 class App extends Component {
-  state = {
-    logged :true
-  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      logged : (localStorage.getItem('api_token') !== null)
+    }
+
+}
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
@@ -79,8 +87,7 @@ class App extends Component {
           iconElementRight={this.state.logged ? <Logged /> : <Login />}/>
 
         <Routes/>
-        </MuiThemeProvider>
-
+      </MuiThemeProvider>
     );
   }
 }
