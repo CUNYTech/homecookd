@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import HomeJoinButtons from './HomeJoinButtons';
+import AboutUS from './AboutUs'
 class HomePage extends Component{
   render(){
     return(
       <div>
-        <center>
           <h1>Homecookd</h1>
+            <AboutUS />
           <HomeJoinButtons/>
-        </center>
       </div>
     )
   }
