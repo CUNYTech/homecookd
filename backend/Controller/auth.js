@@ -18,7 +18,6 @@ exports.registerUser = (req, res) => {
         {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
         ,
         function (err, docs){
-          console.log(docs.length);
             if(err){
               console.log("ERROR " + err);
             }
@@ -33,7 +32,7 @@ exports.registerUser = (req, res) => {
                             tempUser.save(function(err){
                                 if (err){
                                     console.log("Error while saving to database ");
-                                    res.send(err);
+                                    res.status(500).send(err);
                                 }
                               res.status(201);
                               res.json( {message: "Sucesfully registered", api_token: tempUser.api_token} );
@@ -41,7 +40,7 @@ exports.registerUser = (req, res) => {
                         });
                     }else{
                         res.status(400);
-                        res.json( {message: "Username belongs to another user"} );
+                        res.json( {error: "Username belongs to another user"} );
                     }
                 });
 
