@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var registerUser = new Schema({
+var userSchema = new Schema({
     name: {
         first: String,
         last: String
@@ -12,18 +12,12 @@ var registerUser = new Schema({
     userName: String,
     createDate: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     },
     api_token: String,
-    // user will customize its account to be a seler, but will need to wait to get approved by photo and video
-    seller: Boolean,
-    account_proved: Boolean,
-    businessName: String,
     orders: [],
-    rating: Number,
     reviews: [],
     foodItems: [],
-    businessType: String,
     location: {
         address: {
             street: String,
@@ -34,3 +28,5 @@ var registerUser = new Schema({
         long: Number
     }
 });
+
+module.exports = mongoose.model('User',userSchema);
