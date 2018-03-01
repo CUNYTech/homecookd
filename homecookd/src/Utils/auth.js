@@ -17,3 +17,14 @@ export {registerCustomer};
     // .then(response => response.data.api_token)
     // .catch(error => error);
   }
+
+  export {loginCustomer};
+    function loginCustomer(email,password){
+      return axios.post(baseUrl + "/api/loginUser", {
+        email: email,
+        password: password
+      })
+      }
+      // .then(response => response.data.api_token)
+      // .catch(error => error);
+    
