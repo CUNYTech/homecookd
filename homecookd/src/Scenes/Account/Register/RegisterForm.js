@@ -33,7 +33,6 @@ class RegisterForm extends Component{
         const firstName = this.state.firstName;
         const lastName = this.state.lastName;
         const password = this.state.password;
-        this.registerCustomer(email,userName,password,firstName,lastName);
 
         //call our axios promise, then retrieve the token from axios
       this.registerCustomer(email,userName,password,firstName,lastName)

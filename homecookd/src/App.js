@@ -46,7 +46,11 @@ class Login extends Component {
   }
 }
 
-const Logged = (props) => (
+const handleSignOut = () => {
+  localStorage.removeItem('api_token');
+  alert("Signed Out");
+}
+const LoggedInMenu = (props) => (
   <IconMenu
     {...props}
     iconButtonElement={
@@ -57,7 +61,7 @@ const Logged = (props) => (
   >
     <MenuItem primaryText="Refresh" />
     <MenuItem primaryText="Help" />
-    <MenuItem primaryText="Sign out" />
+    <MenuItem onClick={handleSignOut} primaryText="Sign out" />
   </IconMenu>
 );
 
@@ -84,7 +88,7 @@ class App extends Component {
       <AppBar
           title="HomeCookd"
           onTitleClick={handleClick}
-          iconElementRight={this.state.logged ? <Logged /> : <Login />}/>
+          iconElementRight={this.state.logged ? <LoggedInMenu /> : <Login />}/>
 
         <Routes/>
       </MuiThemeProvider>
