@@ -9,13 +9,19 @@ const apiHome = require('../Controller/apiHome');
 const auth = require('../Controller/auth');
 
 
-
 // API
 // Base API Route
 router.get('/', apiHome.getApi);
 router.post('/', apiHome.postApi);
+
+//Register User Route
+router.get('/loginUser', auth.getLoginUser);
+router.post('/loginUser', auth.loginUser);
+
+// Register Users(customer and seller) Route 
 router.post('/register', auth.registerUser);
 
+router.use(auth.checkAuth); // Routes that require and api_token after this
 
 // 404 path
 router.use(apiHome.invalidPath);
