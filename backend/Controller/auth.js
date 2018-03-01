@@ -25,6 +25,7 @@ exports.getLoginUser = (req, res) => {
 
 
 exports.loginUser = (req, res) => {
+    console.log(req.body.email + " " + req.body.password);
     if (req.body.email === undefined || req.body.password === undefined){
         res.status(400).json( {error: "Missing email or password in request"} );
     }else{
@@ -59,7 +60,6 @@ exports.registerUser = (req, res) => {
         {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
         ,
         function (err, docs){
-          console.log(docs);
 
             if(err){
               console.log("ERROR " + err);
