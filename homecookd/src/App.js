@@ -88,7 +88,8 @@ class App extends Component {
           iconElementRight={this.state.logged ? <Logged /> : <Login />}/>
           <DrawerUndockedExample/>
         <Routes/>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
+
     );
   }
 }
