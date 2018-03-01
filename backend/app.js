@@ -37,7 +37,7 @@ if(process.env.DB_URL != undefined){
 
   // When the connection is disconnected
   db.on('disconnected', function () {
-    logger.log("info", 'Mongoose default connection disconnected');
+    logger.log("error", 'Mongoose default connection disconnected');
   });
 
   db.on('error', function(){

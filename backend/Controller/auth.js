@@ -25,16 +25,18 @@ exports.getLoginUser = (req, res) => {
 
 
 exports.loginUser = (req, res) => {
+    console.log(req.body.email + " " + req.body.password);
     if (req.body.email === undefined || req.body.password === undefined){
         res.status(400).json( {error: "Missing email or password in request"} );
     }else{
-        User.find( {$or: [{email: {$regex : new RegExp(req.body.email,"i")}},
-        {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
+      User.find({$or: [{email: req.body.email}, {username: req.body.email}]}
         ,
         function (err, docs){
             if(!docs.length || err){
                 res.status(401).json( {error: "Could not fund account"} );
             }else{
+                console.log("Comparing passwords");
+                console.log(docs);
                 bcrypt.compare(req.body.password, docs[0].password_hash, function(err, valid){
                     if (valid){
                         res.status(201).json( {"api_token": docs[0].api_token} );
@@ -58,6 +60,7 @@ exports.registerUser = (req, res) => {
         {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
         ,
         function (err, docs){
+
             if(err){
               console.log("ERROR " + err);
             }
