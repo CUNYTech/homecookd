@@ -33,7 +33,7 @@ const Routes = () => (
 )
 
 function handleClick(){
-  alert("TEST");
+  // alert("TEST");
 }
 
 class Login extends Component {
@@ -41,7 +41,7 @@ class Login extends Component {
 
   render() {
     return (
-      <FlatButton {...this.props} label="Login" />
+      <FlatButton {...this.props} href="/login" label="Login" />
     );
   }
 }
@@ -64,9 +64,15 @@ const Logged = (props) => (
 
 
 class App extends Component {
-  state = {
-    logged :true
-  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      logged : (localStorage.getItem('api_token') !== null)
+    }
+
+}
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
