@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material/drawer": "^0.30.0",
     "axios": "^0.18.0",
+    "classnames": "^2.2.5",
+    "jss": "^9.0.0",
     "material-ui": "^0.20.0",
+    "material-ui-icons": "^1.0.0-beta.35",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
