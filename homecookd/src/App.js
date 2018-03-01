@@ -7,7 +7,6 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-import Steps from './Scenes/StepByStep/StepByStep'
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
@@ -88,13 +87,8 @@ class App extends Component {
           iconElementRight={this.state.logged ? <Logged /> : <Login />}/>
 
         <Routes/>
-<<<<<<< HEAD
-        <Steps/>
         </MuiThemeProvider>
 
-=======
-      </MuiThemeProvider>
->>>>>>> ff16a4b145201dfc9e17b5a06cfc68235b5606bb
     );
   }
 }

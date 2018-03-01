@@ -17,7 +17,7 @@ class Steps extends Component{
     }
 
     const Inner = {
-      backgroundColor: '#00BCD4'
+      // backgroundColor: '#424242'
     }
 
 
@@ -30,7 +30,6 @@ class Steps extends Component{
     <Paper className="flex-item">Choose between a buyer or seller account</Paper>
     <Paper className="flex-item">Start enjoying some home cooked meals</Paper>
 
-    <Paper style={style} zDepth={5} />
 
   </div>
 </Paper>
