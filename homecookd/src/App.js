@@ -7,7 +7,7 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-
+import AboutUs from './Scenes/AboutUs/AboutUs';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import HomePage from './Scenes/Home/HomePage';
@@ -15,7 +15,7 @@ import HomePage from './Scenes/Home/HomePage';
 import LoginForm from './Scenes/Account/Login/LoginForm';
 import RegisterForm from './Scenes/Account/Register/RegisterForm'
 import Error404 from './Scenes/Error404'
-
+import DrawerUndockedExample from './Scenes/Home/UndockedDrawer.js';
 import './App.css';
 
 const Routes = () => (
@@ -25,7 +25,8 @@ const Routes = () => (
     <Route  exact path = "/" component = {HomePage} />
     <Route path = '/Login' component = {LoginForm}/>
     <Route path = '/Register' component = {RegisterForm} />
-    <Route  component={Error404} /> {/* 404 Route*/}
+    <Route path = '/AboutUs' component = {AboutUs} />
+    <Route  component={Error404} /> // 404 Route
 
     </Switch>
     </div>
@@ -46,7 +47,11 @@ class Login extends Component {
   }
 }
 
-const Logged = (props) => (
+const handleSignOut = () => {
+  localStorage.removeItem('api_token');
+  alert("Signed Out");
+}
+const LoggedInMenu = (props) => (
   <IconMenu
     {...props}
     iconButtonElement={
@@ -57,10 +62,9 @@ const Logged = (props) => (
   >
     <MenuItem primaryText="Refresh" />
     <MenuItem primaryText="Help" />
-    <MenuItem primaryText="Sign out" />
+    <MenuItem onClick={handleSignOut} primaryText="Sign out" />
   </IconMenu>
 );
-
 
 
 class App extends Component {
@@ -82,12 +86,15 @@ class App extends Component {
       <MuiThemeProvider>
 
       <AppBar
-          title="HomeCookd"
+
+          title="HomeCookd test"
           onTitleClick={handleClick}
-          iconElementRight={this.state.logged ? <Logged /> : <Login />}/>
+          iconElementRight={this.state.logged ? <LoggedInMenu /> : <Login />}/>
+
 
         <Routes/>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
+
     );
   }
 }
