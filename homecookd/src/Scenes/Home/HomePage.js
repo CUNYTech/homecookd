@@ -3,6 +3,9 @@ import HomeJoinButtons from './HomeJoinButtons';
 import AboutUS from './AboutUs'
 import Steps from '../StepByStep/StepByStep'
 
+import SidePanel from '../MyAccount/Side';
+import InfoForm  from '../MyAccount/Account';
+
 class HomePage extends Component{
   render(){
     return(
@@ -11,6 +14,9 @@ class HomePage extends Component{
             <AboutUS />
             <Steps/>
           <HomeJoinButtons/>
+
+          <SidePanel/>
+          <InfoForm/>
       </div>
     )
   }
