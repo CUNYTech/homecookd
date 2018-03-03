@@ -1,4 +1,5 @@
 var User = require("../Models/userSchema");
+var Seller = require("../Models/sellerSchema");
 
 var bcrypt = require("bcryptjs");
 
@@ -83,9 +84,49 @@ exports.registerUser = (req, res) => {
                         });
                     }else{
                         res.status(400);
-                        res.json( {error: "Username belongs to another user"} );
+                        res.json( {error: "Username or Email belongs to another user"} );
                     }
                 });
 
         }
     }
+
+
+    exports.registerSeller = (req, res) => {
+        if (req.body.email === undefined || req.body.password === undefined || req.body.name.first === undefined|| req.body.name.last === undefined || req.body.userName === undefined){
+            res.status(400).json( {error: "Incomplete request"} );
+            console.log("Incomplete request");
+        }else{
+            User.find( {$or: [{email: {$regex : new RegExp(req.body.email,"i")}},
+            {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
+            ,
+            function (err, docs){
+    
+                if(err){
+                  console.log("ERROR " + err);
+                }
+                if(!docs.length){
+                            var tempSeller = new Seller();
+                            tempSeller.name = req.body.name;
+                            tempSeller.email = req.body.email;
+                            tempSeller.userName = req.body.userName;
+                            tempSeller.api_token = rack();
+                            bcrypt.hash(req.body.password, saltRounds, function(err, hash){
+                                tempSeller.password_hash = hash;
+                                tempSeller.save(function(err){
+                                    if (err){
+                                        console.log("Error while saving to database ");
+                                        res.status(500).send(err);
+                                    }
+                                  res.status(201);
+                                  res.json( {message: "Sucesfully registered", api_token: tempSeller.api_token} );
+                                });
+                            });
+                        }else{
+                            res.status(400);
+                            res.json( {error: "Username or Email belongs to another user"} );
+                        }
+                    });
+    
+            }
+        }
