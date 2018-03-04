@@ -99,7 +99,7 @@ class App extends Component {
 
           title="HomeCookd test"
           onTitleClick={handleClick}
-          iconElementRight={this.state.logged ? <LoggedInMenu /> : <Login />}/>
+          iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}/>
 
 
         <Routes/>
