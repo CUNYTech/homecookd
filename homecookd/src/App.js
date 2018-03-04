@@ -15,18 +15,17 @@ import HomePage from './Scenes/Home/HomePage';
 import LoginForm from './Scenes/Account/Login/LoginForm';
 import RegisterForm from './Scenes/Account/Register/RegisterForm'
 import Error404 from './Scenes/Error404'
-import DrawerUndockedExample from './Scenes/Home/UndockedDrawer.js';
 import './App.css';
 
 const Routes = () => (
   <Router history = {history}>
     <div>
     <Switch>
-    <Route  exact path = "/" component = {HomePage} />
+    <Route exact path = "/" component = {HomePage} />
     <Route path = '/Login' component = {LoginForm}/>
     <Route path = '/Register' component = {RegisterForm} />
     <Route path = '/AboutUs' component = {AboutUs} />
-    <Route  component={Error404} /> // 404 Route
+    <Route  component={Error404} /> {/* 404 Route*/}
 
     </Switch>
     </div>
