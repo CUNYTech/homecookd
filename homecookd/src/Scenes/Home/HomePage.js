@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import HomeJoinButtons from './HomeJoinButtons';
-import AboutUS from './AboutUs'
 import Steps from '../StepByStep/StepByStep'
 
 
