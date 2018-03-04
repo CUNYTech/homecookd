@@ -4,6 +4,8 @@ import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton';
 import './RegisterForm.css'
 import {registerCustomer} from '../../../Utils/auth.js';
+import { Message, Icon } from 'semantic-ui-react'
+
 class RegisterForm extends Component{
     constructor(props){
         super(props);
@@ -12,7 +14,10 @@ class RegisterForm extends Component{
             lastName: '',
             email: '',
             userName: '',
-            password: ''
+            password: '',
+            errorOccured: false,
+            errorMessage: 'An Error Occured',
+            loggingIn:false
         };
 
         this.handleFormChange = this.handleFormChange.bind(this);
@@ -27,7 +32,8 @@ class RegisterForm extends Component{
         this.setState({[name]: value})
     }
     handleFormSubmit(e){
-        alert("TEST");
+        // alert("TEST");
+        this.setState({loggingIn:true,errorOccured:false});
         const email = this.state.email;
         const userName = this.state.userName;
         const firstName = this.state.firstName;
@@ -47,7 +53,12 @@ class RegisterForm extends Component{
           })
           .catch( error => {
             localStorage.removeItem('api_token');
-            alert(error.response.data.error);
+            if(error.response == undefined){
+              this.setState({loggingIn:false,errorOccured:true,errorMessage:'Couldnt Reach Server'});
+            }else{
+              this.setState({loggingIn:false,errorOccured:true,errorMessage:error.response.data.error});
+            }
+            // alert(error.response.data.error);
             // alert(error);
             // this.OpenPopUp();
           })
@@ -55,17 +66,55 @@ class RegisterForm extends Component{
     }
 
     render(){
+      const MessageBar = () => (
+        <div>
+        <Message error hidden={!this.state.errorOccured} icon>
+        <Icon name='warning circle'/>
+          {this.state.errorMessage}
+        </Message>
+        <Message hidden={!this.state.loggingIn} icon size='mini'>
+          <Icon name='circle notched' loading />
+          <Message.Header>
+            Registering for an Account
+          </Message.Header>
+        </Message>
+        </div>
+      )
+        const style = {
+          height: {flex:1},
+          width: {flex:2},
+          margin: 20,
+          padding: 40,
+          textAlign: 'center',
+          display: 'inline-block',
+          // backgroundColor: 'grey'
+
+        }
         return(
           // <h2>Register</h2>
-          <Paper className="form" onSubmit={this.handleFormSubmit}>
+          <center>
+          <Paper  style={style} onSubmit={this.handleFormSubmit}>
             <h2 className="formTitle">Register</h2>
+            <MessageBar/>
+            <br/>
             <TextField autoFocus floatingLabelText="First Name" name="firstName" type="text" value={this.state.firstName} onChange={this.handleFormChange} />
+            <br/>
+
             <TextField floatingLabelText="Last Name" name="lastName" type="text" value={this.state.lastName} onChange={this.handleFormChange} />
+            <br/>
+
             <TextField floatingLabelText="Email" name="email" type="test" value={this.state.email} onChange={this.handleFormChange} />
+            <br/>
+
             <TextField floatingLabelText="Username" name="userName" type="text" value={this.state.userName} onChange={this.handleFormChange} />
+            <br/>
+
             <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleFormChange} />
+            <br/>
+
             <RaisedButton onClick={this.handleFormSubmit} label="Register" primary={true}  />
           </Paper>
+          </center>
         )
     }
 }
