@@ -5,6 +5,8 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import { Message, Icon} from 'semantic-ui-react'
+
 import {loginCustomer} from '../../../Utils/auth.js';
 
 class LoginForm extends Component{
@@ -14,7 +16,10 @@ class LoginForm extends Component{
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      errorOccured: false,
+      errorMessage: 'An Error Occured',
+      loggingIn: false
     };
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -29,7 +34,8 @@ class LoginForm extends Component{
   }
 
   handleFormSubmit(e){
-      alert("Logging in ");
+      // alert("Logging in ");
+      this.setState({loggingIn:true,errorOccured:false})
       const email = this.state.email;
 
       const password = this.state.password;
@@ -47,7 +53,13 @@ class LoginForm extends Component{
         })
         .catch( error => {
           localStorage.removeItem('api_token');
-          alert(error.response.data.error);
+          // alert(error.response.data.error);
+          if(error.response == undefined){
+            this.setState({loggingIn:false,errorOccured:true,errorMessage:'Couldnt Reach Server'});
+          }else{
+            this.setState({loggingIn:false,errorOccured:true,errorMessage:error.response.data.error});
+          }
+
           // alert(error);
           // this.OpenPopUp();
         })
@@ -62,15 +74,30 @@ class LoginForm extends Component{
       padding: 40,
       textAlign: 'center',
       display: 'inline-block',
-      backgroundColor: 'grey'
+      // backgroundColor: 'grey'
 
     }
+    const MessageBar = () => (
+      <div>
+      <Message error hidden={!this.state.errorOccured} icon>
+      <Icon name='warning circle'/>
+        {this.state.errorMessage}
+      </Message>
+      <Message hidden={!this.state.loggingIn} icon size='mini'>
+        <Icon name='circle notched' loading />
+        <Message.Content>
+          Logging In
+        </Message.Content>
+      </Message>
+      </div>
+    )
 
 
     return(
       <center>
         <Paper style={style} zDepth={2}>
         <h2>LOGIN</h2>
+        <MessageBar/>
         <TextField name="email" autoFocus
           floatingLabelText="Email"
           onChange={this.handleFormChange}
