@@ -9,11 +9,17 @@ import ContentDrafts from 'material-ui/svg-icons/content/drafts';
 import Divider from 'material-ui/Divider';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 
+import InfoForm  from '../MyAccount/Account';
+
 
 
 class SidePanel extends Component{
 render(){
+  function handleClick(){
+    // alert("TEST");
+  }
 return(
+
     <List>
       <ListItem primaryText="Profile" leftIcon={<ContentInbox />} />
       <ListItem primaryText="Address and phone" leftIcon={<ActionGrade />} />

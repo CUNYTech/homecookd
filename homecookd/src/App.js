@@ -16,6 +16,7 @@ import LoginForm from './Scenes/Account/Login/LoginForm';
 import RegisterForm from './Scenes/Account/Register/RegisterForm'
 import Error404 from './Scenes/Error404'
 
+
 import './App.css';
 
 const Routes = () => (

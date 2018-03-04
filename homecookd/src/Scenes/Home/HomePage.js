@@ -11,8 +11,8 @@ class HomePage extends Component{
     return(
       <div>
           <h1>Homecookd</h1>
-            <AboutUS />
             <Steps/>
+
           <HomeJoinButtons/>
 
           <SidePanel/>
