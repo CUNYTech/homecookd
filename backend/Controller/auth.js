@@ -34,7 +34,7 @@ exports.loginUser = (req, res) => {
         ,
         function (err, docs){
             if(!docs.length || err){
-                res.status(401).json( {error: "Could not fund account"} );
+                res.status(401).json( {error: "Could not find account"} );
             }else{
                 console.log("Comparing passwords");
                 console.log(docs);
@@ -82,7 +82,11 @@ exports.loginSeller = (req, res) => {
 
 
 exports.registerUser = (req, res) => {
-    if (req.body.email === undefined || req.body.password === undefined || req.body.name.first === undefined|| req.body.name.last === undefined || req.body.userName === undefined){
+    if (req.body.email === undefined || req.body.email === '' ||
+    req.body.password === undefined || req.body.password === '' ||
+    req.body.name.first === undefined||  req.body.name.first === '' ||
+    req.body.name.last === undefined || req.body.name.last === '' ||
+    req.body.userName === undefined || req.body.userName === ''){
         res.status(400).json( {error: "Incomplete request"} );
         console.log("Incomplete request");
     }else{
@@ -130,7 +134,7 @@ exports.registerUser = (req, res) => {
             {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
             ,
             function (err, docs){
-    
+
                 if(err){
                   console.log("ERROR " + err);
                 }
@@ -156,6 +160,6 @@ exports.registerUser = (req, res) => {
                             res.json( {error: "Username or Email belongs to another user"} );
                         }
                     });
-    
+
             }
         }
