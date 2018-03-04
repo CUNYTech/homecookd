@@ -10,7 +10,7 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-import AboutUs from './Scenes/AboutUs/AboutUs';
+
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import HomePage from './Scenes/Home/HomePage';
@@ -18,6 +18,7 @@ import HomePage from './Scenes/Home/HomePage';
 import LoginForm from './Scenes/Account/Login/LoginForm';
 import RegisterForm from './Scenes/Account/Register/RegisterForm';
 import Error404 from './Scenes/Error404';
+
 import './App.css';
 
 const Routes = () => (
@@ -69,6 +70,7 @@ const LoggedInMenu = (props) => (
 );
 
 
+
 class App extends Component {
 
 
@@ -96,11 +98,9 @@ class App extends Component {
       <MuiThemeProvider>
 
       <AppBar
-
-          title="HomeCookd test"
+          title="HomeCookd"
           onTitleClick={handleClick}
           iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}/>
-
 
         <Routes/>
         <input onChange={this.onUpdateUser} />
