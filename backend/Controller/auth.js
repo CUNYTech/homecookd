@@ -81,14 +81,25 @@ exports.loginSeller = (req, res) => {
 }
 
 
+// Regex validations
+var emailRegex = new RegExp("^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})$");
+var userNameRegex = new RegExp("^[a-zA-Z0-9\.\-\_]{3,15}$");
+var passwordRegex = new RegExp("^((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,}))");
+
 exports.registerUser = (req, res) => {
-    if (req.body.email === undefined || req.body.email === '' ||
-    req.body.password === undefined || req.body.password === '' ||
-    req.body.name.first === undefined||  req.body.name.first === '' ||
-    req.body.name.last === undefined || req.body.name.last === '' ||
-    req.body.userName === undefined || req.body.userName === ''){
-        res.status(400).json( {error: "Incomplete request"} );
+    if (req.body.name.first === undefined|| req.body.name.first === '' || req.body.name.first === ' ' ||
+    req.body.name.last === undefined || req.body.name.last === ''  || req.body.name.last === ' '){
+        res.status(400).json( {error: "Incomplete request, name is missing!"} );
         console.log("Incomplete request");
+    }else if (!emailRegex.test(req.body.email)) {
+        res.status(400);
+        res.json( {error: "invalid Email address"} );
+    }else if (!userNameRegex.test(req.body.userName)){
+        res.status(400);
+        res.json( {error: "invalid Username, has to be between 3 to 15 digits"} );
+    }else if(!passwordRegex.test(req.body.password)){
+        res.status(400);
+        res.json( {error: "invalid password, has to contain at least one lower, one upper case character and has to be at least 6 digits"} );
     }else{
         User.find( {$or: [{email: {$regex : new RegExp(req.body.email,"i")}},
         {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
@@ -120,16 +131,25 @@ exports.registerUser = (req, res) => {
                         res.json( {error: "Username or Email belongs to another user"} );
                     }
                 });
-
-        }
+    }
 }
 
 
-    exports.registerSeller = (req, res) => {
-        if (req.body.email === undefined || req.body.password === undefined || req.body.name.first === undefined|| req.body.name.last === undefined || req.body.userName === undefined){
-            res.status(400).json( {error: "Incomplete request"} );
-            console.log("Incomplete request");
-        }else{
+exports.registerSeller = (req, res) => {
+    if (req.body.name.first === undefined|| req.body.name.first === '' || req.body.name.first === ' ' ||
+    req.body.name.last === undefined || req.body.name.last === ''  || req.body.name.last === ' '){
+        res.status(400).json( {error: "Incomplete request, name is missing!"} );
+        console.log("Incomplete request");
+    }else if (!emailRegex.test(req.body.email)) {
+        res.status(400);
+        res.json( {error: "invalid Email address"} );
+    }else if (!userNameRegex.test(req.body.userName)){
+        res.status(400);
+        res.json( {error: "invalid Username"} );
+    }else if(!passwordRegex.test(req.body.password)){
+        res.status(400);
+        res.json( {error: "invalid password, has to contain at least one lower, one upper case character and has to be at least 6 digits"} );
+    }else{
             Seller.find( {$or: [{email: {$regex : new RegExp(req.body.email,"i")}},
             {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
             ,
@@ -162,4 +182,4 @@ exports.registerUser = (req, res) => {
                     });
 
             }
-        }
+}
