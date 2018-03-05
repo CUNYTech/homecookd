@@ -28,11 +28,11 @@ class LoginForm extends Component{
     this.loginCustomer = loginCustomer.bind(this);
     this.onLogInUser = this.onLogInUser.bind(this);
   }
-  
+
   onLogInUser(data) {
     this.props.onLogInUser(data);
   }
-  
+
   handleFormChange(e){
       const value = e.target.value;
       const name = e.target.name;
@@ -70,7 +70,7 @@ class LoginForm extends Component{
           // alert(error);
           // this.OpenPopUp();
         })
-      e.preventDefault();;
+      e.preventDefault();
   }
 
   render(){
