@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {Router, Route,Switch} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateUser } from './actions/user-actions';
-import { logInUser } from './actions/account-actions';
 import history from './Utils/history';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -77,18 +75,12 @@ class App extends Component {
     this.state = {
       logged : (localStorage.getItem('api_token') !== null)
     }
-    this.onUpdateUser = this.onUpdateUser.bind(this);
-    this.onLogInUser = this.onLogInUser.bind(this);
+    
   }
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
-  onUpdateUser(event) {
-    this.props.onUpdateUser(event.target.value);
-  }
-  onLogInUser() {
-    this.props.onLogInUser('logged in');
-  }
+
   render() {
     console.log(this.props);
     return (
@@ -97,16 +89,12 @@ class App extends Component {
 
       <AppBar
 
-          title="HomeCookd test"
+          title="HomeCookd"
           onTitleClick={handleClick}
           iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}/>
 
 
         <Routes/>
-        <input onChange={this.onUpdateUser} />
-        {this.props.user}
-        <button onClick={this.onLogInUser } >Change logged</button>
-        {this.props.logged}
         </MuiThemeProvider>
 
     );
@@ -115,14 +103,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
     logged: state.logged
   };
 };
 
-const mapActionsToProps = {
-  onUpdateUser: updateUser,
-  onLogInUser: logInUser
-};
-
-export default connect(mapStateToProps, mapActionsToProps)(App);
+export default connect(mapStateToProps)(App);
