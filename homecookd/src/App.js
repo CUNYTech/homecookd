@@ -10,7 +10,7 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
+import AboutUs from './Scenes/AboutUs/AboutUs';
 import HomePage from './Scenes/Home/HomePage';
 
 import LoginForm from './Scenes/Account/Login/LoginForm';
@@ -77,7 +77,7 @@ class App extends Component {
     this.state = {
       logged : (localStorage.getItem('api_token') !== null)
     }
-    
+
   }
   handleChange = (event, logged) => {
     this.setState({logged: logged});
