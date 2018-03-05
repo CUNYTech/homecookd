@@ -25,6 +25,12 @@ router.post('/loginSeller', auth.loginSeller);
 router.post('/auth/register/user', auth.registerUser);
 router.post('/auth/register/seller', auth.registerSeller);
 
+
+// user information
+router.post('/auth/userInfo', auth.userInfo);
+// seller information
+router.post('/auth/sellerInfo', auth.sellerInfo);
+
 // router.use(auth.checkAuth); // Routes that require and api_token after this
 
 // 404 path
