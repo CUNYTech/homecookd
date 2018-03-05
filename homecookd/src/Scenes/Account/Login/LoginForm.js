@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { logInUser } from '../../../actions/account-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import { Message, Icon} from 'semantic-ui-react'
+import { Message, Icon} from 'semantic-ui-react';
 
 import {loginCustomer} from '../../../Utils/auth.js';
 
@@ -24,9 +26,13 @@ class LoginForm extends Component{
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loginCustomer = loginCustomer.bind(this);
-
+    this.onLogInUser = this.onLogInUser.bind(this);
   }
-
+  
+  onLogInUser() {
+    this.props.onLogInUser('logged in');
+  }
+  
   handleFormChange(e){
       const value = e.target.value;
       const name = e.target.name;
@@ -114,11 +120,23 @@ class LoginForm extends Component{
         <br/>
 
         <Link to="/register">Make an Account</Link>
+        <button onClick={this.onLogInUser } >Change logged</button>
 
         </Paper>
       </center>
 
-    )
+    );
   }
 }
-export default LoginForm;
+
+const mapStateToProps = state => {
+  return {
+    logged: state.logged
+  };
+};
+
+const mapDispatchToProps = {
+  onLogInUser: logInUser
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
