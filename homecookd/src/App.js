@@ -95,7 +95,7 @@ class App extends Component {
 
 
         <Routes/>
-        </MuiThemeProvider>
+      </MuiThemeProvider>
 
     );
   }

@@ -29,8 +29,8 @@ class LoginForm extends Component{
     this.onLogInUser = this.onLogInUser.bind(this);
   }
   
-  onLogInUser() {
-    this.props.onLogInUser('logged in');
+  onLogInUser(data) {
+    this.props.onLogInUser(data);
   }
   
   handleFormChange(e){
@@ -54,6 +54,7 @@ class LoginForm extends Component{
             localStorage.setItem('api_token',api_token);
 
             this.props.history.push('/')
+            this.onLogInUser(api_token);
           }
           else this.OpenPopUp();
         })
@@ -69,7 +70,7 @@ class LoginForm extends Component{
           // alert(error);
           // this.OpenPopUp();
         })
-      e.preventDefault();
+      e.preventDefault();;
   }
 
   render(){
@@ -120,7 +121,7 @@ class LoginForm extends Component{
         <br/>
 
         <Link to="/register">Make an Account</Link>
-        <button onClick={this.onLogInUser } >Change logged</button>
+        <button onClick={ this.onLogInUser } >Change logged</button>
 
         </Paper>
       </center>
