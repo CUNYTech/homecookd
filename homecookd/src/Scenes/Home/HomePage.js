@@ -8,11 +8,13 @@ class HomePage extends Component{
     return(
       <div>
           <h1>Homecookd</h1>
-          <center>
-            <Steps/>
-            </center>
 
           <HomeJoinButtons/>
+
+          <center>
+              <Steps/>
+          </center>
+
       </div>
     )
   }
