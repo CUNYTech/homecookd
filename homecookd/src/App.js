@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {Router, Route,Switch} from 'react-router-dom';
-import history from './Utils/history'
+import {Router, Route,Switch,Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
+import history from './Utils/history';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -10,26 +11,20 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import AboutUs from './Scenes/AboutUs/AboutUs';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-// import 'semantic-ui-css/semantic.min.css';
-import HomePage from './Scenes/Home/HomePage';
-
-import LoginForm from './Scenes/Account/Login/LoginForm';
-import RegisterForm from './Scenes/Account/Register/RegisterForm'
-import Error404 from './Scenes/Error404'
-
-import LeftDrawer from './Scenes/Home/LeftDrawer.js'
 
 import './App.css';
+
 
 const Routes = () => (
   <Router history = {history}>
     <div>
     <Switch>
-    <Route  exact path = "/" component = {HomePage} />
+    <Route exact path = "/" component = {HomePage} />
     <Route path = '/Login' component = {LoginForm}/>
     <Route path = '/Register' component = {RegisterForm} />
     <Route path = '/AboutUs' component = {AboutUs} />
-    <Route  component={Error404} /> // 404 Route
+    <Route path = '/MyAccount' component = {AccountPage}/>
+    <Route  component={Error404} /> {/* 404 Route*/}
 
     </Switch>
     </div>
@@ -38,6 +33,7 @@ const Routes = () => (
 
 function handleClick(){
   // alert("TEST");
+  this.props.history.push('/');
 }
 
 class Login extends Component {
@@ -63,11 +59,12 @@ const LoggedInMenu = (props) => (
     targetOrigin={{horizontal: 'right', vertical: 'top'}}
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
   >
-    <MenuItem primaryText="Refresh" />
+    <MenuItem primaryText="My Account" />
     <MenuItem primaryText="Help" />
     <MenuItem onClick={handleSignOut} primaryText="Sign out" />
   </IconMenu>
 );
+
 
 
 class App extends Component {
@@ -80,13 +77,10 @@ class App extends Component {
       open: false
     }
 
-}
+  }
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
-  handleToggle = () => this.setState({open: !this.state.open});
-
-  render() {
 
     return (
 
@@ -94,8 +88,7 @@ class App extends Component {
 
 
       <AppBar
-
-          title="HomeCookd test"
+          title="HomeCookd"
           onTitleClick={handleClick}
           iconElementRight={this.state.logged ? <LoggedInMenu /> : <Login />}
           onLeftIconButtonClick={this.handleToggle}/>
@@ -121,8 +114,20 @@ class App extends Component {
 
         </MuiThemeProvider>
 
+          iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}/>
+
+        <Routes/>
+      </MuiThemeProvider>
+
+
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    logged: state.logged
+  };
+};
+
+export default connect(mapStateToProps)(App);
