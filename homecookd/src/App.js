@@ -10,7 +10,7 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import AboutUs from './Scenes/AboutUs/AboutUs';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
+// import 'semantic-ui-css/semantic.min.css';
 import HomePage from './Scenes/Home/HomePage';
 
 import LoginForm from './Scenes/Account/Login/LoginForm';
