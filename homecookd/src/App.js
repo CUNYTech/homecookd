@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Router, Route,Switch} from 'react-router-dom';
+import {Router, Route,Switch,Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateUser } from './actions/user-actions';
 import { logInUser } from './actions/account-actions';
@@ -10,16 +10,18 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-
+import AboutUs from './Scenes/AboutUs/AboutUs';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import HomePage from './Scenes/Home/HomePage';
 
 import LoginForm from './Scenes/Account/Login/LoginForm';
 import RegisterForm from './Scenes/Account/Register/RegisterForm';
+import AccountPage from './Scenes/Account/MyAccount/AccountPage';
 import Error404 from './Scenes/Error404';
 
 import './App.css';
+
 
 const Routes = () => (
   <Router history = {history}>
@@ -29,6 +31,7 @@ const Routes = () => (
     <Route path = '/Login' component = {LoginForm}/>
     <Route path = '/Register' component = {RegisterForm} />
     <Route path = '/AboutUs' component = {AboutUs} />
+    <Route path = '/MyAccount' component = {AccountPage}/>
     <Route  component={Error404} /> {/* 404 Route*/}
 
     </Switch>
@@ -38,6 +41,7 @@ const Routes = () => (
 
 function handleClick(){
   // alert("TEST");
+  this.props.history.push('/');
 }
 
 class Login extends Component {
@@ -63,7 +67,7 @@ const LoggedInMenu = (props) => (
     targetOrigin={{horizontal: 'right', vertical: 'top'}}
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
   >
-    <MenuItem primaryText="Refresh" />
+    <MenuItem primaryText="My Account" />
     <MenuItem primaryText="Help" />
     <MenuItem onClick={handleSignOut} primaryText="Sign out" />
   </IconMenu>
@@ -89,7 +93,7 @@ class App extends Component {
     this.props.onUpdateUser(event.target.value);
   }
   onLogInUser() {
-    this.props.onLogInUser('logged in');
+    this.props.onLogInUser(true);
   }
   render() {
     console.log(this.props);
@@ -102,11 +106,7 @@ class App extends Component {
           onTitleClick={handleClick}
           iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}/>
 
-        <Routes/>
-        <input onChange={this.onUpdateUser} />
-        {this.props.user}
-        <button onClick={this.onLogInUser } >Change logged</button>
-        {this.props.logged}
+        <Routes style={{flex:1}}/>
         </MuiThemeProvider>
 
     );
