@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {Router, Route,Switch,Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updateUser } from './actions/user-actions';
-import { logInUser } from './actions/account-actions';
 import history from './Utils/history';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -12,7 +10,7 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import AboutUs from './Scenes/AboutUs/AboutUs';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
+import AboutUs from './Scenes/AboutUs/AboutUs';
 import HomePage from './Scenes/Home/HomePage';
 
 import LoginForm from './Scenes/Account/Login/LoginForm';
@@ -83,18 +81,12 @@ class App extends Component {
     this.state = {
       logged : (localStorage.getItem('api_token') !== null)
     }
-    this.onUpdateUser = this.onUpdateUser.bind(this);
-    this.onLogInUser = this.onLogInUser.bind(this);
+
   }
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
-  onUpdateUser(event) {
-    this.props.onUpdateUser(event.target.value);
-  }
-  onLogInUser() {
-    this.props.onLogInUser(true);
-  }
+
   render() {
     console.log(this.props);
     return (
@@ -106,8 +98,8 @@ class App extends Component {
           onTitleClick={handleClick}
           iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}/>
 
-        <Routes style={{flex:1}}/>
-        </MuiThemeProvider>
+        <Routes/>
+      </MuiThemeProvider>
 
     );
   }
@@ -115,14 +107,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
     logged: state.logged
   };
 };
 
-const mapActionsToProps = {
-  onUpdateUser: updateUser,
-  onLogInUser: logInUser
-};
-
-export default connect(mapStateToProps, mapActionsToProps)(App);
+export default connect(mapStateToProps)(App);
