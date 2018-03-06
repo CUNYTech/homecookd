@@ -16,8 +16,6 @@ import HomePage from './Scenes/Home/HomePage';
 import LoginForm from './Scenes/Account/Login/LoginForm';
 import RegisterForm from './Scenes/Account/Register/RegisterForm'
 import Error404 from './Scenes/Error404'
-import SearchExampleStandard from './Scenes/Home/SearchBar';
-import ButtonExampleAnimated from './Scenes/Home/AnimatedButtons'
 
 import LeftDrawer from './Scenes/Home/LeftDrawer.js'
 
@@ -108,7 +106,7 @@ class App extends Component {
             open={this.state.open}
             onRequestChange={(open) => this.setState({open})}
           >
-            <MenuItem onClick={this.handleClose}>Home</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/#">Home</MenuItem>
             <MenuItem onClick={this.handleClose}>Order</MenuItem>
             <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>
             <MenuItem onClick={this.handleClose}>Location</MenuItem>
@@ -118,8 +116,7 @@ class App extends Component {
 
 
           </Drawer>
-      <SearchExampleStandard/>
-      <ButtonExampleAnimated/>
+
         <Routes/>
 
         </MuiThemeProvider>
