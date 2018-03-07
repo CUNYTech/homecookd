@@ -4,13 +4,19 @@ import { connect } from 'react-redux';
 import { changeLogged } from './actions/account-actions';
 import history from './Utils/history';
 import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import AboutUs from './Scenes/AboutUs/AboutUs';
+import HomePage from './Scenes/Home/HomePage';
+
+import LoginForm from './Scenes/Account/Login/LoginForm';
+import RegisterForm from './Scenes/Account/Register/RegisterForm';
+import AccountPage from './Scenes/Account/MyAccount/AccountPage';
+import Error404 from './Scenes/Error404';
 
 import HomePage from './Scenes/Home/HomePage';
 import AboutUs from './Scenes/AboutUs/AboutUs';
@@ -64,14 +70,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // logged : (localStorage.getItem('api_token') !== null),
       open: false
+      logged : (localStorage.getItem('api_token') !== null)
     }
   }
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
     render(){
+
     return (
       <MuiThemeProvider>
 
@@ -98,6 +105,7 @@ class App extends Component {
           </Drawer>
         <Routes/>
         </MuiThemeProvider>
+
     );
   }
 }
