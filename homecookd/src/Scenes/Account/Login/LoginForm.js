@@ -29,8 +29,8 @@ class LoginForm extends Component{
     this.logInUser = this.logInUser.bind(this);
   }
 
-  logInUser() {
-    this.props.logInUser(true);
+  logInUser(data) {
+    this.props.logInUser(data);
   }
 
   handleFormChange(e){
@@ -54,7 +54,7 @@ class LoginForm extends Component{
             localStorage.setItem('api_token',api_token);
 
             this.props.history.push('/')
-            this.logInUser;
+            this.logInUser(true);
           }
           else this.OpenPopUp();
         })

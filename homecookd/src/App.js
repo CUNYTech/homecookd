@@ -19,7 +19,7 @@ import RegisterForm from './Scenes/Account/Register/RegisterForm';
 import AccountPage from './Scenes/Account/MyAccount/AccountPage';
 import Error404 from './Scenes/Error404';
 
-
+import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 
 import './App.css';
@@ -56,38 +56,7 @@ class Login extends Component {
   }
 }
 
-class LoggedInMenu extends Component {
-  constructor(props){
-    super(props);
 
-    this.handleSignOut = this.handleSignOut.bind(this);
-    this.logOutUser = this.logOutUser.bind(this);
-  }
-  logOutUser()  {
-    this.props.logOutUser(false);
-  }
-  handleSignOut = () => {
-    localStorage.removeItem('api_token');
-    this.logOutUser;
-    alert("Signed Out");
-  }
-
-  render(){
-    return(
-      <IconMenu
-        iconButtonElement={
-          <IconButton><MoreVertIcon /></IconButton>
-        }
-        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-      >
-        <MenuItem primaryText="Refresh" />
-        <MenuItem primaryText="Help" />
-        <MenuItem onClick={this.handleSignOut} primaryText="Sign out" />
-      </IconMenu>
-    )
-  }
-};
 
 class App extends Component {
 
@@ -95,10 +64,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      logged : (localStorage.getItem('api_token') !== null),
+      // logged : (localStorage.getItem('api_token') !== null),
       open: false
     }
-
   }
   handleChange = (event, logged) => {
     this.setState({logged: logged});
@@ -140,8 +108,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {
-  logOutUser: changeLogged
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
