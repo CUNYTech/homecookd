@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Router, Route,Switch,Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
+import { changeLogged } from './actions/account-actions';
 import history from './Utils/history';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -8,7 +9,6 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-import AboutUs from './Scenes/AboutUs/AboutUs';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import AboutUs from './Scenes/AboutUs/AboutUs';
 import HomePage from './Scenes/Home/HomePage';
@@ -17,6 +17,16 @@ import LoginForm from './Scenes/Account/Login/LoginForm';
 import RegisterForm from './Scenes/Account/Register/RegisterForm';
 import AccountPage from './Scenes/Account/MyAccount/AccountPage';
 import Error404 from './Scenes/Error404';
+
+import HomePage from './Scenes/Home/HomePage';
+import AboutUs from './Scenes/AboutUs/AboutUs';
+import LoginForm from './Scenes/Account/Login/LoginForm';
+import RegisterForm from './Scenes/Account/Register/RegisterForm';
+import AccountPage from './Scenes/Account/MyAccount/AccountPage';
+import Error404 from './Scenes/Error404';
+
+import LoggedInMenu from './Scenes/Home/LoggedInMenu';
+
 
 import './App.css';
 
@@ -39,7 +49,7 @@ const Routes = () => (
 
 function handleClick(){
   // alert("TEST");
-  this.props.history.push('/');
+  // this.props.history.push('/');
 }
 
 class Login extends Component {
@@ -52,25 +62,6 @@ class Login extends Component {
   }
 }
 
-const handleSignOut = () => {
-  localStorage.removeItem('api_token');
-  alert("Signed Out");
-}
-const LoggedInMenu = (props) => (
-  <IconMenu
-    {...props}
-    iconButtonElement={
-      <IconButton><MoreVertIcon /></IconButton>
-    }
-    targetOrigin={{horizontal: 'right', vertical: 'top'}}
-    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-  >
-    <MenuItem primaryText="My Account" />
-    <MenuItem primaryText="Help" />
-    <MenuItem onClick={handleSignOut} primaryText="Sign out" />
-  </IconMenu>
-);
-
 
 
 class App extends Component {
@@ -79,27 +70,41 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      open: false
       logged : (localStorage.getItem('api_token') !== null)
     }
-
   }
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
+    render(){
 
-  render() {
-    console.log(this.props);
     return (
-
       <MuiThemeProvider>
 
       <AppBar
           title="HomeCookd"
           onTitleClick={handleClick}
-          iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}/>
+          iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}
+          onLeftIconButtonClick={this.handleToggle}/>
 
+          <Drawer
+            docked={false}
+            width={200}
+            open={this.state.open}
+            onRequestChange={(open) => this.setState({open})}
+          >
+            <MenuItem onClick={this.handleClose} href="/#">Home</MenuItem>
+            <MenuItem onClick={this.handleClose}>Order</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>
+            <MenuItem onClick={this.handleClose}>Location</MenuItem>
+            <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/AboutUs" >About Us</MenuItem>
+            <MenuItem onClick={this.handleClose}>Help</MenuItem>
+
+          </Drawer>
         <Routes/>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
 
     );
   }
