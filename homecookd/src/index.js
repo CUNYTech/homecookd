@@ -7,13 +7,14 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import allReducers from './reducers';
+import { devToolsEnhancer } from 'redux-devtools-extension';
 
 const store = createStore(
     allReducers, 
     {
         user: ''
     },
-    window.devToolsExtension && window.devToolsExtension()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(
