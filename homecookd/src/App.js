@@ -6,6 +6,7 @@ import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
+import Drawer from 'material-ui/Drawer';
 
 import HomePage from './Scenes/Home/HomePage';
 import AboutUs from './Scenes/AboutUs/AboutUs';
@@ -63,7 +64,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
       logged : (localStorage.getItem('api_token') !== null)
     }
   }
