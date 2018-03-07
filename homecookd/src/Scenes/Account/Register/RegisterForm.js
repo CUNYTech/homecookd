@@ -2,30 +2,34 @@ import React, {Component} from 'react';
 import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton';
+import {Link} from 'react-router-dom';
 import './RegisterForm.css'
 import {registerCustomer} from '../../../Utils/auth.js';
 import { Message, Icon } from 'semantic-ui-react'
 
 class RegisterForm extends Component{
     constructor(props){
-        super(props);
-        this.state = {
-            firstName: '',
-            lastName: '',
-            email: '',
-            userName: '',
-            password: '',
-            errorOccured: false,
-            errorMessage: 'An Error Occured',
-            loggingIn:false
-        };
-
-        this.handleFormChange = this.handleFormChange.bind(this);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.registerCustomer = registerCustomer.bind(this);
-
+      super(props);
+      this.state = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        userName: '',
+        password: '',
+        errorOccured: false,
+        errorMessage: 'An Error Occured',
+        loggingIn:false
+      };
+      this.handleFormChange = this.handleFormChange.bind(this);
+      this.handleFormSubmit = this.handleFormSubmit.bind(this);
+      this.registerCustomer = registerCustomer.bind(this);
+      this.handleKeyChange = this.handleKeyChange.bind(this);
     }
-
+    handleKeyChange(event){
+      if(event.charCode === 13){
+        this.handleFormSubmit(event);
+      }
+    }
     handleFormChange(e){
         const value = e.target.value;
         const name = e.target.name;
@@ -91,9 +95,8 @@ class RegisterForm extends Component{
 
         }
         return(
-          // <h2>Register</h2>
           <center>
-          <Paper  style={style} onSubmit={this.handleFormSubmit}>
+          <Paper  style={style} onKeyPress={this.handleKeyChange} onSubmit={this.handleFormSubmit}>
             <h2 className="formTitle">Register</h2>
             <MessageBar/>
             <br/>
@@ -112,11 +115,12 @@ class RegisterForm extends Component{
             <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleFormChange} />
             <br/>
 
-            <RaisedButton onClick={this.handleFormSubmit} label="Register" primary={true}  />
+            <RaisedButton type="submit" onClick={this.handleFormSubmit} label="Register" primary={true}  />
+            <Link className="redirectLogin" to="/login">Have an account? Log in</Link>
           </Paper>
           </center>
         )
     }
 }
 
-export default RegisterForm
+export default RegisterForm;

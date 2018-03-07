@@ -27,10 +27,17 @@ class LoginForm extends Component{
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loginCustomer = loginCustomer.bind(this);
     this.logInUser = this.logInUser.bind(this);
+    this.handleKeyChange = this.handleKeyChange.bind(this);
   }
 
-  logInUser(data) {
+  logInUser(data){
     this.props.logInUser(data);
+  }
+
+  handleKeyChange(event){
+    if(event.charCode === 13){
+      this.handleFormSubmit(event);
+    }
   }
 
   handleFormChange(e){
@@ -102,7 +109,7 @@ class LoginForm extends Component{
 
     return(
       <center>
-        <Paper style={style} zDepth={2}>
+        <Paper style={style} zDepth={2} onKeyPress={this.handleKeyChange} onSubmit={this.handleFormSubmit}>
         <h2>LOGIN</h2>
         <MessageBar/>
         <TextField name="email" autoFocus
@@ -117,12 +124,10 @@ class LoginForm extends Component{
           type="password"
         />
         <br />
-        <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" primary={true}  />
+        <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" type="submit" primary={true}  />
         <br/>
 
         <Link to="/register">Make an Account</Link>
-        <button onClick={ this.logInUser } >Change logged</button>
-
         </Paper>
       </center>
 
