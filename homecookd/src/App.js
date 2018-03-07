@@ -3,7 +3,6 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import history from './Utils/history';
 import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
@@ -64,14 +63,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // logged : (localStorage.getItem('api_token') !== null),
       open: false
+      logged : (localStorage.getItem('api_token') !== null)
     }
   }
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
     render(){
+
     return (
       <MuiThemeProvider>
 
@@ -98,6 +98,7 @@ class App extends Component {
           </Drawer>
         <Routes/>
         </MuiThemeProvider>
+
     );
   }
 }
