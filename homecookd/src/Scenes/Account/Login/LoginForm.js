@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logInUser } from '../../../actions/account-actions';
+import { changeLogged } from '../../../actions/account-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -26,11 +26,11 @@ class LoginForm extends Component{
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loginCustomer = loginCustomer.bind(this);
-    this.onLogInUser = this.onLogInUser.bind(this);
+    this.logInUser = this.logInUser.bind(this);
   }
 
-  onLogInUser(data) {
-    this.props.onLogInUser(data);
+  logInUser(data) {
+    this.props.logInUser(data);
   }
 
   handleFormChange(e){
@@ -54,7 +54,7 @@ class LoginForm extends Component{
             localStorage.setItem('api_token',api_token);
 
             this.props.history.push('/')
-            this.onLogInUser(api_token);
+            this.logInUser(true);
           }
           else this.OpenPopUp();
         })
@@ -121,7 +121,7 @@ class LoginForm extends Component{
         <br/>
 
         <Link to="/register">Make an Account</Link>
-        <button onClick={ this.onLogInUser } >Change logged</button>
+        <button onClick={ this.logInUser } >Change logged</button>
 
         </Paper>
       </center>
@@ -137,7 +137,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  onLogInUser: logInUser
+  logInUser: changeLogged
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

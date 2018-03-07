@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Router, Route,Switch} from 'react-router-dom';
 import { connect } from 'react-redux';
+import { changeLogged } from './actions/account-actions';
 import history from './Utils/history';
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -48,24 +49,39 @@ class Login extends Component {
   }
 }
 
-const handleSignOut = () => {
-  localStorage.removeItem('api_token');
-  alert("Signed Out");
-}
-const LoggedInMenu = (props) => (
-  <IconMenu
-    {...props}
-    iconButtonElement={
-      <IconButton><MoreVertIcon /></IconButton>
-    }
-    targetOrigin={{horizontal: 'right', vertical: 'top'}}
-    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-  >
-    <MenuItem primaryText="Refresh" />
-    <MenuItem primaryText="Help" />
-    <MenuItem onClick={handleSignOut} primaryText="Sign out" />
-  </IconMenu>
-);
+class LoggedInMenu extends Component {
+  constructor(props){
+    super(props);
+
+    this.handleSignOut = this.handleSignOut.bind(this);
+    this.logOutUser = this.logOutUser.bind(this);
+  }
+
+  handleSignOut = () => {
+    localStorage.removeItem('api_token');
+    this.logOutUser(false);
+    alert("Signed Out");
+  }
+  logOutUser(data) {
+    this.props.logOutUser(data);
+  }
+
+  render(){
+    return(
+      <IconMenu
+        iconButtonElement={
+          <IconButton><MoreVertIcon /></IconButton>
+        }
+        targetOrigin={{horizontal: 'right', vertical: 'top'}}
+        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+      >
+        <MenuItem primaryText="Refresh" />
+        <MenuItem primaryText="Help" />
+        <MenuItem onClick={this.handleSignOut} primaryText="Sign out" />
+      </IconMenu>
+    )
+  }
+};
 
 
 
@@ -107,4 +123,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = {
+  logOutUser: changeLogged
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
