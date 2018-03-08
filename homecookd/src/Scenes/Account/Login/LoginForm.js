@@ -68,7 +68,7 @@ class LoginForm extends Component{
         .catch( error => {
           localStorage.removeItem('api_token');
           // alert(error.response.data.error);
-          if(error.response == undefined){
+          if(error.response === undefined){
             this.setState({loggingIn:false,errorOccured:true,errorMessage:'Couldnt Reach Server'});
           }else{
             this.setState({loggingIn:false,errorOccured:true,errorMessage:error.response.data.error});

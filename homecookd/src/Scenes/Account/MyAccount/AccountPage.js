@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
-import { Grid, Image, Icon} from 'semantic-ui-react';
+import { Grid, Icon} from 'semantic-ui-react';
 
 
 class AccountPage extends Component{
@@ -53,7 +53,7 @@ class AccountPage extends Component{
   </Grid>
 )
     const style = {
-      flex: 1, 
+      flex: 1,
       margin: 20,
       padding: 40,
       textAlign: 'center',

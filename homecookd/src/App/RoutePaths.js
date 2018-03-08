@@ -7,7 +7,7 @@ import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import Error404 from '../Scenes/Error404';
-import {Router, Route,Switch,Redirect} from 'react-router-dom';
+import {Router, Route,Switch} from 'react-router-dom';
 
 const RoutePaths= () => (
   <Router history = {history}>
