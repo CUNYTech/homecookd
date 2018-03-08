@@ -11,3 +11,8 @@
 .formTitle {
   margin: 1em auto 0 auto;
 }
+
+.redirectLogin {
+  display: block;
+  margin-top: 2em;
+}

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { changeLogged } from '../../../actions/account-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import { Message, Icon} from 'semantic-ui-react'
+import { Message, Icon} from 'semantic-ui-react';
 
 import {loginCustomer} from '../../../Utils/auth.js';
 
@@ -24,7 +26,18 @@ class LoginForm extends Component{
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loginCustomer = loginCustomer.bind(this);
+    this.logInUser = this.logInUser.bind(this);
+    this.handleKeyChange = this.handleKeyChange.bind(this);
+  }
 
+  logInUser(data){
+    this.props.logInUser(data);
+  }
+
+  handleKeyChange(event){
+    if(event.charCode === 13){
+      this.handleFormSubmit(event);
+    }
   }
 
   handleFormChange(e){
@@ -48,6 +61,7 @@ class LoginForm extends Component{
             localStorage.setItem('api_token',api_token);
 
             this.props.history.push('/')
+            this.logInUser(true);
           }
           else this.OpenPopUp();
         })
@@ -95,7 +109,7 @@ class LoginForm extends Component{
 
     return(
       <center>
-        <Paper style={style} zDepth={2}>
+        <Paper style={style} zDepth={2} onKeyPress={this.handleKeyChange} onSubmit={this.handleFormSubmit}>
         <h2>LOGIN</h2>
         <MessageBar/>
         <TextField name="email" autoFocus
@@ -110,15 +124,25 @@ class LoginForm extends Component{
           type="password"
         />
         <br />
-        <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" primary={true}  />
+        <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" type="submit" primary={true}  />
         <br/>
 
         <Link to="/register">Make an Account</Link>
-
         </Paper>
       </center>
 
-    )
+    );
   }
 }
-export default LoginForm;
+
+const mapStateToProps = state => {
+  return {
+    logged: state.logged
+  };
+};
+
+const mapDispatchToProps = {
+  logInUser: changeLogged
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
