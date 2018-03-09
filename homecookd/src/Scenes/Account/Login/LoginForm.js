@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { changeLogged } from '../../../actions/account-actions';
+
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -26,6 +28,7 @@ class LoginForm extends Component{
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loginCustomer = loginCustomer.bind(this);
+
     this.logInUser = this.logInUser.bind(this);
     this.handleKeyChange = this.handleKeyChange.bind(this);
   }
@@ -38,6 +41,7 @@ class LoginForm extends Component{
     if(event.charCode === 13){
       this.handleFormSubmit(event);
     }
+
   }
 
   handleFormChange(e){
@@ -61,7 +65,9 @@ class LoginForm extends Component{
             localStorage.setItem('api_token',api_token);
 
             this.props.history.push('/')
+
             this.logInUser(true);
+
           }
           else this.OpenPopUp();
         })
@@ -128,6 +134,8 @@ class LoginForm extends Component{
         <br/>
 
         <Link to="/register">Make an Account</Link>
+
+
         </Paper>
       </center>
 
@@ -142,7 +150,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
+
   logInUser: changeLogged
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
