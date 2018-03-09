@@ -1,13 +1,18 @@
 .form {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   width: 20em;
   margin: 2em auto;
   padding: 0 2em 2em 2em;
   color: rgb(92, 95, 99);
-  background-color: #919396;
+  background-color: #919396; */
 }
 
 .formTitle {
   margin: 1em auto 0 auto;
+}
+
+.redirectLogin {
+  display: block;
+  margin-top: 2em;
 }
