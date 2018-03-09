@@ -10,13 +10,13 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import AboutUs from './Scenes/AboutUs/AboutUs';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-// import 'semantic-ui-css/semantic.min.css';
+
 import HomePage from './Scenes/Home/HomePage';
 
 import LoginForm from './Scenes/Account/Login/LoginForm';
 import RegisterForm from './Scenes/Account/Register/RegisterForm'
 import Error404 from './Scenes/Error404'
-
+import Menu from './Scenes/Menu/Menu.js'
 import LeftDrawer from './Scenes/Home/LeftDrawer.js'
 
 import './App.css';
@@ -25,9 +25,10 @@ const Routes = () => (
   <Router history = {history}>
     <div>
     <Switch>
-    <Route  exact path = "/" component = {HomePage} />
+    <Route  exact path = "/" component = {HomePage}/>
+    <Route path = '/Menu' component = {Menu}/>
     <Route path = '/Login' component = {LoginForm}/>
-    <Route path = '/Register' component = {RegisterForm} />
+    <Route path = '/Register' component = {RegisterForm}/>
     <Route path = '/AboutUs' component = {AboutUs} />
     <Route  component={Error404} /> // 404 Route
 
@@ -111,7 +112,7 @@ class App extends Component {
             <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>
             <MenuItem onClick={this.handleClose}>Location</MenuItem>
             <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/AboutUs" >About Us</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
 
 
