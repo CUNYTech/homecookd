@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import history from './Utils/history';
+import { changeLogged } from './actions/account-actions';
+
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-import HomePage from './Scenes/Home/HomePage';
-import AboutUs from './Scenes/AboutUs/AboutUs';
-import LoginForm from './Scenes/Account/Login/LoginForm';
-import RegisterForm from './Scenes/Account/Register/RegisterForm';
-import AccountPage from './Scenes/Account/MyAccount/AccountPage';
-import Error404 from './Scenes/Error404';
+
+import RoutePaths from './App/RoutePaths'
 
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
@@ -21,26 +19,9 @@ import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 import './App.css';
 
 
-const Routes = () => (
-  <Router history = {history}>
-    <div>
-    <Switch>
-    <Route exact path = "/" component = {HomePage} />
-    <Route path = '/Login' component = {LoginForm}/>
-    <Route path = '/Register' component = {RegisterForm} />
-    <Route path = '/AboutUs' component = {AboutUs} />
-    <Route path = '/MyAccount' component = {AccountPage}/>
-    <Route  component={Error404} /> {/* 404 Route*/}
 
-    </Switch>
-    </div>
-  </Router>
-)
 
-function handleClick(){
-  // alert("TEST");
-  // this.props.history.push('/');
-}
+
 
 class Login extends Component {
   static muiName = 'FlatButton';
@@ -60,17 +41,25 @@ class Login extends Component {
 
 class App extends Component {
 
-
+  logInUser(data) {
+    this.props.logInUser(data);
+  }
   constructor(props) {
     super(props);
     this.state = {
       open: false,
-      logged : (localStorage.getItem('api_token') !== null)
+      logged : false
     }
+    this.logInUser = this.logInUser.bind(this);
+
+    this.logInUser(localStorage.getItem('api_token')!== null)
   }
+
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
+  handleToggle = () => this.setState({open: !this.state.open});
+
     render(){
 
     return (
@@ -78,7 +67,6 @@ class App extends Component {
 
       <AppBar
           title="HomeCookd"
-          onTitleClick={handleClick}
           iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}
           onLeftIconButtonClick={this.handleToggle}/>
 
@@ -97,7 +85,7 @@ class App extends Component {
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
 
           </Drawer>
-        <Routes/>
+        <RoutePaths/>
         </MuiThemeProvider>
 
     );
@@ -109,5 +97,8 @@ const mapStateToProps = state => {
     logged: state.logged
   };
 };
+const mapDispatchToProps = {
+  logInUser: changeLogged
+};
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);
