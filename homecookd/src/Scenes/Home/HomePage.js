@@ -13,6 +13,7 @@ class HomePage extends Component{
             </center>
 
           <HomeJoinButtons/>
+
       </div>
     )
   }
