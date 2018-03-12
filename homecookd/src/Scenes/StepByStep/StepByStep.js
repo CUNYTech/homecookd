@@ -1,38 +1,27 @@
 import React, { Component } from 'react';
-import './StepByStep.css'
-import Paper from 'material-ui/Paper';
-
+import { Grid, Segment } from 'semantic-ui-react'
 
 class Steps extends Component{
   render(){
     const style = {
       height: {flex:1},
       width: {flex:2},
-      margin: 20,
-      border: 50,
+      marginLeft: 500,
       padding: 40,
       textAlign: 'center',
-      display: 'inline-block',
+      display: '',
       backgroundColor: '#00BCD4'
     }
-
-    const Inner = {
-      // backgroundColor: '#424242'
-    }
-
-
-
     return(
-    <Paper style={style} zDepth={5}>
-
-    <div class="flex-container">
-    <Paper style={Inner} className="flex-item">Register for an account</Paper>
-    <Paper className="flex-item">Choose between a buyer or seller account</Paper>
-    <Paper className="flex-item">Start enjoying some home cooked meals</Paper>
-
-
-  </div>
-</Paper>
+  <Grid columns={3} divided>
+    <Grid.Row stretched>
+      <Grid.Column style={style}>
+        <Segment>Register for an account</Segment>
+        <Segment>Choose between a buyer and a seller account</Segment>
+        <Segment>Start enjoying some home cooked meals</Segment>
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
     )
   }
 }

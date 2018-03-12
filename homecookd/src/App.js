@@ -10,6 +10,7 @@ import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import HomePage from './Scenes/Home/HomePage';
 
 
 import RoutePaths from './App/RoutePaths'
