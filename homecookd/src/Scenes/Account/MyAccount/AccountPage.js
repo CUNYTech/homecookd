@@ -5,7 +5,11 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import { Grid, Image, Icon} from 'semantic-ui-react';
 
-import Billing from '../MyAccount/BillingForm';
+import TabSample from '../MyAccount/Tabs';
+import RatingHeart from '../MyAccount/Rating';
+import StatisticViews from '../MyAccount/Views';
+import Bio from '../MyAccount/PageInfo';
+
 
 
 class AccountPage extends Component{
@@ -69,8 +73,11 @@ return(
     <GridExampleDividedNumber/>
     </Paper>
 
-<center><h2>Shipping Information</h2></center>
-  <Billing />
+    <StatisticViews/>
+    <RatingHeart />
+
+
+  <TabSample />
 </div>
 
     )
