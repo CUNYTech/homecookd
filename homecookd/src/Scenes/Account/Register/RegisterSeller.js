@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import { registerCustomer } from '../../../Utils/auth.js';
 import { Message, Icon } from 'semantic-ui-react'
 
-class RegisterForm extends Component{
+class RegisterSeller extends Component{
     constructor(props){
       super(props);
       this.state = {
@@ -121,4 +121,4 @@ class RegisterForm extends Component{
     }
 }
 
-export default RegisterForm;
+export default RegisterSeller;
