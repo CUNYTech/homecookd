@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeLogged } from './actions/account-actions';
 
@@ -9,17 +9,11 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
-
 import RoutePaths from './App/RoutePaths'
-
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 
 import './App.css';
-
-
-
 
 
 
@@ -31,6 +25,7 @@ class Login extends Component {
       <div>
         <FlatButton {...this.props} href="/login" label="Login" />
         <FlatButton {...this.props} href="/register" label="Register" />
+        <FlatButton {...this.props} href="/registerseller" label="Register as Seller" />
       </div>
 
     );
@@ -54,6 +49,7 @@ class App extends Component {
 
     this.logInUser(localStorage.getItem('api_token')!== null)
   }
+
 
   handleChange = (event, logged) => {
     this.setState({logged: logged});
