@@ -43,7 +43,7 @@ class RegisterForm extends Component{
       const password = this.state.password;
 
       //call our axios promise, then retrieve the token from axios
-      this.registerCustomer(email,userName,password,firstName,lastName)
+      this.registerSeller(email,userName,password,firstName,lastName)
         .then( response => {
           var api_token = response.data.api_token;
           if(api_token.length > 0) {
