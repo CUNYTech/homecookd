@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HomeJoinButtons from './HomeJoinButtons';
+
 import Steps from '../StepByStep/StepByStep';
 
 
