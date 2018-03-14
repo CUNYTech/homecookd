@@ -6,6 +6,9 @@ import TextField from 'material-ui/TextField';
 import { Grid, Icon} from 'semantic-ui-react';
 
 
+import Billing from '../MyAccount/BillingForm';
+
+
 class AccountPage extends Component{
   constructor(props) {
     super(props);
@@ -53,6 +56,7 @@ class AccountPage extends Component{
   </Grid>
 )
     const style = {
+
       flex: 1,
       margin: 20,
       padding: 40,
@@ -62,9 +66,17 @@ class AccountPage extends Component{
 
     }
 return(
+
+  <div>
     <Paper style={style}>
     <GridExampleDividedNumber/>
     </Paper>
+
+<center><h2>Shipping Information</h2></center>
+  <Billing />
+</div>
+
+
     )
   }
 }
