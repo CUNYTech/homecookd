@@ -11,10 +11,6 @@ class HomePage extends Component{
 
           <HomeJoinButtons/>
 
-          <center>
-              <Steps/>
-          </center>
-
       </div>
     )
   }
