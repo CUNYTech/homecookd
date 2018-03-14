@@ -38,7 +38,7 @@ exports.userInfo = (req, res) => {
                     "createDate": docs[0].createDate,
                     "orders": docs[0].orders,
                     "reviews": docs[0].reviews,
-                    "location": docs[0].location
+                    "location": docs[0].location,
                 });
             }
         });
@@ -65,8 +65,8 @@ exports.sellerInfo = (req, res) =>{
                     "business_type": docs[0].business_type,
                     "account_approved": docs[0].account_approved,
                     "reviews": docs[0].reviews,
-                    "food_items": docs[0].food_items,
-                    "location": docs[0].location
+                    "food_items_ids": docs[0].food_items_id,
+                    "location": docs[0].location,
                 });
             }
         });
@@ -94,7 +94,7 @@ exports.loginUser = (req, res) => {
                 console.log(docs);
                 bcrypt.compare(req.body.password, docs[0].password_hash, function(err, valid){
                     if (valid){
-                        res.status(201).json( {"api_token": docs[0].api_token} );
+                        res.status(201).json( {"api_token": docs[0].api_token, user_type: "Customer"} );
                     }else{
                         res.status(401).json( {error: "Invalid password"} );
                     }
@@ -124,7 +124,7 @@ exports.loginSeller = (req, res) => {
                 console.log(docs);
                 bcrypt.compare(req.body.password, docs[0].password_hash, function(err, valid){
                     if (valid){
-                        res.status(201).json( {"api_token": docs[0].api_token} );
+                        res.status(201).json( {api_token: docs[0].api_token, user_type: "Seller"} );
                     }else{
                         res.status(401).json( {error: "Invalid password"} );
                     }
@@ -179,7 +179,7 @@ exports.registerUser = (req, res) => {
                                     res.status(500).send(err);
                                 }
                               res.status(201);
-                              res.json( {message: "Sucesfully registered", api_token: tempUser.api_token} );
+                              res.json( {message: "Sucesfully registered", user_type: "Customer" ,api_token: tempUser.api_token} );
                             });
                         });
                     }else{
@@ -233,7 +233,7 @@ exports.registerSeller = (req, res) => {
                                         res.status(500).send(err);
                                     }
                                   res.status(201);
-                                  res.json( {message: "Sucesfully registered", api_token: tempSeller.api_token} );
+                                  res.json( {message: "Sucesfully registered", user_type: "Seller" ,api_token: tempUser.api_token} );
                                 });
                             });
                         }else{
