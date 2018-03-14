@@ -5,7 +5,6 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import { Grid, Icon} from 'semantic-ui-react';
 
-
 import Billing from '../MyAccount/BillingForm';
 
 
