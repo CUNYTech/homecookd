@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton';
 import {Link} from 'react-router-dom';
-import { registerCustomer } from '../../../Utils/auth.js';
+import { registerSeller } from '../../../Utils/auth.js';
 import { Message, Icon } from 'semantic-ui-react'
 
 class RegisterSeller extends Component{
@@ -21,7 +21,7 @@ class RegisterSeller extends Component{
       };
       this.handleFormChange = this.handleFormChange.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
-      this.registerCustomer = registerCustomer.bind(this);
+      this.registerSeller = registerSeller.bind(this);
       this.handleKeyChange = this.handleKeyChange.bind(this);
     }
     handleKeyChange(e){
