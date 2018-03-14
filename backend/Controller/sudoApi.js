@@ -21,7 +21,7 @@ exports.checkAuth = (req, res, next) => {
         if(!docs || err){
           res.status(401).json({error: "Couldnt find this api_token in Admins"})
         }else{
-          console.log("Admin Auth passed");
+          // console.log("Admin Auth passed");
           next();
         }
       })
@@ -88,6 +88,23 @@ exports.approveSeller = (req,res) => {
           res.status(500).json({error: "Error while Saving"});
         }else{
           res.status(200).json({message: "Successfully Approved"});
+        }
+      })
+    }
+  })
+}
+
+exports.rejectSeller = (req,res) => {
+  Seller.findById(req.body.seller_id, function(err,doc){
+    if(!doc || err){
+      res.status(401).json({error: "Could Not find a User with that _id"});
+    }else{
+      doc.account_approved = false;
+      doc.save(function(err){
+        if(err){
+          res.status(500).json({error: "Error while Saving"});
+        }else{
+          res.status(200).json({message: "Successfully Rejected"});
         }
       })
     }
