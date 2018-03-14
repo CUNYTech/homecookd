@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
+
 import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeLogged } from './actions/account-actions';
 
 import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
-
 import RoutePaths from './App/RoutePaths'
-
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
-
 import './App.css';
-
-
-
-
-
 
 class Login extends Component {
   static muiName = 'FlatButton';
@@ -37,7 +30,6 @@ class Login extends Component {
     );
   }
 }
-
 
 
 class App extends Component {
@@ -66,6 +58,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
 
+
       <AppBar
           title="HomeCookd"
           iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}
@@ -82,12 +75,20 @@ class App extends Component {
             <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>
             <MenuItem onClick={this.handleClose}>Location</MenuItem>
             <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/AboutUs" >About Us</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
+
 
           </Drawer>
         <RoutePaths/>
+              
         </MuiThemeProvider>
+
+          iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}/>
+
+        <Routes/>
+      </MuiThemeProvider>
+
 
     );
   }
@@ -98,8 +99,10 @@ const mapStateToProps = state => {
     logged: state.logged
   };
 };
+
 const mapDispatchToProps = {
   logInUser: changeLogged
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);
+

@@ -8,9 +8,12 @@ class HomePage extends Component{
     return(
       <div>
           <h1>Homecookd</h1>
+<<<<<<< HEAD
           <center>
           
             </center>
+=======
+>>>>>>> e64334079d19d1f81a07ba6980398b27e4036f87
 
           <HomeJoinButtons/>
 
