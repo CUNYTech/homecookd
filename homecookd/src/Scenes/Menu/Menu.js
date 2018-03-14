@@ -3,7 +3,7 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import {geolocated} from 'react-geolocated';
+
 
 const styles = {
   root: {
@@ -18,46 +18,43 @@ const styles = {
   },
 };
 
+
 const tilesData = [
   {
-    img: 'images/grid-list/00-52-29-429_640.jpg',
-    title: 'Breakfast',
-    author: 'jill111',
+    img: 'http://www.ita-food.com/wp-content/uploads/2017/06/Chinese-Food.jpg',
+    title: 'Chinese',
   },
   {
-    img: 'images/grid-list/burger-827309_640.jpg',
-    title: 'Tasty burger',
-    author: 'pashminu',
+    img: 'http://convivionetwork.net/wp-content/uploads/2017/10/French-Cuisines-800x445.jpg',
+    title: 'French',
   },
   {
-    img: 'images/grid-list/camera-813814_640.jpg',
-    title: 'Camera',
-    author: 'Danson67',
+    img: 'http://d2lkv2j4m042s95gkf28dijm.wpengine.netdna-cdn.com/wp-content/uploads/2015/05/greek-gyro-review-750x400.png',
+    title: 'Greek',
   },
   {
-    img: 'images/grid-list/morning-819362_640.jpg',
-    title: 'Morning',
-    author: 'fancycrave1',
+    img: 'https://fthmb.tqn.com/Xa3lEBeDl4lvm_P04BJi-iNRQ2g=/960x0/filters:no_upscale()/309291-001-56a510423df78cf772862aea.jpg',
+    title: 'Indian',
   },
   {
-    img: 'images/grid-list/hats-829509_640.jpg',
-    title: 'Hats',
-    author: 'Hans',
+    img: 'http://www.kafepauza.mk/wp-content/uploads/2017/11/1-vreme-e-da-gi-isprobate-ova-se-najpopularnite-japonski-jadenja-www.kafepauza.mk_.jpg',
+    title: 'Japanese',
   },
   {
-    img: 'images/grid-list/honey-823614_640.jpg',
-    title: 'Honey',
-    author: 'fancycravel',
+    img: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/d05f9fcc7003488aa2840d15f4a7d470/BFV30005_SpicyKoreanPork-FB1080SQ_H264.jpg?output-format=webp&output-quality=60&resize=1000:*',
+    title: 'Korean',
   },
   {
-    img: 'images/grid-list/vegetables-790022_640.jpg',
-    title: 'Vegetables',
-    author: 'jill111',
+    img: 'http://s3.amazonaws.com/product-images.imshopping.com/nimblebuy/10-for-authentic-indian-greek-and-mediterranean-food-at-2-4890282-regular.jpg',
+    title: 'Mediterranean',
   },
   {
-    img: 'images/grid-list/water-plant-821293_640.jpg',
-    title: 'Water plant',
-    author: 'BkrmadtyaKarki',
+    img: 'https://images3.persgroep.net/rcs/OrRHIMhVzMkoqBBpvPflPvKyjuE/diocontent/100666194/_fitwidth/694/?appId=21791a8992982cd8da851550a453bd7f&quality=0.9',
+    title: 'Mexican',
+  },
+  {
+    img: 'http://thewoksoflife.com/wp-content/uploads/2016/02/drunken-noodles-5.jpg',
+    title: 'Thai',
   },
 ];
 
@@ -76,7 +73,6 @@ const GridListExampleSimple = () => (
         <GridTile
           key={tile.img}
           title={tile.title}
-          subtitle={<span>by <b>{tile.author}</b></span>}
           actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
         >
           <img src={tile.img} />
