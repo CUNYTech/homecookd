@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
 import { Icon, Label, Menu, Table,Button} from 'semantic-ui-react'
-import {approveSeller} from '../../../../Utils/admin';
+import {approveSeller,rejectSeller} from '../../../../Utils/admin';
 class SellerRow extends Component{
   constructor(props) {
     super(props);
     this.state = {
     };
     this.handleApproveSeller = this.handleApproveSeller.bind(this);
+    this.handleRejectSeller = this.handleRejectSeller.bind(this);
     this.approveSeller = approveSeller.bind(this);
+    this.rejectSeller = rejectSeller.bind(this);
 
   }
   handleApproveSeller(e){
     this.approveSeller(localStorage.getItem('api_token'),this.props.seller._id)
       .then(response => {
         alert(response.data.message);
+        window.location.reload();
+
+      })
+      .catch(error => {
+        alert(error.response.data.error);
+      })
+    e.preventDefault;
+  }
+
+  handleRejectSeller(e){
+    this.rejectSeller(localStorage.getItem('api_token'),this.props.seller._id)
+      .then(response => {
+        alert(response.data.message);
+        window.location.reload();
+
       })
       .catch(error => {
         alert(error.response.data.error);
@@ -22,7 +39,7 @@ class SellerRow extends Component{
   }
   render(){
     const ActionButtons = () => (
-    this.props.seller.account_approved ? (<Button>Reject</Button>): (<Button onClick={this.handleApproveSeller} positive>Approve</Button>)
+    this.props.seller.account_approved ? (<Button onClick={this.handleRejectSeller}>Reject</Button>): (<Button onClick={this.handleApproveSeller} positive>Approve</Button>)
   )
 
     return(

@@ -33,3 +33,11 @@ const baseUrl = baseUrlDomain +":3001";
         seller_id: seller_id
       })
     }
+    
+    export{rejectSeller};
+      function rejectSeller(api_token,seller_id){
+        return axios.post(baseUrl + "/sudoApi/admin/rejectSeller",{
+          api_token: api_token,
+          seller_id: seller_id
+        })
+      }
