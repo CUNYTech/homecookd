@@ -9,7 +9,7 @@ class HomePage extends Component{
       <div>
           <h1>Homecookd</h1>
           <center>
-            <Steps/>
+          
             </center>
 
           <HomeJoinButtons/>
