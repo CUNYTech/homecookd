@@ -71,7 +71,7 @@ exports.sellerInfo = (req, res) =>{
             }
         });
     }
-} 
+}
 
 
 exports.getLoginUser = (req, res) => {
