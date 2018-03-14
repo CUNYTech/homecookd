@@ -11,7 +11,8 @@ import allReducers from './reducers';
 const store = createStore(
     allReducers,
     {
-        logged: false
+        logged: false,
+        accountType: ''
     },
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
