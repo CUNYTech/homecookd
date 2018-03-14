@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeLogged } from '../../../actions/account-actions';
+import { changeLogged } from '../../actions/account-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -9,9 +9,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import { Message, Icon} from 'semantic-ui-react';
 
-import {loginCustomer} from '../../../Utils/auth.js';
+import {loginAdmin} from '../../Utils/admin';
 
-class LoginForm extends Component{
+class AdminLogin extends Component{
 
 
   constructor(props) {
@@ -25,7 +25,7 @@ class LoginForm extends Component{
     };
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.loginCustomer = loginCustomer.bind(this);
+    this.loginAdmin = loginAdmin.bind(this);
     this.logInUser = this.logInUser.bind(this);
     this.handleKeyChange = this.handleKeyChange.bind(this);
   }
@@ -54,13 +54,13 @@ class LoginForm extends Component{
       const password = this.state.password;
 
       //call our axios promise, then retrieve the token from axios
-    this.loginCustomer(email,password)
+    this.loginAdmin(email,password)
         .then( response => {
           var api_token = response.data.api_token;
           if(api_token.length > 0) {
             localStorage.setItem('api_token',api_token);
 
-            this.props.history.push('/')
+            // this.props.history.push('/')
             this.logInUser(true);
           }
           else this.OpenPopUp();
@@ -110,7 +110,7 @@ class LoginForm extends Component{
     return(
       <center>
         <Paper style={style} zDepth={2} onKeyPress={this.handleKeyChange} onSubmit={this.handleFormSubmit}>
-        <h2>LOGIN</h2>
+        <h2> ADMIN LOGIN</h2>
         <MessageBar/>
         <TextField name="email" autoFocus
           floatingLabelText="Email"
@@ -127,7 +127,6 @@ class LoginForm extends Component{
         <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" type="submit" primary={true}  />
         <br/>
 
-        <Link to="/register">Make an Account</Link>
         </Paper>
       </center>
 
@@ -145,4 +144,4 @@ const mapDispatchToProps = {
   logInUser: changeLogged
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminLogin);

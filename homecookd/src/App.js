@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeLogged } from './actions/account-actions';
 
@@ -8,9 +7,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
-
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import HomePage from './Scenes/Home/HomePage';
 
 
 import RoutePaths from './App/RoutePaths'
