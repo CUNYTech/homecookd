@@ -90,11 +90,12 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    logged: state.logged
+    logged: state.logged,
+    accountType: state.accountType
   };
 };
 const mapDispatchToProps = {
   logInUser: changeLogged
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
