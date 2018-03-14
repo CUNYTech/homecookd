@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logInUser } from '../../../actions/account-actions';
+import { changeLogged } from '../../../actions/account-actions';
+import { updateUser } from '../../../actions/user-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -26,13 +27,25 @@ class LoginForm extends Component{
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loginCustomer = loginCustomer.bind(this);
-    this.onLogInUser = this.onLogInUser.bind(this);
+    this.logInUser = this.logInUser.bind(this);
+    this.updateUser = this.updateUser.bind(this);
+    this.handleKeyChange = this.handleKeyChange.bind(this);
   }
-  
-  onLogInUser() {
-    this.props.onLogInUser('logged in');
+
+  logInUser(data){
+    this.props.logInUser(data);
   }
-  
+
+  updateUser(type) {
+    this.props.updateUser(type);
+  }
+
+  handleKeyChange(event){
+    if(event.charCode === 13){
+      this.handleFormSubmit(event);
+    }
+  }
+
   handleFormChange(e){
       const value = e.target.value;
       const name = e.target.name;
@@ -54,6 +67,8 @@ class LoginForm extends Component{
             localStorage.setItem('api_token',api_token);
 
             this.props.history.push('/')
+            this.logInUser(true);
+            this.updateUser("customer");
           }
           else this.OpenPopUp();
         })
@@ -101,7 +116,7 @@ class LoginForm extends Component{
 
     return(
       <center>
-        <Paper style={style} zDepth={2}>
+        <Paper style={style} zDepth={2} onKeyPress={this.handleKeyChange} onSubmit={this.handleFormSubmit}>
         <h2>LOGIN</h2>
         <MessageBar/>
         <TextField name="email" autoFocus
@@ -116,12 +131,10 @@ class LoginForm extends Component{
           type="password"
         />
         <br />
-        <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" primary={true}  />
+        <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" type="submit" primary={true}  />
         <br/>
 
         <Link to="/register">Make an Account</Link>
-        <button onClick={this.onLogInUser } >Change logged</button>
-
         </Paper>
       </center>
 
@@ -131,12 +144,14 @@ class LoginForm extends Component{
 
 const mapStateToProps = state => {
   return {
-    logged: state.logged
+    logged: state.logged,
+    accountType: state.accountType
   };
 };
 
 const mapDispatchToProps = {
-  onLogInUser: logInUser
+  logInUser: changeLogged,
+  changeAccountType: updateUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

@@ -9,17 +9,18 @@ import { Provider } from 'react-redux';
 import allReducers from './reducers';
 
 const store = createStore(
-    allReducers, 
+    allReducers,
     {
-        user: ''
+        logged: false,
+        accountType: ''
     },
-    window.devToolsExtension && window.devToolsExtension()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(
     <Provider store={store}>
         <App />
-    </Provider>, 
+    </Provider>,
     document.getElementById('root')
 );
 registerServiceWorker();
