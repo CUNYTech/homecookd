@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
-import {Router, Route,Switch,Redirect} from 'react-router-dom';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeLogged } from './actions/account-actions';
+
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
-
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
 import RoutePaths from './App/RoutePaths'
-
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 
 import './App.css';
-
-
-
 
 
 
@@ -29,7 +22,12 @@ class Login extends Component {
 
   render() {
     return (
-      <FlatButton {...this.props} href="/login" label="Login" />
+      <div>
+        <FlatButton {...this.props} href="/login" label="Login" />
+        <FlatButton {...this.props} href="/register" label="Register" />
+        <FlatButton {...this.props} href="/registerseller" label="Register as Seller" />
+      </div>
+
     );
   }
 }
@@ -51,6 +49,7 @@ class App extends Component {
 
     this.logInUser(localStorage.getItem('api_token')!== null)
   }
+
 
   handleChange = (event, logged) => {
     this.setState({logged: logged});
@@ -91,11 +90,12 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    logged: state.logged
+    logged: state.logged,
+    accountType: state.accountType
   };
 };
 const mapDispatchToProps = {
   logInUser: changeLogged
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
