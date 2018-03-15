@@ -202,7 +202,7 @@ exports.registerSeller = (req, res) => {
                     tempSeller.name = req.body.name;
                     tempSeller.email = req.body.email;
                     tempSeller.userName = req.body.userName;
-                    tempSeller.business_name = req.body.business_name;
+                    tempSeller.business_name = req.body.businessName;
                     tempSeller.profile_img = "undefined"; // update - give them a random image
                     tempSeller.account_approved = false;
                     tempSeller.api_token = rack();
