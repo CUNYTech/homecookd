@@ -11,10 +11,9 @@ import FlatButton from 'material-ui/FlatButton';
 
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
+import Drawer from './Scenes/Home/LoggedInMenu';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import RoutePaths from './App/RoutePaths'
-import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 import './App.css';
 
