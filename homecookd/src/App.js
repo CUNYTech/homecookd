@@ -83,15 +83,7 @@ class App extends Component {
 
           </Drawer>
         <RoutePaths/>
-<<<<<<< HEAD
-
         </MuiThemeProvider>
-
-
-
-=======
-        </MuiThemeProvider>
->>>>>>> 4dd47f8d6d4edc48caa0f43e5c3cafa7dd3d7844
     );
   }
 }
@@ -106,8 +98,4 @@ const mapDispatchToProps = {
   logInUser: changeLogged
 };
 
-<<<<<<< HEAD
 export default connect(mapStateToProps,mapDispatchToProps)(App);
-=======
-export default connect(mapStateToProps, mapDispatchToProps)(App);
->>>>>>> 4dd47f8d6d4edc48caa0f43e5c3cafa7dd3d7844
