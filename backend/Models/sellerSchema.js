@@ -19,7 +19,7 @@ var sellerSchema = new Schema ({
     business_type: [], // What kind of food they sell
     account_approved: Boolean,
     reviews: [],
-    food_items: [], // what they sell
+    food_items_id: [String], // what they sell
     api_token: String,
     location: {
         address: {

@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-
-import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeLogged } from './actions/account-actions';
 
 import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 
+
+
+import RoutePaths from './App/RoutePaths'
+import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import RoutePaths from './App/RoutePaths'
@@ -25,12 +26,12 @@ class Login extends Component {
       <div>
         <FlatButton {...this.props} href="/login" label="Login" />
         <FlatButton {...this.props} href="/register" label="Register" />
+        <FlatButton {...this.props} href="/registerseller" label="Register as Seller" />
       </div>
 
     );
   }
 }
-
 
 class App extends Component {
 
@@ -58,7 +59,6 @@ class App extends Component {
     return (
       <MuiThemeProvider>
 
-
       <AppBar
           title="HomeCookd"
           iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}
@@ -77,27 +77,37 @@ class App extends Component {
             <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
             <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/login/seller">Login As a Seller</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/registerSeller">Register As a Seller</MenuItem>
 
 
           </Drawer>
         <RoutePaths/>
+<<<<<<< HEAD
 
         </MuiThemeProvider>
 
 
 
+=======
+        </MuiThemeProvider>
+>>>>>>> 4dd47f8d6d4edc48caa0f43e5c3cafa7dd3d7844
     );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    logged: state.logged
+    logged: state.logged,
+    accountType: state.accountType
   };
 };
-
 const mapDispatchToProps = {
   logInUser: changeLogged
 };
 
+<<<<<<< HEAD
 export default connect(mapStateToProps,mapDispatchToProps)(App);
+=======
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+>>>>>>> 4dd47f8d6d4edc48caa0f43e5c3cafa7dd3d7844
