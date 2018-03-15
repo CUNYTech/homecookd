@@ -3,11 +3,10 @@ import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton';
 import {Link} from 'react-router-dom';
-import './RegisterForm.css'
-import {registerCustomer} from '../../../Utils/auth.js';
+import { registerSeller } from '../../../Utils/auth.js';
 import { Message, Icon } from 'semantic-ui-react'
 
-class RegisterForm extends Component{
+class RegisterSeller extends Component{
     constructor(props){
       super(props);
       this.state = {
@@ -22,7 +21,7 @@ class RegisterForm extends Component{
       };
       this.handleFormChange = this.handleFormChange.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
-      this.registerCustomer = registerCustomer.bind(this);
+      this.registerSeller = registerSeller.bind(this);
       this.handleKeyChange = this.handleKeyChange.bind(this);
     }
     handleKeyChange(e){
@@ -36,37 +35,36 @@ class RegisterForm extends Component{
         this.setState({[name]: value})
     }
     handleFormSubmit(e){
-        // alert("TEST");
-        this.setState({loggingIn:true,errorOccured:false});
-        const email = this.state.email;
-        const userName = this.state.userName;
-        const firstName = this.state.firstName;
-        const lastName = this.state.lastName;
-        const password = this.state.password;
+      this.setState({loggingIn:true,errorOccured:false});
+      const email = this.state.email;
+      const userName = this.state.userName;
+      const firstName = this.state.firstName;
+      const lastName = this.state.lastName;
+      const password = this.state.password;
 
-        //call our axios promise, then retrieve the token from axios
-      this.registerCustomer(email,userName,password,firstName,lastName)
-          .then( response => {
-            var api_token = response.data.api_token;
-            if(api_token.length > 0) {
-              localStorage.setItem('api_token',api_token);
+      //call our axios promise, then retrieve the token from axios
+      this.registerSeller(email,userName,password,firstName,lastName)
+        .then( response => {
+          var api_token = response.data.api_token;
+          if(api_token.length > 0) {
+            localStorage.setItem('api_token',api_token);
 
-              this.props.history.push('/')
-            }
-            else this.OpenPopUp();
-          })
-          .catch( error => {
-            localStorage.removeItem('api_token');
-            if(error.response == undefined){
-              this.setState({loggingIn:false,errorOccured:true,errorMessage:'Couldnt Reach Server'});
-            }else{
-              this.setState({loggingIn:false,errorOccured:true,errorMessage:error.response.data.error});
-            }
-            // alert(error.response.data.error);
-            // alert(error);
-            // this.OpenPopUp();
-          })
-        e.preventDefault();
+            this.props.history.push('/')
+          }
+          else this.OpenPopUp();
+        })
+        .catch( error => {
+          localStorage.removeItem('api_token');
+          if(error.response == undefined){
+            this.setState({loggingIn:false,errorOccured:true,errorMessage:'Couldnt Reach Server'});
+          }else{
+            this.setState({loggingIn:false,errorOccured:true,errorMessage:error.response.data.error});
+          }
+          // alert(error.response.data.error);
+          // alert(error);
+          // this.OpenPopUp();
+        })
+      e.preventDefault();
     }
 
     render(){
@@ -92,12 +90,12 @@ class RegisterForm extends Component{
           textAlign: 'center',
           display: 'inline-block',
           // backgroundColor: 'grey'
-
         }
+
         return(
           <center>
           <Paper  style={style} onKeyPress={this.handleKeyChange} onSubmit={this.handleFormSubmit}>
-            <h2 className="formTitle">Register</h2>
+            <h2 className="formTitle">Register as a Seller</h2>
             <MessageBar/>
             <br/>
             <TextField autoFocus floatingLabelText="First Name" name="firstName" type="text" value={this.state.firstName} onChange={this.handleFormChange} />
@@ -123,4 +121,4 @@ class RegisterForm extends Component{
     }
 }
 
-export default RegisterForm;
+export default RegisterSeller;
