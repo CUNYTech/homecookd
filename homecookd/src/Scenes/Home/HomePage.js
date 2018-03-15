@@ -14,6 +14,7 @@ class HomePage extends Component{
 
           <HomeJoinButtons/>
 
+
       </div>
     )
   }
