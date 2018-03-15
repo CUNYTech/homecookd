@@ -12,10 +12,11 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import RoutePaths from './App/RoutePaths'
+import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 import './App.css';
-
-
 
 class Login extends Component {
   static muiName = 'FlatButton';
@@ -32,8 +33,6 @@ class Login extends Component {
   }
 }
 
-
-
 class App extends Component {
 
   logInUser(data) {
@@ -49,7 +48,6 @@ class App extends Component {
 
     this.logInUser(localStorage.getItem('api_token')!== null)
   }
-
 
   handleChange = (event, logged) => {
     this.setState({logged: logged});
@@ -77,13 +75,12 @@ class App extends Component {
             <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>
             <MenuItem onClick={this.handleClose}>Location</MenuItem>
             <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/AboutUs" >About Us</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
 
           </Drawer>
         <RoutePaths/>
         </MuiThemeProvider>
-
     );
   }
 }
