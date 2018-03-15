@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { changeLogged } from '../../../actions/account-actions';
-
+import { updateUser } from '../../../actions/user-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -28,8 +27,8 @@ class LoginForm extends Component{
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loginCustomer = loginCustomer.bind(this);
-
     this.logInUser = this.logInUser.bind(this);
+    this.updateUser = this.updateUser.bind(this);
     this.handleKeyChange = this.handleKeyChange.bind(this);
   }
 
@@ -37,11 +36,14 @@ class LoginForm extends Component{
     this.props.logInUser(data);
   }
 
+  updateUser(type) {
+    this.props.updateUser(type);
+  }
+
   handleKeyChange(event){
     if(event.charCode === 13){
       this.handleFormSubmit(event);
     }
-
   }
 
   handleFormChange(e){
@@ -65,9 +67,8 @@ class LoginForm extends Component{
             localStorage.setItem('api_token',api_token);
 
             this.props.history.push('/')
-
             this.logInUser(true);
-
+            this.updateUser("customer");
           }
           else this.OpenPopUp();
         })
@@ -134,8 +135,6 @@ class LoginForm extends Component{
         <br/>
 
         <Link to="/register">Make an Account</Link>
-
-
         </Paper>
       </center>
 
@@ -145,14 +144,14 @@ class LoginForm extends Component{
 
 const mapStateToProps = state => {
   return {
-    logged: state.logged
+    logged: state.logged,
+    accountType: state.accountType
   };
 };
 
 const mapDispatchToProps = {
-
-  logInUser: changeLogged
-
+  logInUser: changeLogged,
+  changeAccountType: updateUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
