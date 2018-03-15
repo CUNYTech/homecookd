@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeLogged } from '../../actions/account-actions';
+import { changeLogged } from '../../../actions/account-actions';
+import { updateUser } from '../../../actions/user-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -9,9 +10,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import { Message, Icon} from 'semantic-ui-react';
 
-import {loginAdmin} from '../../Utils/admin';
+import {loginSeller} from '../../../Utils/auth.js';
 
-class AdminLogin extends Component{
+class LoginSellerForm extends Component{
 
 
   constructor(props) {
@@ -25,13 +26,18 @@ class AdminLogin extends Component{
     };
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.loginAdmin = loginAdmin.bind(this);
+    this.loginSeller = loginSeller.bind(this);
     this.logInUser = this.logInUser.bind(this);
+    this.updateUser = this.updateUser.bind(this);
     this.handleKeyChange = this.handleKeyChange.bind(this);
   }
 
   logInUser(data){
     this.props.logInUser(data);
+  }
+
+  updateUser(type) {
+    this.props.updateUser(type);
   }
 
   handleKeyChange(event){
@@ -54,14 +60,15 @@ class AdminLogin extends Component{
       const password = this.state.password;
 
       //call our axios promise, then retrieve the token from axios
-    this.loginAdmin(email,password)
+    this.loginSeller(email,password)
         .then( response => {
           var api_token = response.data.api_token;
           if(api_token.length > 0) {
             localStorage.setItem('api_token',api_token);
 
-            this.props.history.push('/admin/adminPanel');
+            this.props.history.push('/')
             this.logInUser(true);
+            this.updateUser("seller");
           }
           else this.OpenPopUp();
         })
@@ -100,7 +107,7 @@ class AdminLogin extends Component{
       <Message hidden={!this.state.loggingIn} icon size='mini'>
         <Icon name='circle notched' loading />
         <Message.Content>
-          Logging In
+          Logging In As Seller
         </Message.Content>
       </Message>
       </div>
@@ -110,7 +117,7 @@ class AdminLogin extends Component{
     return(
       <center>
         <Paper style={style} zDepth={2} onKeyPress={this.handleKeyChange} onSubmit={this.handleFormSubmit}>
-        <h2> ADMIN LOGIN</h2>
+        <h2>LOGIN As a Seller</h2>
         <MessageBar/>
         <TextField name="email" autoFocus
           floatingLabelText="Email"
@@ -127,6 +134,7 @@ class AdminLogin extends Component{
         <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" type="submit" primary={true}  />
         <br/>
 
+        <Link to="/register">Make an Account</Link>
         </Paper>
       </center>
 
@@ -136,12 +144,14 @@ class AdminLogin extends Component{
 
 const mapStateToProps = state => {
   return {
-    logged: state.logged
+    logged: state.logged,
+    accountType: state.accountType
   };
 };
 
 const mapDispatchToProps = {
-  logInUser: changeLogged
+  logInUser: changeLogged,
+  changeAccountType: updateUser
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminLogin);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginSellerForm);

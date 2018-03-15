@@ -79,6 +79,9 @@ class App extends Component {
             <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
             <MenuItem onClick={this.handleClose} href="/AboutUs" >About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/login/seller">Login As a Seller</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/registerSeller">Register As a Seller</MenuItem>
+
 
           </Drawer>
         <RoutePaths/>
