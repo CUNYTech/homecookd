@@ -5,6 +5,8 @@ import AboutUs from '../Scenes/AboutUs/AboutUs';
 import HomePage from '../Scenes/Home/HomePage';
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
+import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
+import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
 
@@ -23,6 +25,8 @@ const RoutePaths= () => (
     <Route exact path = "/" component = {HomePage} />
     <Route path = '/Login' component = {LoginForm}/>
     <Route path = '/Register' component = {RegisterForm} />
+    <Route path = '/RegisterSeller' component = {RegisterSeller} />
+    <Route path = '/LoginSeller' component = {LoginSellerForm}/>
     <Route path = '/AboutUs' component = {AboutUs} />
     <Route path = '/MyAccount' component = {AccountPage}/>
     <Route path = '/Store' component = {StorePage}/>

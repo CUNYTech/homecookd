@@ -10,14 +10,10 @@ import Drawer from 'material-ui/Drawer';
 
 
 import RoutePaths from './App/RoutePaths'
-
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 
 import './App.css';
-
-
-
 
 
 
@@ -29,6 +25,7 @@ class Login extends Component {
       <div>
         <FlatButton {...this.props} href="/login" label="Login" />
         <FlatButton {...this.props} href="/register" label="Register" />
+        <FlatButton {...this.props} href="/registerseller" label="Register as Seller" />
       </div>
 
     );
@@ -52,6 +49,7 @@ class App extends Component {
 
     this.logInUser(localStorage.getItem('api_token')!== null)
   }
+
 
   handleChange = (event, logged) => {
     this.setState({logged: logged});
@@ -81,6 +79,9 @@ class App extends Component {
             <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
             <MenuItem onClick={this.handleClose} href="/AboutUs" >About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/login/seller">Login As a Seller</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/registerSeller">Register As a Seller</MenuItem>
+
 
           </Drawer>
         <RoutePaths/>
@@ -92,11 +93,12 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    logged: state.logged
+    logged: state.logged,
+    accountType: state.accountType
   };
 };
 const mapDispatchToProps = {
   logInUser: changeLogged
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
