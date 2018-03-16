@@ -2,16 +2,21 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema
 
 var orderSchema = new Schema({
-    _id: Schema.Types.ObjectId
-    userName: String,
-    name: {
-        first: String,
-        last: String
-    }
-    foodItems: [],
+    seller_id: String,
+    user_id: String,
+    foodItems: [String],
     orderPlaced: {
         type: Date, 
         default: Date.now()
+    },
+    delivery_location: {
+        address: {
+            street: String,
+            city: String,
+            state: String
+        },
+        lat: Number,
+        long: Number
     },
     orderStatus: {
         orderReceived: Boolean,

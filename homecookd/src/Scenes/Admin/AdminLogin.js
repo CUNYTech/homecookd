@@ -60,7 +60,7 @@ class AdminLogin extends Component{
           if(api_token.length > 0) {
             localStorage.setItem('api_token',api_token);
 
-            // this.props.history.push('/')
+            this.props.history.push('/admin/adminPanel');
             this.logInUser(true);
           }
           else this.OpenPopUp();
