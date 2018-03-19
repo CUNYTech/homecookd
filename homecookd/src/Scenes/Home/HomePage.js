@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HomeJoinButtons from './HomeJoinButtons';
-import Steps from '../StepByStep/StepByStep'
+// import Steps from '../StepByStep/StepByStep'
 
 
 class HomePage extends Component{
@@ -8,9 +8,6 @@ class HomePage extends Component{
     return(
       <div>
           <h1>Homecookd</h1>
-          <center>
-            <Steps/>
-            </center>
 
           <HomeJoinButtons/>
 
