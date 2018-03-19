@@ -7,6 +7,7 @@ import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
+import RegisterForm from '../Scenes/Account/Register/RegisterForm';
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
 
@@ -38,7 +39,7 @@ const RoutePaths= () => (
     <Route path = '/Admin/Login' component = {AdminLogin}/>
     <Route path = '/Admin/AdminPanel' component = {AdminPanel}/>
 
-    <Route  component={Error404} /> {/* 404 Route*/}
+    <Route component={Error404} /> {/* 404 Route*/}
 
     </Switch>
     </div>

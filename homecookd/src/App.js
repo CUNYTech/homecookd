@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeLogged } from './actions/account-actions';
+import { changeLogged, changeAccountType } from './actions/account-actions';
 
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
-
-
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
+
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import RoutePaths from './App/RoutePaths'
-import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 import './App.css';
 
@@ -48,6 +45,7 @@ class App extends Component {
 
     this.logInUser(localStorage.getItem('api_token')!== null)
   }
+
 
   handleChange = (event, logged) => {
     this.setState({logged: logged});
