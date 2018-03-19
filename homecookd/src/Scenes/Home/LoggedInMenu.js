@@ -12,11 +12,16 @@ class LoggedInMenu extends Component {
 
     this.handleSignOut = this.handleSignOut.bind(this);
     this.logOutUser = this.logOutUser.bind(this);
+    this.removeAccountType = this.removeAccountType.bind(this);
   }
   logOutUser = (data) => {
     this.props.logOutUser(data);
   }
+  removeAccountType = () => {
+    this.props.removeAccountType('');
+  }
   handleSignOut = () => {
+    this.removeAccountType();
     this.logOutUser(false);
     localStorage.removeItem('api_token');
   }
@@ -38,14 +43,9 @@ class LoggedInMenu extends Component {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    logged: state.logged
-  };
-};
-
 const mapDispatchToProps = {
-  logOutUser: changeLogged
+  logOutUser: changeLogged,
+  removeAccountType: changeAccountType
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoggedInMenu);
+export default connect(null, mapDispatchToProps)(LoggedInMenu);
