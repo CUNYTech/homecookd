@@ -7,6 +7,12 @@ import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
+<<<<<<< HEAD
+=======
+import RegisterForm from '../Scenes/Account/Register/RegisterForm';
+import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
+import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
+>>>>>>> 941f98e02bd2edc330cf4b2aa444bd71d788537b
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
 import RegisterForm from '../Scenes/Account/Register/RegisterForm'
