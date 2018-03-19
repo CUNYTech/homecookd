@@ -15,20 +15,27 @@
 
 ## Login = 
 
-###   /loginSeller -
+###   /login/seller -
 ####  input: ``` "email" : String, "password" : String, ```
 ##### output: ```found: res.status(201) ``` or ```error: res.status(400); ``` or ``` coudn't find/error: res.status(401) ```
 
-###   /loginUser -
+###   /login/user -
 ####  input: ``` "email" : String, "password" : String, ```
 ##### output: ```found: res.status(201) ``` or ```error: res.status(400); ``` or ``` coudn't find/error: res.status(401) ```
 
 ## get infromation from database =
 
-###   /auth/userInfo - 
+###   /auth/information/user - 
 ####  input: ``` "api_token" : String ```
 ##### output: ```found: res.status(201) ``` or ```error: res.status(400); ``` or ``` coudn't find/error: res.status(401) ```
 
-###   /auth/sellerInfor - 
+###   /auth/information/seller - 
 ####  input: ``` "api_token" : String ```
 ##### output: ```found: res.status(201) ``` or ```error: res.status(400); ``` or ``` coudn't find/error: res.status(401) ```
+
+
+## Modifications = 
+
+###   /modification/foodItemCreate/seller -
+####  input: ``` "seller_api_token" : String, "name" : String, "ingredients" : List, "allergens" : List, "description" : String, "price" : Number, "foodType" : String```
+##### output: ```created: res.status(201) ``` or ```error: res.status(400); ``` or ``` error: res.status(500) ```

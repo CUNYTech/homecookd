@@ -71,7 +71,7 @@ exports.sellerInfo = (req, res) =>{
 
 
 exports.getLoginUser = (req, res) => {
-    res.json( {message: "/loginUser Route"} );
+    res.json( {message: "/login/user Route"} );
 }
 
 
@@ -86,7 +86,6 @@ exports.loginUser = (req, res) => {
                 res.status(401).json( {error: "Could not find account"} );
             }else{
                 console.log("Comparing passwords");
-                console.log(docs);
                 bcrypt.compare(req.body.password, docs[0].password_hash, function(err, valid){
                     if (valid){
                         res.status(201).json( {"api_token": docs[0].api_token, user_type: "Customer"} );
@@ -100,7 +99,7 @@ exports.loginUser = (req, res) => {
 }
 
 exports.getLoginSeller = (req, res) => {
-    res.json( {message: "/loginSeller Route"} );
+    res.json( {message: "/login/seller Route"} );
 }
 
 
@@ -115,7 +114,6 @@ exports.loginSeller = (req, res) => {
                 res.status(401).json( {error: "Could not find account"} );
             }else if(docs[0].account_approved){
                 console.log("Comparing passwords");
-                console.log(docs);
                 bcrypt.compare(req.body.password, docs[0].password_hash, function(err, valid){
                     if (valid){
                         res.status(201).json( {api_token: docs[0].api_token, user_type: "Seller"} );
@@ -168,79 +166,63 @@ exports.registerUser = (req, res) => {
             res.status(500).json( {error: "Could not save it to database" } );
         }
         if(!docs.length){
-                    var tempUser = new User();
-                    tempUser.name = req.body.name;
-                    tempUser.email = req.body.email;
-                    tempUser.userName = req.body.userName;
-                    tempUser.api_token = rack();
-                    bcrypt.hash(req.body.password, saltRounds, function(err, hash){
-                        tempUser.password_hash = hash;
-                        tempUser.save(function(err){
-                            if (err){
-                                console.log("Error while saving to database ");
-                                res.status(500).send(err);
-                            }
-                            res.status(201);
-                            res.json( {message: "Sucesfully registered", user_type: "Customer" ,api_token: tempUser.api_token} );
-                        });
-                    });
-                }else{
-                    res.status(400);
-                    res.json( {error: "Username or Email belongs to another user"} );
-                }
-            }
-        );
+            var tempUser = new User();
+            tempUser.name = req.body.name;
+            tempUser.email = req.body.email;
+            tempUser.userName = req.body.userName;
+            tempUser.api_token = rack();
+            bcrypt.hash(req.body.password, saltRounds, function(err, hash){
+                tempUser.password_hash = hash;
+                tempUser.save(function(err){
+                    if (err){
+                        console.log("Error while saving to database ");
+                        res.status(500).send(err);
+                    }
+                    res.status(201);
+                    res.json( {message: "Sucesfully registered", user_type: "Customer" ,api_token: tempUser.api_token} );
+                });
+            });
+        }else{
+            res.status(400);
+            res.json( {error: "Username or Email belongs to another user"} );
+        }
+    });
 }
 
 exports.registerSeller = (req, res) => {
-    if (req.body.name.first === undefined|| req.body.name.first === '' || req.body.name.first === ' ' ||
-    req.body.name.last === undefined || req.body.name.last === ''  || req.body.name.last === ' '){
-        res.status(400).json( {error: "Incomplete request, name is missing!"} );
-        console.log("Incomplete request");
-    }else if (!emailRegex.test(req.body.email)) {
-        res.status(400);
-        res.json( {error: "invalid Email address"} );
-    }else if (!userNameRegex.test(req.body.userName)){
-        res.status(400);
-        res.json( {error: "invalid Username"} );
-    }else if(!passwordRegex.test(req.body.password)){
-        res.status(400);
-        res.json( {error: "invalid password, has to contain at least one lower, one upper case character and has to be at least 6 digits"} );
-    }else{
-            Seller.find( {$or: [{email: {$regex : new RegExp(req.body.email,"i")}},
-            {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
-            ,
-            function (err, docs){
-
-                if(err){
-                  console.log("ERROR " + err);
-                }
-                if(!docs.length){
-                            var tempSeller = new Seller();
-                            tempSeller.name = req.body.name;
-                            tempSeller.email = req.body.email;
-                            tempSeller.userName = req.body.userName;
-                            tempSeller.business_name = req.body.businessName;
-                            tempSeller.profile_img = "undefined";
-                            tempSeller.location.lat = -1;
-                            tempSeller.location.long = -1;
-                            tempSeller.account_approved = false;
-                            tempSeller.api_token = rack();
-                            bcrypt.hash(req.body.password, saltRounds, function(err, hash){
-                                tempSeller.password_hash = hash;
-                                tempSeller.save(function(err){
-                                    if (err){
-                                        console.log("Error while saving to database ");
-                                        res.status(500).send(err);
-                                    }
-                                  res.status(201);
-                                  res.json( {message: "Sucesfully registered", user_type: "Seller" ,api_token: tempSeller.api_token} );
-                                });
-                            });
-                        }else{
-                            res.status(400);
-                            res.json( {error: "Username or Email belongs to another user"} );
-                        }
+    Seller.find( {$or: [{email: {$regex : new RegExp(req.body.email,"i")}},
+    {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
+    ,
+    function (err, docs){
+        if(err){
+            console.log("ERROR " + err);
+            res.status(500).json( {error: "Could not save it to database" } );
         }
-    );
+        if(!docs.length){
+            var tempSeller = new Seller();
+            tempSeller.name = req.body.name;
+            tempSeller.email = req.body.email;
+            tempSeller.userName = req.body.userName;
+            tempSeller.business_name = req.body.businessName;
+            tempSeller.profile_img = "undefined";
+            tempSeller.location.lat = -1;
+            tempSeller.location.long = -1;
+            tempSeller.account_approved = false;
+            tempSeller.api_token = rack();
+            bcrypt.hash(req.body.password, saltRounds, function(err, hash){
+                tempSeller.password_hash = hash;
+                tempSeller.save(function(err){
+                    if (err){
+                        console.log("Error while saving to database ");
+                        res.status(500).send(err);
+                    }
+                    res.status(201);
+                    res.json( {message: "Sucesfully registered", user_type: "Seller" ,api_token: tempSeller.api_token} );
+                });
+            });
+        }else{
+            res.status(400);
+            res.json( {error: "Username or Email belongs to another user"} );
+        }
+    });
 }
