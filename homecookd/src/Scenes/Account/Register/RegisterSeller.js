@@ -15,6 +15,7 @@ class RegisterSeller extends Component{
         email: '',
         userName: '',
         password: '',
+        businessName: '',
         errorOccured: false,
         errorMessage: 'An Error Occured',
         loggingIn:false
@@ -41,9 +42,10 @@ class RegisterSeller extends Component{
       const firstName = this.state.firstName;
       const lastName = this.state.lastName;
       const password = this.state.password;
+      const businessName = this.state.businessName;
 
       //call our axios promise, then retrieve the token from axios
-      this.registerSeller(email,userName,password,firstName,lastName)
+      this.registerSeller(email,userName,password,firstName,lastName,businessName)
         .then( response => {
           var api_token = response.data.api_token;
           if(api_token.length > 0) {
@@ -77,7 +79,7 @@ class RegisterSeller extends Component{
         <Message hidden={!this.state.loggingIn} icon size='mini'>
           <Icon name='circle notched' loading />
           <Message.Header>
-            Registering for an Account
+            Registering for a Seller Account
           </Message.Header>
         </Message>
         </div>
@@ -104,6 +106,8 @@ class RegisterSeller extends Component{
             <TextField floatingLabelText="Last Name" name="lastName" type="text" value={this.state.lastName} onChange={this.handleFormChange} />
             <br/>
 
+            <TextField floatingLabelText="Business Name" name="businessName" type="text" value={this.state.business_name} onChange={this.handleFormChange} />
+            <br/>
             <TextField floatingLabelText="Email" name="email" type="test" value={this.state.email} onChange={this.handleFormChange} />
             <br/>
 

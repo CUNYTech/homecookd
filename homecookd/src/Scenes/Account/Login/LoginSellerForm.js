@@ -10,9 +10,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import { Message, Icon} from 'semantic-ui-react';
 
-import {loginCustomer} from '../../../Utils/auth.js';
+import {loginSeller} from '../../../Utils/auth.js';
 
-class LoginForm extends Component{
+class LoginSellerForm extends Component{
 
 
   constructor(props) {
@@ -26,7 +26,7 @@ class LoginForm extends Component{
     };
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.loginCustomer = loginCustomer.bind(this);
+    this.loginSeller = loginSeller.bind(this);
     this.logInUser = this.logInUser.bind(this);
     this.updateUser = this.updateUser.bind(this);
     this.handleKeyChange = this.handleKeyChange.bind(this);
@@ -60,7 +60,7 @@ class LoginForm extends Component{
       const password = this.state.password;
 
       //call our axios promise, then retrieve the token from axios
-    this.loginCustomer(email,password)
+    this.loginSeller(email,password)
         .then( response => {
           var api_token = response.data.api_token;
           if(api_token.length > 0) {
@@ -68,7 +68,7 @@ class LoginForm extends Component{
 
             this.props.history.push('/')
             this.logInUser(true);
-            this.updateUser("customer");
+            this.updateUser("seller");
           }
           else this.OpenPopUp();
         })
@@ -107,7 +107,7 @@ class LoginForm extends Component{
       <Message hidden={!this.state.loggingIn} icon size='mini'>
         <Icon name='circle notched' loading />
         <Message.Content>
-          Logging In
+          Logging In As Seller
         </Message.Content>
       </Message>
       </div>
@@ -117,7 +117,7 @@ class LoginForm extends Component{
     return(
       <center>
         <Paper style={style} zDepth={2} onKeyPress={this.handleKeyChange} onSubmit={this.handleFormSubmit}>
-        <h2>LOGIN</h2>
+        <h2>LOGIN As a Seller</h2>
         <MessageBar/>
         <TextField name="email" autoFocus
           floatingLabelText="Email"
@@ -154,4 +154,4 @@ const mapDispatchToProps = {
   changeAccountType: updateUser
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginSellerForm);
