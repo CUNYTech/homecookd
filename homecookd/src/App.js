@@ -6,12 +6,10 @@ import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-
-
-
+import Drawer from 'material-ui/Drawer';
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
-import Drawer from './Scenes/Home/LoggedInMenu';
+
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
@@ -47,6 +45,7 @@ class App extends Component {
 
     this.logInUser(localStorage.getItem('api_token')!== null)
   }
+
 
   handleChange = (event, logged) => {
     this.setState({logged: logged});
@@ -97,4 +96,4 @@ const mapDispatchToProps = {
   logInUser: changeLogged
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
