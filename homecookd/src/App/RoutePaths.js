@@ -37,7 +37,7 @@ const RoutePaths= () => (
     <Route path = '/Admin/Login' component = {AdminLogin}/>
     <Route path = '/Admin/AdminPanel' component = {AdminPanel}/>
 
-    <Route  component={Error404} /> {/* 404 Route*/}
+    <Route component={Error404} /> {/* 404 Route*/}
 
     </Switch>
     </div>

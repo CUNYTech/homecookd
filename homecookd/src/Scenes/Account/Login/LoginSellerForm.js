@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { changeLogged } from '../../../actions/account-actions';
-import { updateUser } from '../../../actions/user-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -142,16 +141,8 @@ class LoginSellerForm extends Component{
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    logged: state.logged,
-    accountType: state.accountType
-  };
-};
-
 const mapDispatchToProps = {
-  logInUser: changeLogged,
-  changeAccountType: updateUser
+  logInUser: changeLogged
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginSellerForm);
+export default connect(null, mapDispatchToProps)(LoginSellerForm);
