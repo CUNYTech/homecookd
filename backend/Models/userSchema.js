@@ -7,6 +7,10 @@ var userSchema = new Schema({
         first: String,
         last: String
     },
+    admin: {
+      type:Boolean,
+      default: false
+    },
     password_hash: String,
     email: String,
     userName: String,

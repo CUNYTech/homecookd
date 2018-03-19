@@ -71,7 +71,7 @@ exports.sellerInfo = (req, res) =>{
             }
         });
     }
-} 
+}
 
 
 exports.getLoginUser = (req, res) => {
@@ -219,7 +219,7 @@ exports.registerSeller = (req, res) => {
                             tempSeller.name = req.body.name;
                             tempSeller.email = req.body.email;
                             tempSeller.userName = req.body.userName;
-                            tempSeller.business_name = "undefined";
+                            tempSeller.business_name = req.body.businessName;
                             tempSeller.profile_img = "undefined";
                             tempSeller.location.lat = -1;
                             tempSeller.location.long = -1;
@@ -233,7 +233,7 @@ exports.registerSeller = (req, res) => {
                                         res.status(500).send(err);
                                     }
                                   res.status(201);
-                                  res.json( {message: "Sucesfully registered", user_type: "Seller" ,api_token: tempUser.api_token} );
+                                  res.json( {message: "Sucesfully registered", user_type: "Seller" ,api_token: tempSeller.api_token} );
                                 });
                             });
                         }else{
