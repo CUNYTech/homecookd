@@ -16,11 +16,3 @@ let store = createStore(persistedReducer, {}, composeEnchancers())
 let persistor = persistStore(store)
 
 export { store, persistor};
-
-// const store = createStore(
-//     allReducers,
-//     {
-//         logged: false
-//     },
-//     __ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// );
