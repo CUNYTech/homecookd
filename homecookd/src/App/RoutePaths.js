@@ -6,6 +6,7 @@ import HomePage from '../Scenes/Home/HomePage';
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
+import SellerPage from '../Scenes/SellerAccount/SellerPage';
 import Error404 from '../Scenes/Error404';
 import {Router, Route,Switch,Redirect} from 'react-router-dom';
 
@@ -18,6 +19,7 @@ const RoutePaths= () => (
     <Route path = '/Register' component = {RegisterForm} />
     <Route path = '/AboutUs' component = {AboutUs} />
     <Route path = '/MyAccount' component = {AccountPage}/>
+    <Route path = '/SellerAccount' component = {SellerPage}/>
     <Route  component={Error404} /> {/* 404 Route*/}
 
     </Switch>
