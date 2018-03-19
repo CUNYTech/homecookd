@@ -3,7 +3,10 @@ import history from '../Utils/history';
 
 import AboutUs from '../Scenes/AboutUs/AboutUs';
 import HomePage from '../Scenes/Home/HomePage';
+import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
+import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
+import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
@@ -24,6 +27,7 @@ const RoutePaths= () => (
     <Switch>
     <Route exact path = "/" component = {HomePage} />
     <Route path = '/Login' component = {LoginForm}/>
+    <Route path = '/Menu' component = {GridListExampleSimple}/>
     <Route path = '/Register' component = {RegisterForm} />
     <Route path = '/RegisterSeller' component = {RegisterSeller} />
     <Route path = '/LoginSeller' component = {LoginSellerForm}/>
