@@ -36,6 +36,7 @@ export {registerCustomer};
 
     export {loginSeller};
       function loginSeller(email,password){
+
         return axios.post(baseUrl + "/api/auth/login/seller", {
           email: email,
           password: password

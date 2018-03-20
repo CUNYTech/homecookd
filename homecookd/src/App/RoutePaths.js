@@ -25,11 +25,11 @@ const RoutePaths= () => (
     <div>
     <Switch>
     <Route exact path = "/" component = {HomePage} />
-    <Route path = '/Login' component = {LoginForm}/>
-    <Route path = '/Menu' component = {GridListExampleSimple}/>
-    <Route path = '/Register' component = {RegisterForm} />
-    <Route path = '/RegisterSeller' component = {RegisterSeller} />
-    <Route path = '/LoginSeller' component = {LoginSellerForm}/>
+
+    <Route path = '/auth/Login' component = {LoginForm}/>
+    <Route path = '/auth/Register' component = {RegisterForm} />
+    <Route path = '/auth/RegisterSeller' component = {RegisterSeller} />
+    <Route path = '/auth/LoginSeller' component = {LoginSellerForm}/>
     <Route path = '/AboutUs' component = {AboutUs} />
     <Route path = '/MyAccount' component = {AccountPage}/>
     <Route path = '/Store' component = {StorePage}/>
