@@ -46,9 +46,7 @@ class Billing extends Component {
         <Form.Group widths='equal'>
           <Form.Input fluid label='Address' placeholder='Street Address' />
           <Form.Input fluid label='Apt #' placeholder='Apt #' />
-          <Form.Input fluid label='City' placeholder='City' />
           <Form.Select fluid label='State' options={States} placeholder='State' />
-          <Form.Input fluid label='Zip Code' placeholder='Zip Code' />
         </Form.Group>
 
         <Form.Checkbox label='I agree to the Terms and Conditions' />

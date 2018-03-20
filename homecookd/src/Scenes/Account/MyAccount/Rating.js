@@ -5,4 +5,4 @@ const RatingHeart = () => (
   <Rating icon='heart' defaultRating={1} maxRating={5} size='massive'/>
 )
 
-export default RatingHeart;
+export default RatingHeart
