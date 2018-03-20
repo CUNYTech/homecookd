@@ -10,6 +10,8 @@ import TabSample from '../MyAccount/Tabs';
 
 
 
+import Billing from '../MyAccount/BillingForm';
+
 
 class AccountPage extends Component{
   constructor(props) {
