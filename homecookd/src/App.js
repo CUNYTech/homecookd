@@ -11,9 +11,10 @@ import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import './App.css';
+
+
 
 class Login extends Component {
   static muiName = 'FlatButton';
@@ -21,9 +22,9 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <FlatButton {...this.props} href="/login" label="Login" />
-        <FlatButton {...this.props} href="/register" label="Register" />
-        <FlatButton {...this.props} href="/registerseller" label="Register as Seller" />
+
+        <FlatButton {...this.props} href="/auth/login" label="Login" />
+        <FlatButton {...this.props} href="/auth/register" label="Register" />
       </div>
 
     );
@@ -75,8 +76,9 @@ class App extends Component {
             <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
             <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/login/seller">Login As a Seller</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/registerSeller">Register As a Seller</MenuItem>
+
+            <MenuItem onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Register As a Seller</MenuItem>
 
 
           </Drawer>
