@@ -3,15 +3,14 @@ import React, { Component } from 'react';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
-
 import { Grid, Image, Icon} from 'semantic-ui-react';
 
-import TabSample from '../MyAccount/Tabs';
+import TabSamples from '../SellerAccount/Tabs';
+import RatingHeart from '../SellerAccount/Ratings';
+import StatisticViews from '../SellerAccount/Views';
 
 
-
-
-class AccountPage extends Component{
+class SellerPage extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -71,12 +70,17 @@ return(
     <Paper style={style}>
     <GridExampleDividedNumber/>
     </Paper>
+    <StatisticViews />
+
+    <h2>Your Rating Is:</h2>
+    <RatingHeart />
 
 
-  <TabSample />
+
+  <TabSamples />
 </div>
 
     )
   }
 }
-export default AccountPage;
+export default SellerPage;
