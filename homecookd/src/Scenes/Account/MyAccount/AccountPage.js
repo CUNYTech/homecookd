@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
-import { Grid, Icon} from 'semantic-ui-react';
 
-import Billing from '../MyAccount/BillingForm';
+import { Grid, Image, Icon} from 'semantic-ui-react';
+
+import TabSample from '../MyAccount/Tabs';
+
+
 
 
 class AccountPage extends Component{
@@ -55,7 +58,6 @@ class AccountPage extends Component{
   </Grid>
 )
     const style = {
-
       flex: 1,
       margin: 20,
       padding: 40,
@@ -65,16 +67,14 @@ class AccountPage extends Component{
 
     }
 return(
-
   <div>
     <Paper style={style}>
     <GridExampleDividedNumber/>
     </Paper>
 
-<center><h2>Shipping Information</h2></center>
-  <Billing />
-</div>
 
+  <TabSample />
+</div>
 
     )
   }
