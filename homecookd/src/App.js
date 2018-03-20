@@ -8,13 +8,9 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
-<<<<<<< HEAD
 import Drawer from 'material-ui/Drawer'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-=======
 
-
->>>>>>> e9e1314b2319b0787f1e9d7dc7c37c20eb725255
 
 import './App.css';
 
