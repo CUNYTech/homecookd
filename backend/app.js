@@ -76,9 +76,11 @@ app.use(bodyParser.json());
 // ROUTES FOR API
 // ===============================================
 var apiRouter = require('./Routes/api');
+var sudoApi = require('./Routes/sudoApi');
 // REGISTER ROUTES --------------------------
 // All api routes will be prefixed with /api
 app.use('/api', apiRouter);
+app.use('/sudoApi', sudoApi);
 
 app.listen(port);
 

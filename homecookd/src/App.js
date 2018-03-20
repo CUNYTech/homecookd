@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
-
-import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { changeLogged } from './actions/account-actions';
+import { changeLogged, changeAccountType } from './actions/account-actions';
 
 import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
+import Drawer from 'material-ui/Drawer';
 import RoutePaths from './App/RoutePaths'
-
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 
@@ -27,14 +21,14 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <FlatButton {...this.props} href="/login" label="Login" />
-        <FlatButton {...this.props} href="/register" label="Register" />
+
+        <FlatButton {...this.props} href="/auth/login" label="Login" />
+        <FlatButton {...this.props} href="/auth/register" label="Register" />
       </div>
 
     );
   }
 }
-
 
 class App extends Component {
 
@@ -52,6 +46,7 @@ class App extends Component {
     this.logInUser(localStorage.getItem('api_token')!== null)
   }
 
+
   handleChange = (event, logged) => {
     this.setState({logged: logged});
   }
@@ -61,7 +56,6 @@ class App extends Component {
 
     return (
       <MuiThemeProvider>
-
 
       <AppBar
           title="HomeCookd"
@@ -79,15 +73,16 @@ class App extends Component {
             <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>
             <MenuItem onClick={this.handleClose}>Location</MenuItem>
             <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/AboutUs" >About Us</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
+
+            <MenuItem onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Register As a Seller</MenuItem>
 
 
           </Drawer>
         <RoutePaths/>
-              
         </MuiThemeProvider>
-
 
     );
   }
@@ -95,13 +90,12 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    logged: state.logged
+    logged: state.logged,
+    accountType: state.accountType
   };
 };
-
 const mapDispatchToProps = {
   logInUser: changeLogged
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
-
+export default connect(mapStateToProps, mapDispatchToProps)(App);

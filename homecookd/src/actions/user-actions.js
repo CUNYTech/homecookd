@@ -1,11 +1,10 @@
-export const UPDATE_USER = 'users: updateUser';
+import { ACCOUNT_TYPE } from './actionTypes'
 
-export function updateUser(newUser){
+export function updateAccountType(type){
     return {
-        type: UPDATE_USER,
+        type: ACCOUNT_TYPE,
         payload: {
-            user: newUser
+            accountType: type
         }
     };
 }
-
