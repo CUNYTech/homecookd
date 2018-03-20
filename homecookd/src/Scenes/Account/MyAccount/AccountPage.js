@@ -11,6 +11,8 @@ import RatingHeart from '../MyAccount/Rating';
 import StatisticViews from '../MyAccount/Views';
 
 
+import Billing from '../MyAccount/BillingForm';
+
 
 class AccountPage extends Component{
   constructor(props) {
