@@ -11,6 +11,7 @@ import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 
 
+
 import './App.css';
 
 
@@ -83,7 +84,6 @@ class App extends Component {
           </Drawer>
         <RoutePaths/>
         </MuiThemeProvider>
-
     );
   }
 }
