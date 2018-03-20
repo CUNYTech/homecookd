@@ -11,7 +11,7 @@ import RegisterForm from '../Scenes/Account/Register/RegisterForm';
 
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
-
+import SellerAccount from '../Scenes/Seller/SellerAccount/SellerAccount';
 // ADMIN Imports
 
 import AdminLogin from '../Scenes/Admin/AdminLogin';
@@ -33,7 +33,7 @@ const RoutePaths= () => (
     <Route path = '/AboutUs' component = {AboutUs} />
     <Route path = '/MyAccount' component = {AccountPage}/>
     <Route path = '/Store' component = {StorePage}/>
-
+    <Route path = '/MySellerAccount' component = {SellerAccount}/>
 
 
 
