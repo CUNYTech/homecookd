@@ -24,19 +24,19 @@ router.get('/auth/login/seller', auth.getLoginSeller);
 router.post('/auth/login/seller', auth.loginSeller);
 
 // Register Users(customer and seller) Route
-router.post('/auth/register/user', auth.registerUser);
-router.post('/auth/register/seller', auth.registerSeller);
+router.post('/auth/register/user', auth.validateRegistration, auth.registerUser);
+router.post('/auth/register/seller', auth.validateRegistration, auth.registerSeller);
 
 
 // user information
-router.post('/auth/userInfo', auth.userInfo);
+router.post('/auth/information/user', auth.checkAuth, auth.userInfo);
 // seller information
-router.post('/auth/sellerInfo', auth.sellerInfo);
+router.post('/auth/information/seller', auth.checkAuth, auth.sellerInfo);
 
 // router.use(auth.checkAuth); // Routes that require and api_token after this
 
 // try - delete later
-router.post('/sellerModification/foodItemCreate', sellerModification.foodItemCreate);
+router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
 
 // 404 paths
 router.use(apiHome.invalidPath);
