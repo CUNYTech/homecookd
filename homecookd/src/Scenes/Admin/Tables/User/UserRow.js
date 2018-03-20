@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 class UserRow extends Component{
   constructor(props) {

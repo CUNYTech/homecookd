@@ -3,7 +3,6 @@ import history from '../Utils/history';
 
 import AboutUs from '../Scenes/AboutUs/AboutUs';
 import HomePage from '../Scenes/Home/HomePage';
-import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
@@ -38,7 +37,7 @@ const RoutePaths= () => (
 
 
 
-    // ADMIN RoutePaths
+    {/* ADMIN RoutePaths */}
     <Route path = '/Admin/Login' component = {AdminLogin}/>
     <Route path = '/Admin/AdminPanel' component = {AdminPanel}/>
 
