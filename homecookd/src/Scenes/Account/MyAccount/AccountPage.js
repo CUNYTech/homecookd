@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
+
 import { Grid, Image, Icon} from 'semantic-ui-react';
 
 import TabSample from '../MyAccount/Tabs';
