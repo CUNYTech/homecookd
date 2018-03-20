@@ -7,10 +7,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
-
-
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
+
 
 
 import './App.css';
@@ -23,6 +22,7 @@ class Login extends Component {
   render() {
     return (
       <div>
+
         <FlatButton {...this.props} href="/auth/login" label="Login" />
         <FlatButton {...this.props} href="/auth/register" label="Register" />
       </div>
@@ -30,8 +30,6 @@ class Login extends Component {
     );
   }
 }
-
-
 
 class App extends Component {
 
@@ -76,8 +74,9 @@ class App extends Component {
             <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>
             <MenuItem onClick={this.handleClose}>Location</MenuItem>
             <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/AboutUs" >About Us</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
+
             <MenuItem onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>
             <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Register As a Seller</MenuItem>
 
@@ -85,7 +84,6 @@ class App extends Component {
           </Drawer>
         <RoutePaths/>
         </MuiThemeProvider>
-
     );
   }
 }
