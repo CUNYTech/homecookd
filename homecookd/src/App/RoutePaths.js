@@ -13,7 +13,7 @@ import SellerProfileEdit from '../Scenes/Seller/SellerAccount/SellerProfileEdit'
 
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
-
+import SellerAccount from '../Scenes/Seller/SellerAccount/SellerAccount';
 // ADMIN Imports
 
 import AdminLogin from '../Scenes/Admin/AdminLogin';
@@ -36,6 +36,7 @@ const RoutePaths= () => (
     <Route path = '/Menu' component = {Menu} />
     <Route path = '/MyAccount' component = {AccountPage}/>
     <Route path = '/Store' component = {StorePage}/>
+<<<<<<< 126f283de3365d0ed6d61897f7033ea29ee61625
 <<<<<<< 44152492a5a2e7bfe1acd59195603c9f2c87a00e
     <Route path = '/SellerAccount' component = {SellerAccount}/>
     <Route path = '/SellerProfileEdit' component = {SellerProfileEdit}/>
@@ -43,6 +44,9 @@ const RoutePaths= () => (
 =======
 >>>>>>> Revert "Merge pull request #8 from CUNYTech/dev"
 
+=======
+    <Route path = '/MySellerAccount' component = {SellerAccount}/>
+>>>>>>> Revert "Revert "Merge pull request #8 from CUNYTech/dev""
 
 
 
