@@ -6,6 +6,7 @@
     "@material/drawer": "^0.30.0",
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
+    "grommet-cli": "^5.1.2",
     "jss": "^9.0.0",
     "material-auto-rotating-carousel": "^1.7.0",
     "material-ui": "^0.20.0",
