@@ -8,7 +8,7 @@ import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
-import Menu from '../Scenes/Account/Menu/Menu'
+
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
 import SellerAccount from '../Scenes/Seller/SellerAccount/SellerAccount';
@@ -25,7 +25,7 @@ const RoutePaths= () => (
     <div>
     <Switch>
     <Route exact path = "/" component = {HomePage} />
-    <Route path = '/Menu' component = {Menu}/>
+
     <Route path = '/auth/Login' component = {LoginForm}/>
     <Route path = '/auth/Register' component = {RegisterForm} />
     <Route path = '/auth/RegisterSeller' component = {RegisterSeller} />
