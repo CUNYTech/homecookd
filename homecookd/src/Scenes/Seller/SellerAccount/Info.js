@@ -7,14 +7,22 @@ const extra = (
     Now Open
   </a>
 )
-
+const edit = (
+  <a onClick={this.handleClose} href="/SellerProfileEdit">
+  <Icon name ='edit' />
+  Edit Profile
+  </a>
+)
 const Cards = () => (
   <Card
     image='https://react.semantic-ui.com/assets/images/avatar/large/elliot.jpg'
+    edit={edit}
     header='Restaurant Name'
     description='About the chef:'
-    extra={extra}
-  />
+    extra={edit}>
+  </Card>
+
+
 )
 
 export default Cards;
