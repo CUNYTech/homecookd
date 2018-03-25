@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import MenuItemBox from './MenuItems/MenuItemBox';
 class SellerAccount extends Component{
   constructor(props) {
     super(props);
@@ -8,11 +8,15 @@ class SellerAccount extends Component{
   }
 
   componentDidMount(){
-    
+
   }
   render(){
+    const style = {
+      margin:50
+    }
     return(
-      <div>
+      <div style={style}>
+      <MenuItemBox/>
       </div>
     )
   }

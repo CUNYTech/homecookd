@@ -33,7 +33,7 @@ const RoutePaths= () => (
     <Route path = '/AboutUs' component = {AboutUs} />
     <Route path = '/MyAccount' component = {AccountPage}/>
     <Route path = '/Store' component = {StorePage}/>
-    <Route path = '/MySellerAccount' component = {SellerAccount}/>
+    <Route path = '/MySellerPortal' component = {SellerAccount}/>
 
 
 

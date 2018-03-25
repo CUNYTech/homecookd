@@ -51,7 +51,8 @@ class RegisterSeller extends Component{
           if(api_token.length > 0) {
             localStorage.setItem('api_token',api_token);
 
-            this.props.history.push('/')
+            this.props.history.push('/auth/loginSeller')
+            alert("Thanks For signing up When your Account is approved you can login")
           }
           else this.OpenPopUp();
         })
@@ -106,9 +107,9 @@ class RegisterSeller extends Component{
             <TextField floatingLabelText="Last Name" name="lastName" type="text" value={this.state.lastName} onChange={this.handleFormChange} />
             <br/>
 
-            <TextField floatingLabelText="Business Name" name="businessName" type="text" value={this.state.business_name} onChange={this.handleFormChange} />
+            <TextField floatingLabelText="Business Name" name="businessName" type="text" value={this.state.businessName} onChange={this.handleFormChange} />
             <br/>
-            <TextField floatingLabelText="Email" name="email" type="test" value={this.state.email} onChange={this.handleFormChange} />
+            <TextField floatingLabelText="Email" name="email" type="text" value={this.state.email} onChange={this.handleFormChange} />
             <br/>
 
             <TextField floatingLabelText="Username" name="userName" type="text" value={this.state.userName} onChange={this.handleFormChange} />
