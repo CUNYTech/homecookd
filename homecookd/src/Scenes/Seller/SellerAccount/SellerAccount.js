@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import Card from '../SellerAccount/Info'
+import ButtonExampleSocial from '../SellerAccount/SocialMedia'
 
 class SellerAccount extends Component{
   constructor(props) {
@@ -16,11 +16,13 @@ class SellerAccount extends Component{
     return(
       <div>
       <header>
-        <center><h1>Welcome to:</h1></center>
+        <center><h1>Your Kitchen</h1></center>
       </header>
 
         <Card/>
 
+      <br/><br/><br/>
+      <ButtonExampleSocial/>
       </div>
     )
   }
