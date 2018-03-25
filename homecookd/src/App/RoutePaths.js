@@ -3,14 +3,17 @@ import history from '../Utils/history';
 
 import AboutUs from '../Scenes/AboutUs/AboutUs';
 import HomePage from '../Scenes/Home/HomePage';
+import Menu from '../Scenes/Menu/Menu';
 import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
+import SellerProfileEdit from '../Scenes/Seller/SellerAccount/SellerProfileEdit';
+
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
-
+import SellerAccount from '../Scenes/Seller/SellerAccount/SellerAccount';
 // ADMIN Imports
 
 import AdminLogin from '../Scenes/Admin/AdminLogin';
@@ -24,14 +27,20 @@ const RoutePaths= () => (
     <div>
     <Switch>
     <Route exact path = "/" component = {HomePage} />
-    <Route path = '/Login' component = {LoginForm}/>
-    <Route path = '/Menu' component = {GridListExampleSimple}/>
-    <Route path = '/Register' component = {RegisterForm} />
-    <Route path = '/RegisterSeller' component = {RegisterSeller} />
-    <Route path = '/LoginSeller' component = {LoginSellerForm}/>
+
+    <Route path = '/auth/Login' component = {LoginForm}/>
+    <Route path = '/auth/Register' component = {RegisterForm} />
+    <Route path = '/auth/RegisterSeller' component = {RegisterSeller} />
+    <Route path = '/auth/LoginSeller' component = {LoginSellerForm}/>
     <Route path = '/AboutUs' component = {AboutUs} />
+    <Route path = '/Menu' component = {Menu} />
     <Route path = '/MyAccount' component = {AccountPage}/>
     <Route path = '/Store' component = {StorePage}/>
+    <Route path = '/SellerAccount' component = {SellerAccount}/>
+    <Route path = '/SellerProfileEdit' component = {SellerProfileEdit}/>
+    
+
+
 
 
 
