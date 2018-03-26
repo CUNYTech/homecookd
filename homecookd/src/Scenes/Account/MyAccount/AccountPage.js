@@ -9,6 +9,8 @@ import { Grid, Image, Icon} from 'semantic-ui-react';
 import TabSample from '../MyAccount/Tabs';
 
 
+import Billing from '../MyAccount/BillingForm';
+
 
 import Billing from '../MyAccount/BillingForm';
 
