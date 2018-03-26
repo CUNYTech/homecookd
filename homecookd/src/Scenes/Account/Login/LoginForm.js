@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeLogged } from '../../../actions/account-actions';
-import { updateUser } from '../../../actions/user-actions';
+import { changeLogged, changeAccountType } from '../../../actions/account-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -28,7 +27,7 @@ class LoginForm extends Component{
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loginCustomer = loginCustomer.bind(this);
     this.logInUser = this.logInUser.bind(this);
-    this.updateUser = this.updateUser.bind(this);
+    this.updateAccountType = this.updateAccountType.bind(this);
     this.handleKeyChange = this.handleKeyChange.bind(this);
   }
 
@@ -36,8 +35,8 @@ class LoginForm extends Component{
     this.props.logInUser(data);
   }
 
-  updateUser(type) {
-    this.props.updateUser(type);
+  updateAccountType(type) {
+    this.props.updateAccountType(type);
   }
 
   handleKeyChange(event){
@@ -53,13 +52,12 @@ class LoginForm extends Component{
   }
 
   handleFormSubmit(e){
-      // alert("Logging in ");
-      this.setState({loggingIn:true,errorOccured:false})
-      const email = this.state.email;
+    // alert("Logging in ");
+    this.setState({loggingIn:true,errorOccured:false})
+    const email = this.state.email;
+    const password = this.state.password;
 
-      const password = this.state.password;
-
-      //call our axios promise, then retrieve the token from axios
+    //call our axios promise, then retrieve the token from axios
     this.loginCustomer(email,password)
         .then( response => {
           var api_token = response.data.api_token;
@@ -67,8 +65,8 @@ class LoginForm extends Component{
             localStorage.setItem('api_token',api_token);
 
             this.props.history.push('/')
+            this.updateAccountType("customer");
             this.logInUser(true);
-            this.updateUser("customer");
           }
           else this.OpenPopUp();
         })
@@ -142,16 +140,9 @@ class LoginForm extends Component{
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    logged: state.logged,
-    accountType: state.accountType
-  };
-};
-
 const mapDispatchToProps = {
   logInUser: changeLogged,
-  changeAccountType: updateUser
+  updateAccountType: changeAccountType
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default connect(null, mapDispatchToProps)(LoginForm);
