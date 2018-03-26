@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Checkbox, Form, Input, Radio, Select, TextArea } from 'semantic-ui-react'
 import ButtonExampleAnimated from '../SellerAccount/UploadButton'
+import OperationHours from '../SellerAccount/Time'
 
 
 class FormExampleFieldControl extends Component {
@@ -11,8 +12,15 @@ class FormExampleFieldControl extends Component {
   render() {
     const { value } = this.state
     return (
+
       <center><Form>
-      <br/><br/><br/><br/>
+      <br/>
+      <Form.Group inline widths='equal'>
+        <Form.Field control={Input} label='Restaurant Name' placeholder='' />
+      </Form.Group>
+
+      <br/><br/>
+
         <Form.Group widths='equal'>
         <Form.Field control={Input} label='Address Line 1' placeholder='Street Address, P.O. Box, Company Name' />
         <Form.Field control={Input} label='Address Line 2' placeholder='Apartment, Suite, Unit, Building, Floor, etc' />
@@ -47,6 +55,11 @@ class FormExampleFieldControl extends Component {
           </Form.Group>
 
           <Form.Group inline>
+          <OperationHours/>
+          </Form.Group>
+          <br/>
+
+          <Form.Group inline>
           <label>Which social media accounts do you have? (Its a great way to promote your dishes)</label>
           <Form.Field label='Facebook' control='input' type='checkbox' />
           <Form.Field label='Instagram' control='input' type='checkbox' />
@@ -61,9 +74,15 @@ class FormExampleFieldControl extends Component {
           </Form.Group>
 
 
-
+        <Form.Group inline>
         <Form.Field control={TextArea} label='Bio' placeholder='Tell us more about you...' />
+        </Form.Group>
+
+        <Form.Group inline>
         <Form.Field control={Button}>Submit</Form.Field>
+        </Form.Group>
+
+        <br/>
       </Form></center>
     )
   }
