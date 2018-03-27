@@ -38,7 +38,7 @@ exports.getFoodItemsBySellerID = (req, res) => {
 
 exports.getFoodItemsByAPItoken = (req, res) => {
   if(req.body.api_token == undefined ){
-    res.json({success: false, error: "Missing FoodId in Request Body"});
+    res.json({success: false, error: "Missing api_token in Request Body"});
   }else{
   Seller.findOne({api_token: req.body.api_token}, function(err,Seller){
     if(err || !Seller){
