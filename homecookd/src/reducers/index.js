@@ -3,7 +3,7 @@ import accountType from './accountTypeReducer';
 import accountReducer from './account-reducer';
 
 const allReducers = combineReducers({
-    accountType,
+    accountType: accountType,
     logged: accountReducer
 });
 

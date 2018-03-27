@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SellerRow from './SellerRow';
 
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 class SellerTable extends Component{
   constructor(props) {
@@ -15,7 +15,7 @@ class SellerTable extends Component{
 
   render(){
 
-    this
+    
     return(
       <div>
 

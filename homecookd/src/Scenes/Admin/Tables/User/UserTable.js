@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserRow from './UserRow';
 
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 class UserTable extends Component{
   constructor(props) {
@@ -15,7 +15,7 @@ class UserTable extends Component{
 
   render(){
 
-    this
+    
     return(
       <div>
       <Table celled>
