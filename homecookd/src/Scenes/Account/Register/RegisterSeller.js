@@ -58,7 +58,7 @@ class RegisterSeller extends Component{
         })
         .catch( error => {
           localStorage.removeItem('api_token');
-          if(error.response == undefined){
+          if(error.response === undefined){
             this.setState({loggingIn:false,errorOccured:true,errorMessage:'Couldnt Reach Server'});
           }else{
             this.setState({loggingIn:false,errorOccured:true,errorMessage:error.response.data.error});
