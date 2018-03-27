@@ -24,8 +24,8 @@ class SellerAccount extends Component{
 
       <br/><br/><br/>
       <ButtonExampleSocial/>
-      </div>
-    )
+
   }
+
 }
 export default SellerAccount;

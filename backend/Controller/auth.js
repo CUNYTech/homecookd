@@ -104,6 +104,7 @@ exports.getLoginSeller = (req, res) => {
 
 
 exports.loginSeller = (req, res) => {
+  console.log("logging in with " + req.body.email);
     if (req.body.email === undefined || req.body.password === undefined){
         res.status(400).json( {error: "Missing email or password in request"} );
     }else{
@@ -111,14 +112,14 @@ exports.loginSeller = (req, res) => {
         ,
         function (err, docs){
             if(!docs.length || err){
-                res.status(401).json( {error: "Could not find account"} );
+                res.status(401).json( {success: false,error: "Could not find account"} );
             }else if(docs[0].account_approved){
                 console.log("Comparing passwords");
                 bcrypt.compare(req.body.password, docs[0].password_hash, function(err, valid){
                     if (valid){
-                        res.status(201).json( {api_token: docs[0].api_token, user_type: "Seller"} );
+                        res.status(201).json( {success: true, message: "Successfuly Found Seller and logged in",data:{api_token: docs[0].api_token, user_type: "Seller"}} );
                     }else{
-                        res.status(401).json( {error: "Invalid password"} );
+                        res.status(401).json( {success:false, error: "Invalid password"} );
                     }
                 });
             }else{
