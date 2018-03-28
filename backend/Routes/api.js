@@ -8,7 +8,8 @@ const router = express.Router();
 const apiHome = require('../Controller/apiHome');
 const auth = require('../Controller/auth');
 const sellerModification = require('../Controller/sellerModification');
-
+const getFoodItems = require('../Controller/food/getFoodItems');
+// const seller = require('../Controller/seller/profile');
 
 // API
 // Base API Route
@@ -24,20 +25,27 @@ router.get('/auth/login/seller', auth.getLoginSeller);
 router.post('/auth/login/seller', auth.loginSeller);
 
 // Register Users(customer and seller) Route
-router.post('/auth/register/user', auth.registerUser);
-router.post('/auth/register/seller', auth.registerSeller);
+router.post('/auth/register/user', auth.validateRegistration, auth.registerUser);
+router.post('/auth/register/seller', auth.validateRegistration, auth.registerSeller);
 
 
 // user information
-router.post('/auth/userInfo', auth.userInfo);
+router.post('/auth/information/user', auth.checkAuth, auth.userInfo);
 // seller information
-router.post('/auth/sellerInfo', auth.sellerInfo);
+router.post('/auth/information/seller', auth.checkAuth, auth.sellerInfo);
 
 // router.use(auth.checkAuth); // Routes that require and api_token after this
 
 // try - delete later
-router.post('/sellerModification/foodItemCreate', sellerModification.foodItemCreate);
+router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
 
+// Get Food information
+router.get('/food/foodID/:FoodID', getFoodItems.getFoodItemByID); // Returns a Food object
+router.get('/food/sellerID/:SellerID', getFoodItems.getFoodItemsBySellerID); // Returns an array of Food Objects
+router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
+
+// Update Seller
+// router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
 // 404 paths
 router.use(apiHome.invalidPath);
 
