@@ -1,8 +1,9 @@
-import React from 'react'
-import { Card, Icon } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { Card, Icon, Accordion} from 'semantic-ui-react'
+import AccordionExampleStandard from './Accordion'
 
 const extra = (
-  <a>
+  <a handleClick={()=>{this.AccordionExampleStandard()}}>
     <Icon name='circle' />
     Now Open
   </a>
@@ -19,7 +20,7 @@ const Cards = () => (
     edit={edit}
     header='Restaurant Name'
     description='About the chef:'
-    extra={edit}>
+    extra={extra}>
   </Card>
 
 
