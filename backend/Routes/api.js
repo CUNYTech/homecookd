@@ -9,7 +9,7 @@ const apiHome = require('../Controller/apiHome');
 const auth = require('../Controller/auth');
 const sellerModification = require('../Controller/sellerModification');
 const getFoodItems = require('../Controller/food/getFoodItems');
-// const seller = require('../Controller/seller/profile');
+const seller = require('../Controller/seller/profile');
 
 // API
 // Base API Route
@@ -45,7 +45,7 @@ router.get('/food/sellerID/:SellerID', getFoodItems.getFoodItemsBySellerID); // 
 router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
 
 // Update Seller
-// router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
+router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
 // 404 paths
 router.use(apiHome.invalidPath);
 
