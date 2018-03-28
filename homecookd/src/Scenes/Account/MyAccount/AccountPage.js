@@ -7,8 +7,9 @@ import TextField from 'material-ui/TextField';
 import { Grid, Image, Icon} from 'semantic-ui-react';
 
 import TabSample from '../MyAccount/Tabs';
-import RatingHeart from '../MyAccount/Rating';
-import StatisticViews from '../MyAccount/Views';
+
+
+import Billing from '../MyAccount/BillingForm';
 
 
 import Billing from '../MyAccount/BillingForm';
@@ -74,9 +75,6 @@ return(
     <Paper style={style}>
     <GridExampleDividedNumber/>
     </Paper>
-
-    <StatisticViews/>
-    <RatingHeart />
 
 
   <TabSample />
