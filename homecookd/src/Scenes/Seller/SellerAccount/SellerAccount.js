@@ -19,13 +19,14 @@ class SellerAccount extends Component{
       <header>
         <center><h1>Welcome</h1></center>
       </header>
+      
 
         <SellerInfoCard/>
 
       <br/><br/><br/>
       <ButtonExampleSocial/>
       </div>
-    )
+    );
   }
 }
 export default SellerAccount;
