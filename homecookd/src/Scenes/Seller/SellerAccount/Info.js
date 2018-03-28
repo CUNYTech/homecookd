@@ -14,7 +14,7 @@ const edit = (
   Edit Profile
   </a>
 )
-const Cards = () => (
+const SellerInfoCard = () => (
   <Card
     image='https://react.semantic-ui.com/assets/images/avatar/large/elliot.jpg'
     edit={edit}
@@ -26,4 +26,4 @@ const Cards = () => (
 
 )
 
-export default Cards;
+export default SellerInfoCard;

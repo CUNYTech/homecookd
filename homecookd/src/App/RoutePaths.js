@@ -36,15 +36,13 @@ const RoutePaths= () => (
     <Route path = '/Menu' component = {Menu} />
     <Route path = '/MyAccount' component = {AccountPage}/>
     <Route path = '/Store' component = {StorePage}/>
-    <Route path = '/SellerAccount' component = {SellerAccount}/>
-    <Route path = '/SellerProfileEdit' component = {SellerProfileEdit}/>
-    
+
+
+    <Route path = '/MySellerPortal' component = {SellerAccount}/>
 
 
 
-
-
-    // ADMIN RoutePaths
+    {/* ADMIN RoutePaths */}
     <Route path = '/Admin/Login' component = {AdminLogin}/>
     <Route path = '/Admin/AdminPanel' component = {AdminPanel}/>
 
