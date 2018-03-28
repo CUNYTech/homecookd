@@ -1,17 +1,6 @@
 var FoodItem = require("../../Models/foodItemSchema");
 var Seller = require("../../Models/sellerSchema");
 
-/*
-    name: String, 1) If not there, name is missing 2) if the same, don't do anything 3) else update
-    images: [String], later
-    ingredients: [String],
-    allergens: [String],
-    seller_id: String, 
-    foodType: String,
-    description: String,
-    price: Number
-*/
-
 exports.updateFoodItem = (req, res) => {
     if(req.body.api_token == undefined || req.params.foodID == undefined){
       res.json({success: false, error: "Missing FoodId in Request Body"});
