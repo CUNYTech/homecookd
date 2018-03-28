@@ -3,24 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import allReducers from './reducers';
-
-const store = createStore(
-    allReducers,
-    {
-        logged: false,
-        accountType: ''
-    },
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+import { store, persistor } from './configureStore';
+import { PersistGate } from 'redux-persist/integration/react'
 
 ReactDOM.render(
+  <PersistGate persistor={persistor}>
     <Provider store={store}>
         <App />
-    </Provider>,
-    document.getElementById('root')
+    </Provider>
+  </PersistGate>,
+  document.getElementById('root')
 );
 registerServiceWorker();

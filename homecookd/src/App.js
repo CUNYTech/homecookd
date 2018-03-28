@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeLogged } from './actions/account-actions';
+import { changeLogged, changeAccountType } from './actions/account-actions';
 
 import AppBar from 'material-ui/AppBar';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -9,7 +9,6 @@ import FlatButton from 'material-ui/FlatButton';
 import Drawer from 'material-ui/Drawer';
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
-
 
 
 import './App.css';
@@ -84,6 +83,7 @@ class App extends Component {
           </Drawer>
         <RoutePaths/>
         </MuiThemeProvider>
+
     );
   }
 }

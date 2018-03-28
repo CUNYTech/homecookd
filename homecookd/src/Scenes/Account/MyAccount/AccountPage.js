@@ -3,16 +3,8 @@ import React, { Component } from 'react';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
-
-import { Grid, Image, Icon} from 'semantic-ui-react';
-
+import { Grid, Icon} from 'semantic-ui-react';
 import TabSample from '../MyAccount/Tabs';
-import RatingHeart from '../MyAccount/Rating';
-import StatisticViews from '../MyAccount/Views';
-
-
-import Billing from '../MyAccount/BillingForm';
-
 
 class AccountPage extends Component{
   constructor(props) {
@@ -74,9 +66,6 @@ return(
     <Paper style={style}>
     <GridExampleDividedNumber/>
     </Paper>
-
-    <StatisticViews/>
-    <RatingHeart />
 
 
   <TabSample />

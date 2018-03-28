@@ -1,10 +1,6 @@
-import React from 'react'
-import { Label, Menu, Tab } from 'semantic-ui-react'
-
+import React from 'react';
+import { Menu, Tab } from 'semantic-ui-react';
 import Billing from '../MyAccount/BillingForm';
-import Bio from '../MyAccount/PageInfo';
-import AccountPage from '../MyAccount/AccountPage';
-
 
 const panes = [
   {
@@ -18,10 +14,6 @@ const panes = [
   {
     menuItem: <Menu.Item key='Payment'>Payment Info</Menu.Item>,
     render: () => <Tab.Pane></Tab.Pane>,
-  },
-  {
-    menuItem: <Menu.Item key='Page Info'>Page Info</Menu.Item>,
-    render: () => <Tab.Pane> <Bio/> </Tab.Pane>,
   },
 ]
 

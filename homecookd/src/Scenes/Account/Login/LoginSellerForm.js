@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeLogged } from '../../../actions/account-actions';
-import { updateUser } from '../../../actions/user-actions';
+import { changeLogged, changeAccountType } from '../../../actions/account-actions';
 
 import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
@@ -28,7 +27,7 @@ class LoginSellerForm extends Component{
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loginSeller = loginSeller.bind(this);
     this.logInUser = this.logInUser.bind(this);
-    this.updateUser = this.updateUser.bind(this);
+    this.updateAccountType = this.updateAccountType.bind(this);
     this.handleKeyChange = this.handleKeyChange.bind(this);
   }
 
@@ -36,8 +35,8 @@ class LoginSellerForm extends Component{
     this.props.logInUser(data);
   }
 
-  updateUser(type) {
-    this.props.updateUser(type);
+  updateAccountType(type) {
+    this.props.updateAccountType(type);
   }
 
   handleKeyChange(event){
@@ -66,9 +65,9 @@ class LoginSellerForm extends Component{
           if(api_token.length > 0) {
             localStorage.setItem('api_token',api_token);
 
-            this.props.history.push('/')
+            this.props.history.push('/MySellerPortal');
+            this.updateAccountType("seller");
             this.logInUser(true);
-            this.updateUser("seller");
           }
           else this.OpenPopUp();
         })
@@ -131,10 +130,10 @@ class LoginSellerForm extends Component{
           type="password"
         />
         <br />
-        <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" type="submit" primary={true}  />
+        <RaisedButton onClick={this.handleFormSubmit} href="/" label="Login" type="submit" primary={true}  />
         <br/>
 
-        <Link to="/register">Make an Account</Link>
+        <Link to="/auth/registerSeller">Make an Account</Link>
         </Paper>
       </center>
 
@@ -142,16 +141,9 @@ class LoginSellerForm extends Component{
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    logged: state.logged,
-    accountType: state.accountType
-  };
-};
-
 const mapDispatchToProps = {
   logInUser: changeLogged,
-  changeAccountType: updateUser
+  updateAccountType: changeAccountType
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginSellerForm);
+export default connect(null, mapDispatchToProps)(LoginSellerForm);
