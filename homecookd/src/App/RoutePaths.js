@@ -8,18 +8,14 @@ import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
-<<<<<<< HEAD
-import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
-import StorePage from '../Scenes/Store/StorePage';
-import RegisterForm from '../Scenes/Account/Register/RegisterForm'
-=======
+
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
 import SellerProfileEdit from '../Scenes/Seller/SellerAccount/SellerProfileEdit';
 
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
 import SellerAccount from '../Scenes/Seller/SellerAccount/SellerAccount';
->>>>>>> 0a98195b50820912d8930694184f3b0874f9d78f
+
 // ADMIN Imports
 
 import AdminLogin from '../Scenes/Admin/AdminLogin';
