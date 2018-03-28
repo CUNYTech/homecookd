@@ -15,6 +15,18 @@ class FoodItemGrid extends Component{
     this.state = {
     };
   }
+
+  componentDidMount(){
+    getFoodItemsBySellerID('5aafebcf73ed440b48eb4b6a')
+      .then(response => {
+        const responseBody = response.data;
+        this.setState({foodItems: responseBody.data});
+      })
+      .catch(error => {
+        alert(error);
+      })
+  }
+  
   render(){
     const src = 'https://dishes.menu/assets/img/tmp/food_default.jpg';
     const style={margin:5}
