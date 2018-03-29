@@ -4,6 +4,7 @@ import SellerInfoCard from '../SellerAccount/Info'
 import ButtonExampleSocial from '../SellerAccount/SocialMedia'
 import SellerAccountMenu from '../SellerAccount/SellerAccountMenu'
 
+import MenuItemBox from './MenuItems/MenuItemBox';
 class SellerAccount extends Component{
   constructor(props) {
     super(props);
@@ -16,23 +17,20 @@ class SellerAccount extends Component{
   render(){
     return(
       <div>
-        <OrderList />
+        {/* <OrderList /> */}
       <header>
         <center><h1>Your Kitchen</h1></center>
       </header>
-      
 
-<<<<<<< HEAD
-      <div align= "center">
-      <SellerAccountMenu />
-      </div>
-=======
-        <SellerInfoCard/>
->>>>>>> 5ca969e6659ef9fa1847b8787fc98413a930d23d
+
+      <center>
+         <SellerInfoCard style={{backgroundColor:'red'}}/>
+</center>
+        <MenuItemBox style={{margin:50}}/>
 
         <Card/>
       <br/><br/><br/>
-      <ButtonExampleSocial/>
+    {/* <ButtonExampleSocial/>*/}
       </div>
     );
   }
