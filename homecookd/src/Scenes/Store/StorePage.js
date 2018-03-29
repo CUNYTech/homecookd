@@ -4,7 +4,7 @@ import FoodItemGrid from './FoodItemGrid';
 import SearchExampleStandard from './StoreSearchBar';
 import ButtonExampleLabeledIcon from './CheckOut';
 import RightAlign from './StoreSearchBar'
-
+import StoreInfo from './StoreInfo'
 
 const extra = (
   <a>
@@ -32,6 +32,7 @@ const Cards = () => (
 
 
 
+
 class StorePage extends Component{
   constructor(props) {
     super(props);
@@ -46,9 +47,9 @@ class StorePage extends Component{
       </header>
       <center><SearchExampleStandard/></center>
       <ButtonExampleLabeledIcon/>
-
       <FoodItemGrid />
         <Cards />
+
 
 
       </div>
