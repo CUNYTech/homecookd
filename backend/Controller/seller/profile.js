@@ -16,12 +16,12 @@ exports.updateFoodItem = (req, res) => {
             console.log(foodItem.seller_id,"  ",Seller._id);
             res.json({success:false, error: "You do not have permission to edit this item"})
           }else{
-            foodItem.name = req.body.name;
+            if(req.body.name !== undefined)foodItem.name = req.body.name;
+            if(req.body.description !== undefined)foodItem.description = req.body.description;
+            if(req.body.price !== undefined)FoodItem.price = req.body.price;
             foodItem.images = req.body.images; // needs to be taken care later
             foodItem.ingredients = req.body.ingredients;
             foodItem.allergens = req.body.allergens;
-            foodItem.description = req.body.description;
-            foodItem.price = req.body.price;
             foodItem.foodType = req.body.foodType;
             foodItem.save(function(err){
               if(err){
