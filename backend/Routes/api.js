@@ -38,6 +38,10 @@ router.post('/auth/information/seller', auth.checkAuth, auth.sellerInfo);
 // try - delete later
 router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
 
+// test -- 
+router.post('/modification/foodTypeCreate/seller', foodTypeModification.foodTypeCreate);
+
+
 // 404 paths
 router.use(apiHome.invalidPath);
 

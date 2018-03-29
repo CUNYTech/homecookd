@@ -51,6 +51,3 @@ function sellerUpdateFoodItemId(seller_id, tempFoodItem_id , res)
         }
     );
 }
-
-
-
