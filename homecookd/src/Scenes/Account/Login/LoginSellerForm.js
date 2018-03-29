@@ -65,7 +65,7 @@ class LoginSellerForm extends Component{
           if(api_token.length > 0) {
             localStorage.setItem('api_token',api_token);
 
-            this.props.history.push('/');
+            this.props.history.push('/MySellerPortal');
             this.updateAccountType("seller");
             this.logInUser(true);
           }
@@ -130,10 +130,10 @@ class LoginSellerForm extends Component{
           type="password"
         />
         <br />
-        <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" type="submit" primary={true}  />
+        <RaisedButton onClick={this.handleFormSubmit} href="/" label="Login" type="submit" primary={true}  />
         <br/>
 
-        <Link to="/register">Make an Account</Link>
+        <Link to="/auth/registerSeller">Make an Account</Link>
         </Paper>
       </center>
 
