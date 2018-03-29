@@ -8,7 +8,8 @@ const router = express.Router();
 const apiHome = require('../Controller/apiHome');
 const auth = require('../Controller/auth');
 const sellerModification = require('../Controller/sellerModification');
-
+const getFoodItems = require('../Controller/food/getFoodItems');
+const seller = require('../Controller/seller/profile');
 
 // API
 // Base API Route
@@ -38,10 +39,20 @@ router.post('/auth/information/seller', auth.checkAuth, auth.sellerInfo);
 // try - delete later
 router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
 
+<<<<<<< HEAD
 // test -- 
 router.post('/modification/foodTypeCreate/seller', foodTypeModification.foodTypeCreate);
 
 
+=======
+// Get Food information
+router.get('/food/foodID/:FoodID', getFoodItems.getFoodItemByID); // Returns a Food object
+router.get('/food/sellerID/:SellerID', getFoodItems.getFoodItemsBySellerID); // Returns an array of Food Objects
+router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
+
+// Update Seller
+router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
+>>>>>>> 9819496336d67f3e25e9b4ee0c267f0e38c1e60b
 // 404 paths
 router.use(apiHome.invalidPath);
 
