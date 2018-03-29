@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import OrderList from './OrderList';
 import SellerInfoCard from '../SellerAccount/Info'
 import ButtonExampleSocial from '../SellerAccount/SocialMedia'
+import SellerAccountMenu from '../SellerAccount/SellerAccountMenu'
 
 import MenuItemBox from './MenuItems/MenuItemBox';
 class SellerAccount extends Component{
@@ -21,11 +22,13 @@ class SellerAccount extends Component{
         <center><h1>Your Kitchen</h1></center>
       </header>
 
+
       <center>
          <SellerInfoCard style={{backgroundColor:'red'}}/>
 </center>
         <MenuItemBox style={{margin:50}}/>
 
+        <Card/>
       <br/><br/><br/>
     {/* <ButtonExampleSocial/>*/}
       </div>
