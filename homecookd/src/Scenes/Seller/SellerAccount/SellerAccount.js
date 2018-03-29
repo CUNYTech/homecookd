@@ -3,6 +3,7 @@ import OrderList from './OrderList';
 import SellerInfoCard from '../SellerAccount/Info'
 import ButtonExampleSocial from '../SellerAccount/SocialMedia'
 
+import MenuItemBox from './MenuItems/MenuItemBox';
 class SellerAccount extends Component{
   constructor(props) {
     super(props);
@@ -15,16 +16,18 @@ class SellerAccount extends Component{
   render(){
     return(
       <div>
-        <OrderList />
+        {/* <OrderList /> */}
       <header>
         <center><h1>Your Kitchen</h1></center>
       </header>
-      
 
-        <SellerInfoCard/>
+      <center>
+         <SellerInfoCard style={{backgroundColor:'red'}}/>
+</center>
+        <MenuItemBox style={{margin:50}}/>
 
       <br/><br/><br/>
-      <ButtonExampleSocial/>
+    {/* <ButtonExampleSocial/>*/}
       </div>
     );
   }
