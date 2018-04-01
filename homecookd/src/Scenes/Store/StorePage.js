@@ -1,7 +1,38 @@
 import React, { Component } from 'react';
-import StoreInfo from './StoreInfo';
-import ProfileImage from './ProfileImage';
+import { Card, Icon } from 'semantic-ui-react'
 import FoodItemGrid from './FoodItemGrid';
+import SearchExampleStandard from './StoreSearchBar';
+import ButtonExampleLabeledIcon from './CheckOut';
+import RightAlign from './StoreSearchBar'
+import StoreInfo from './StoreInfo'
+
+const extra = (
+  <a>
+    <Icon name='circle' />
+    Now Open
+  </a>
+)
+const edit = (
+  <a onClick={this.handleClose} href="/SellerProfileEdit">
+  <Icon name ='edit' />
+  Edit Profile
+  </a>
+)
+const Cards = () => (
+  <Card
+    image='https://react.semantic-ui.com/assets/images/avatar/large/elliot.jpg'
+    edit={edit}
+    header='Restaurant Name'
+    description='About the chef:'
+    extra={extra}>
+  </Card>
+
+
+)
+
+
+
+
 class StorePage extends Component{
   constructor(props) {
     super(props);
@@ -9,21 +40,17 @@ class StorePage extends Component{
     };
   }
   render(){
-    const style ={
-      margin: 50
-    }
-    const FoodItemGridStyle = {
-      width:500
-    }
     return(
-      <div style = {style}>
       <div>
-      <ProfileImage source="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"/>
-      <StoreInfo/>
-      <div style={FoodItemGridStyle}>
-      <FoodItemGrid/>
-      </div>
-      </div>
+      <header>
+        <center><h1>Place An Order</h1></center>
+      </header>
+      <center><SearchExampleStandard/></center>
+      <ButtonExampleLabeledIcon/>
+      <FoodItemGrid />
+        <Cards />
+
+
 
       </div>
     )
