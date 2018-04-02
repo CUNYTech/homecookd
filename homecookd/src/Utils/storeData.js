@@ -10,6 +10,7 @@ export{getFoodItem}
 
 export{getFoodItemsBySellerID}
   function getFoodItemsBySellerID(seller_id){
+    console.log(baseUrl + "/api/food/sellerID/" + seller_id)
     return axios.get(baseUrl + "/api/food/sellerID/" + seller_id)
   }
 
@@ -19,3 +20,24 @@ export{getFoodItemsByAPItoken}
       api_token : api_token
     })
   }
+
+
+  export{updateFoodItem}
+    function updateFoodItem(api_token, foodID, foodItem){
+      return axios.post(baseUrl + '/api/seller/foodUpdate/' + foodID , {
+        api_token : api_token,
+        name: foodItem.itemName,
+        price: foodItem.price,
+        description : foodItem.description
+      })
+    }
+
+    export{newFoodItem}
+    function newFoodItem(api_token, foodItem){
+      return axios.post(baseUrl + '/api/seller/foodItemCreate', {
+        seller_api_token : api_token,
+        name: foodItem.itemName,
+        price: foodItem.price,
+        description : foodItem.description
+      })
+    }
