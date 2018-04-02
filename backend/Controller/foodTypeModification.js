@@ -39,8 +39,6 @@ function sellerUpdateFoodTypeId(seller_id, tempFoodType_id , res)
                 res.status(201);
                 res.json({ message: "Sucesfully registered", _id: tempFoodType_id });
             }
-            //console.log('The number of updated documents was %d', numAffected);
-            //console.log('The raw response from Mongo was ', rawResponse);
         }
     );
 }
