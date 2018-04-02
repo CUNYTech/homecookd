@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Icon,Button} from 'semantic-ui-react';
+import FlatButton from 'material-ui/FlatButton';
 
 class FavoriteStar extends Component{
   constructor(props) {
