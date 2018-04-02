@@ -117,7 +117,8 @@ exports.loginSeller = (req, res) => {
                 console.log("Comparing passwords");
                 bcrypt.compare(req.body.password, docs[0].password_hash, function(err, valid){
                     if (valid){
-                        res.status(201).json( {success: true, message: "Successfuly Found Seller and logged in",data:{api_token: docs[0].api_token, user_type: "Seller"}} );
+                      console.log("Valid");
+                        res.json( {success: true, message: "Successfuly Found Seller and logged in",data:{api_token: docs[0].api_token, user_type: "Seller"}} );
                     }else{
                         res.status(401).json( {success:false, error: "Invalid password"} );
                     }
