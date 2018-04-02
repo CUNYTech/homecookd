@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import OrderList from './OrderList';
 import SellerInfoCard from '../SellerAccount/Info'
 import ButtonExampleSocial from '../SellerAccount/SocialMedia'
+import SellerAccountMenu from '../SellerAccount/SellerAccountMenu'
 
+import MenuItemBox from './MenuItems/MenuItemBox';
 class SellerAccount extends Component{
   constructor(props) {
     super(props);
@@ -15,16 +17,20 @@ class SellerAccount extends Component{
   render(){
     return(
       <div>
-        <OrderList />
+        {/* <OrderList /> */}
       <header>
         <center><h1>Welcome</h1></center>
       </header>
-      
 
-        <SellerInfoCard/>
 
+      <center>
+         <SellerInfoCard style={{backgroundColor:'red'}}/>
+</center>
+        <MenuItemBox style={{margin:50}}/>
+
+        <Card/>
       <br/><br/><br/>
-      <ButtonExampleSocial/>
+    {/* <ButtonExampleSocial/>*/}
       </div>
     );
   }

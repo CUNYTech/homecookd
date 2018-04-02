@@ -37,7 +37,7 @@ router.post('/auth/information/seller', auth.checkAuth, auth.sellerInfo);
 // router.use(auth.checkAuth); // Routes that require and api_token after this
 
 // try - delete later
-router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
+router.post('/seller/foodItemCreate', sellerModification.foodItemCreate);
 
 // Get Food information
 router.get('/food/foodID/:FoodID', getFoodItems.getFoodItemByID); // Returns a Food object
