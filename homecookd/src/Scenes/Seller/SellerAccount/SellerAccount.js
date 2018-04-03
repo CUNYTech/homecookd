@@ -3,6 +3,7 @@ import OrderList from './OrderList';
 import SellerInfoCard from '../SellerAccount/Info'
 import ButtonExampleSocial from '../SellerAccount/SocialMedia'
 import SellerAccountMenu from '../SellerAccount/SellerAccountMenu'
+import { Card } from 'semantic-ui-react'
 
 import MenuItemBox from './MenuItems/MenuItemBox';
 class SellerAccount extends Component{
