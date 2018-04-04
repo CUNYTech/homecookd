@@ -15,6 +15,7 @@ class MenuTable extends Component {
       margin: '16px 16px 0',
       padding: '20px',
       textAlign: 'left',
+      backgroundColor:'red',
     };
 
 

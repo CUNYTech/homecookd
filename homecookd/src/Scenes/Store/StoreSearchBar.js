@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { AutoComplete }   from 'material-ui';
 import getMuiTheme        from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider   from 'material-ui/styles/MuiThemeProvider';
-import JSONP              from 'jsonp';
+
 
 
 
@@ -31,7 +31,7 @@ class MaterialUIAutocomplete extends Component {
     }
   }
 
-  onUpdateInput(inputValue) {
+  /*onUpdateInput(inputValue) {
     const self = this;
     this.setState({
       inputValue: inputValue
@@ -63,7 +63,7 @@ class MaterialUIAutocomplete extends Component {
       });
     }
   }
-
+*/
 
   render() {
     return <MuiThemeProvider muiTheme={getMuiTheme()}>

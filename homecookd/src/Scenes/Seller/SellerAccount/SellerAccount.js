@@ -28,7 +28,6 @@ class SellerAccount extends Component{
 </center>
         <MenuItemBox style={{margin:50}}/>
 
-        <Card/>
       <br/><br/><br/>
     {/* <ButtonExampleSocial/>*/}
       </div>

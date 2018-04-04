@@ -2,56 +2,90 @@ import React,{Component} from 'react';
 import TextField from 'material-ui/TextField';
 import "./SellerProfileEdit.css"
 
-class ProfileEdit extends Component {
-  state = {}
+import { Table } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
+class ProfileEdit extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      Name : '',
+      Restaurant:'',
+      Email: '',
+      Address:'',
+      City:'',
+      State:'',
+      Zip:''
+
+    };
+
+  }
   handleChange = (e, { value }) => this.setState({ value })
+
+  HandleFormSubmission(){
+
+  }
 
   render() {
 
     return (
+    <div style={{padding: 150}}>
 
-      <div className = "Profile">
-        <h3>Your Account</h3>
-        <br/>
+  <Table>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>Name:</Table.Cell>
+        <Table.Cell><TextField name="Name" autoFocus
+          onChange={this.handleFormChange}
+        /></Table.Cell>
+      </Table.Row>
 
-        <p>Restaurant Name</p>
-        <TextField
+      <Table.Row>
+        <Table.Cell>Restaurant Name:</Table.Cell>
+        <Table.Cell><TextField name="Restaurant" autoFocus
+          onChange={this.handleFormChange}
+        /></Table.Cell>
+      </Table.Row>
 
-        /><br />
-        <br />
+      <Table.Row>
+        <Table.Cell>Email:</Table.Cell>
+        <Table.Cell><TextField name="Email" autoFocus
+          onChange={this.handleFormChange}
+        /></Table.Cell>
+      </Table.Row>
 
-        <p>Email</p>
-        <TextField
+      <Table.Row>
+        <Table.Cell>Address:</Table.Cell>
+        <Table.Cell><TextField name="Address" autoFocus
+          onChange={this.handleFormChange}
+        /></Table.Cell>
+      </Table.Row>
 
-        /><br />
+      <Table.Row>
+        <Table.Cell>City:</Table.Cell>
+        <Table.Cell><TextField name="City" autoFocus
+          onChange={this.handleFormChange}
+        /></Table.Cell>
+      </Table.Row>
 
-        <p>Password</p>
-        <TextField
-          type="password"
-        /><br />
+      <Table.Row>
+        <Table.Cell>State:</Table.Cell>
+        <Table.Cell><TextField name="State" autoFocus
+          onChange={this.handleFormChange}
+        /></Table.Cell>
+      </Table.Row>
 
-        <p>Address</p>
-        <TextField
+      <Table.Row>
+        <Table.Cell>Zip:</Table.Cell>
+        <Table.Cell><TextField name="Zip" autoFocus
+          onChange={this.handleFormChange}
+        /></Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table>
 
-        /><br />
-
-        <p>City</p>
-        <TextField
-
-        /><br />
-
-        <p>State</p>
-        <TextField
-
-        /><br />
-
-        <p>Zip Code</p>
-        <TextField
-
-        /><br />
-      </div>
-
+  <Button content='Submit'/>
+    </div>
     )
   }
 }
