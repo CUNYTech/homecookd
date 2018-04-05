@@ -11,7 +11,6 @@ import LoggedInMenu from './Scenes/Home/LoggedInMenu';
 import Drawer from 'material-ui/Drawer'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-
 import './App.css';
 
 
@@ -84,6 +83,7 @@ class App extends Component {
           </Drawer>
         <RoutePaths/>
         </MuiThemeProvider>
+
     );
   }
 }
