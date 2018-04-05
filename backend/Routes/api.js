@@ -8,7 +8,7 @@ const router = express.Router();
 const apiHome = require('../Controller/apiHome');
 const auth = require('../Controller/auth');
 const sellerModification = require('../Controller/sellerModification');
-
+const updateAccount = require('../Controller/updateAccount')
 
 // API
 // Base API Route
