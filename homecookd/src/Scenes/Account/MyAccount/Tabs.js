@@ -1,9 +1,7 @@
-import React from 'react'
-import { Label, Menu, Tab } from 'semantic-ui-react'
-
+import React from 'react';
+import { Menu, Tab } from 'semantic-ui-react';
 import Billing from '../MyAccount/BillingForm';
 import AccountPage from '../MyAccount/AccountPage';
-
 
 const panes = [
   {

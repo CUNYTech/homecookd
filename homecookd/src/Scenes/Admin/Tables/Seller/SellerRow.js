@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Icon, Label, Menu, Table,Button} from 'semantic-ui-react'
+import { Icon, Table, Button} from 'semantic-ui-react'
 import {approveSeller,rejectSeller} from '../../../../Utils/admin';
 class SellerRow extends Component{
   constructor(props) {
@@ -22,7 +22,7 @@ class SellerRow extends Component{
       .catch(error => {
         alert(error.response.data.error);
       })
-    e.preventDefault;
+    e.preventDefault();
   }
 
   handleRejectSeller(e){
@@ -35,7 +35,7 @@ class SellerRow extends Component{
       .catch(error => {
         alert(error.response.data.error);
       })
-    e.preventDefault;
+    e.preventDefault();
   }
   render(){
     const ActionButtons = () => (
