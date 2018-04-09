@@ -1,42 +1,34 @@
 import React, { Component } from 'react';
-import { Card, Icon } from 'semantic-ui-react'
 import FoodItemGrid from './FoodItemGrid';
 import ButtonExampleLabeledIcon from './CheckOut';
 import StoreInfo from './StoreInfo'
 
-const extra = (
-  <a>
-    <Icon name='circle' />
-    Now Open
-  </a>
-)
-const edit = (
-  <a onClick={this.handleClose} href="/SellerProfileEdit">
-  <Icon name ='edit' />
-  Edit Profile
-  </a>
-)
-const Cards = () => (
-  <Card
-    image='https://react.semantic-ui.com/assets/images/avatar/large/elliot.jpg'
-    edit={edit}
-    header='Restaurant Name'
-    description='About the chef:'
-    extra={extra}>
-  </Card>
+import StoreDescriptionCard from './StoreDescriptionCard';
 
-
-)
-
-
-
+import {getStoreInfoByID} from '../../Utils/storeData'
 
 class StorePage extends Component{
   constructor(props) {
     super(props);
     this.state = {
+      storeData: {
+        name: {
+          first : "",
+          last : ""
+        }
+      }
     };
   }
+  componentDidMount(){
+    getStoreInfoByID(this.props.match.params.sellerID)
+    .then(response => {
+      this.setState({storeData: response.data.data})
+    })
+    .catch(error => {
+      alert(JSON.stringify(error));
+    })
+  }
+
   render(){
     return(
       <div>
@@ -44,9 +36,9 @@ class StorePage extends Component{
         <center><h1>Place An Order With </h1></center>
       </header>
       <center>
-      <Cards />
+      <StoreDescriptionCard name={this.state.storeData.name} />
       </center>
-      <FoodItemGrid />
+      <FoodItemGrid sellerID={this.props.match.params.sellerID}/>
 
 
 
