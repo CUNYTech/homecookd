@@ -42,6 +42,7 @@ const RoutePaths= () => (
 
 
 
+
     {/* ADMIN RoutePaths */}
     <Route path = '/Admin/Login' component = {AdminLogin}/>
     <Route path = '/Admin/AdminPanel' component = {AdminPanel}/>
