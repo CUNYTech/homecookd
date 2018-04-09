@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Icon } from 'semantic-ui-react'
 import FoodItemGrid from './FoodItemGrid';
-import SearchExampleStandard from './StoreSearchBar';
 import ButtonExampleLabeledIcon from './CheckOut';
-import RightAlign from './StoreSearchBar'
 import StoreInfo from './StoreInfo'
 
 const extra = (
@@ -43,12 +41,12 @@ class StorePage extends Component{
     return(
       <div>
       <header>
-        <center><h1>Place An Order</h1></center>
+        <center><h1>Place An Order With </h1></center>
       </header>
-      <center><SearchExampleStandard/></center>
-      <ButtonExampleLabeledIcon/>
+      <center>
+      <Cards />
+      </center>
       <FoodItemGrid />
-        <Cards />
 
 
 

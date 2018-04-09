@@ -66,7 +66,6 @@ class LoginSellerForm extends Component{
           var api_token = response.data.data.api_token;
           if(api_token.length > 0) {
             localStorage.setItem('api_token',api_token);
-
             this.props.history.push('/MySellerPortal');
             this.updateAccountType("seller");
             this.logInUser(true);

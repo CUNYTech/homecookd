@@ -28,7 +28,7 @@ export {registerCustomer};
           first: firstName,
           last: lastName
         },
-        business_name : businessName
+        businessName : businessName
       })
       // .then(response => response.data.api_token)
       // .catch(error => error);
