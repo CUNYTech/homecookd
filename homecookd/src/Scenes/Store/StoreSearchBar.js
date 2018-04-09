@@ -68,7 +68,6 @@ class MaterialUIAutocomplete extends Component {
   render() {
     return <MuiThemeProvider muiTheme={getMuiTheme()}>
       <AutoComplete style = {CenterAlign}
-        hintText= "What are you in the mood for?"
         dataSource    = {this.state.dataSource}
         onUpdateInput = {this.onUpdateInput} />
       </MuiThemeProvider>
