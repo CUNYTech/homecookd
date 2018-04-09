@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import TextField from 'material-ui/TextField';
 import "./SellerProfileEdit.css"
+import {UpdateSellerInfo} from "../../../Utils/storeData"
 
 import { Table } from 'semantic-ui-react'
 import { Button } from 'semantic-ui-react'
@@ -9,7 +10,7 @@ class ProfileEdit extends Component {
   constructor(props){
     super(props)
     this.state = {
-      Name : '',
+      Name: '',
       Restaurant:'',
       Email: '',
       Address:'',
@@ -22,15 +23,33 @@ class ProfileEdit extends Component {
   }
   handleChange = (e, { value }) => this.setState({ value })
 
-  HandleFormSubmission(){
+  HandleFormSubmission(e){
+    const Name = this.state.Name;
+    const Restaurant = this.state.Restaurant;
+    const Email = this.state.Email;
+    const Address = this.state.Address;
+    const City = this.state.City;
+    const State = this.state.State;
+    const Zip = this.state.Zip;
 
+    const requestBody = {name: this.state.Name, restaurant: this.state.Restaurant, email: this.state.Email,
+    address: this.state.Address, city: this.state.City, state: this.state.State, zip: this.state.Zip}
+
+    UpdateSellerInfo(localStorage.getItem('api_token'),requestBody)
+    .then(response => {
+
+    })
+    .catch(error => {
+
+    })
+    e.preventDefault;
   }
 
   render() {
 
     return (
     <div style={{padding: 150}}>
-
+<center><h2>Edit Account Page</h2></center>
   <Table>
     <Table.Body>
       <Table.Row>
@@ -84,7 +103,7 @@ class ProfileEdit extends Component {
     </Table.Body>
   </Table>
 
-  <Button content='Submit'/>
+  <Button content='Submit' onClick = "HandleFormSubmission"/>
     </div>
     )
   }
