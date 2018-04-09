@@ -36,3 +36,17 @@ exports.updateFoodItem = (req, res) => {
     });
   }
 };
+
+exports.sellerInfoBySellerID = (req,res) => {
+  if(req.params.sellerID == undefined){
+    res.json({success: false, error: "Missing StoreID in Request Body"})
+  }else{
+    Seller.findById(req.params.sellerID,'-password_hash -email -api_token',function(err,Seller){
+      if(err || !Seller){
+        res.json({success:false,error: "Database Error or Could Not find Seller"})
+      }else{
+        res.json({success: true, data : Seller});
+      }
+    })
+  }
+}
