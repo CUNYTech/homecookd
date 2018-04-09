@@ -20,7 +20,10 @@ export{getFoodItemsByAPItoken}
       api_token : api_token
     })
   }
-
+export{getStoreInfoByID}
+  function getStoreInfoByID(storeID){
+    return axios.get(baseUrl + "/api/seller/sellerID/" + storeID)
+  }
 
   export{updateFoodItem}
     function updateFoodItem(api_token, foodID, foodItem){

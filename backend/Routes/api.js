@@ -10,7 +10,7 @@ const auth = require('../Controller/auth');
 const sellerModification = require('../Controller/sellerModification');
 const getFoodItems = require('../Controller/food/getFoodItems');
 const seller = require('../Controller/seller/profile');
-
+const updateAccount = require('../Controller/updateAccount');
 // API
 // Base API Route
 router.get('/', apiHome.getApi);
@@ -43,6 +43,11 @@ router.post('/seller/foodItemCreate', sellerModification.foodItemCreate);
 router.get('/food/foodID/:FoodID', getFoodItems.getFoodItemByID); // Returns a Food object
 router.get('/food/sellerID/:SellerID', getFoodItems.getFoodItemsBySellerID); // Returns an array of Food Objects
 router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
+router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
+router.post('/update/account/seller', updateAccount.updateSellerAccount);
+
+// Get Seller information
+router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
 
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
