@@ -7,6 +7,7 @@ const OperationHours = () => (
     <TimePicker
       hintText="Opening"
     />
+    
     <h4>To</h4>
     <TimePicker
       hintText="Closing"
