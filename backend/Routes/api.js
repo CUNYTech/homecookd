@@ -46,6 +46,9 @@ router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
 router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
+// Get Seller information
+router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
+
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
 // 404 paths
