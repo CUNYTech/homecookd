@@ -8,9 +8,15 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
+<<<<<<< HEAD
 
 import Drawer from 'material-ui/Drawer'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+=======
+import Drawer from 'material-ui/Drawer'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+
+>>>>>>> 5a813cd24106f1046e56e4e61f6afe819011d974
 import './App.css';
 
 
@@ -76,8 +82,8 @@ class App extends Component {
             <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
 
-            <MenuItem onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Register As a Seller</MenuItem>
+            {!this.props.logged && <MenuItem  onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>}
+            {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Register As a Seller</MenuItem>}
 
 
           </Drawer>

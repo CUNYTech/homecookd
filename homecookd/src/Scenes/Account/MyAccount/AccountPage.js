@@ -5,6 +5,7 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import { Grid, Icon} from 'semantic-ui-react';
 import TabSample from '../MyAccount/Tabs';
+import Billing from '../MyAccount/BillingForm';
 
 class AccountPage extends Component{
   constructor(props) {

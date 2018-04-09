@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import {Modal,Button,Image,Header, Input,Label, TextArea,Icon} from 'semantic-ui-react'
+import {Modal,Button,Image,Header, Input,Label, TextArea,Icon,Dropdown} from 'semantic-ui-react'
 import IconButton from 'material-ui/IconButton';
-import {updateFoodItem} from '../../../../Utils/storeData';
+import {newFoodItem} from '../../../../Utils/storeData';
 
-class MenuItemModal extends Component{
+class NewMenuItemModal extends Component{
   constructor(props) {
     super(props);
     this.state = {
       modalOpen: false,
-      itemName:this.props.food.name,
-      price: this.props.food.priceDollar,
-      description : this.props.food.description
+      itemName:'',
+      priceDollar:0,
+      description : ''
     };
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleSaveFoodItem = this.handleSaveFoodItem.bind(this);
@@ -34,13 +34,13 @@ handleSaveFoodItem(e){
     description : this.state.description
   }
 
-    updateFoodItem(localStorage.getItem('api_token'), this.props.food._id,foodItem)
+    newFoodItem(localStorage.getItem('api_token'),foodItem)
       .then(response => {
-          alert(response.data.message);
+          alert(JSON.stringify(response.data));
           window.location.reload();
       })
       .catch(error => {
-        alert(JSON.stringify(error.error.error));
+        alert(JSON.stringify(error));
       })
 
     e.preventDefault();
@@ -49,13 +49,13 @@ handleSaveFoodItem(e){
 
   render(){
     return(
-      <Modal trigger={<Button  tooltip="edit" floated="right" onClick={this.handleOpen}  closeOnEscape={this.handleClose}><Icon color='green' name="edit"/> </Button>} open={this.state.modalOpen}>
+      <Modal trigger={ <Dropdown item icon='plus' simple onClick={this.handleOpen}  closeOnEscape={this.handleClose}/>} open={this.state.modalOpen}>
    <Modal.Header>Edit {this.state.itemName}</Modal.Header>
    <Modal.Content image>
      <Image wrapped size='medium' src='https://image.freepik.com/free-icon/restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle_318-61086.jpg' />
      <Modal.Description>
        <Header><Input value={this.state.itemName} onChange={this.handleFormChange} name='itemName'  transparent placeholder='Name of this item' /></Header>
-       <Input style={{ width:500}} name='description' onChange={this.handleFormChange} value={this.state.description} transparent placeholder='Describe your item' />
+       <Input style={{ width:500}} transparent onChange={this.handleFormChange} name='description' placeholder='Describe your item' />
        <br/>
 
        <Input style={{paddingTop: 200,width:80,float:'right'}} onChange={this.handleFormChange} name="priceDollar" value={this.state.priceDollar} labelPosition='right' type='text' placeholder='Price'>
@@ -78,4 +78,4 @@ handleSaveFoodItem(e){
     )
   }
 }
-export default MenuItemModal;
+export default NewMenuItemModal;
