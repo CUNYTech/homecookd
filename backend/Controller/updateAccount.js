@@ -15,8 +15,9 @@ exports.updateSellerAccount = (req, res) => {
       res.status(401).json( {error: "Missing api_token in request"} );
   }
   Seller.findOne( {api_token: req.body.api_token}, function(err, seller){
-    console.log(req.body.api_token)
-    console.log(seller)
+//    console.log(req.body.api_token)
+//    console.log(seller)
+//    console.log(seller.password_hash)
     if (!seller  || err){
       res.status(401).json( {error: "Could not find seller with this api token"} );
     }else {
