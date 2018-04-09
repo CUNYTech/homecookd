@@ -76,8 +76,8 @@ class App extends Component {
             <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
             <MenuItem onClick={this.handleClose}>Help</MenuItem>
 
-            <MenuItem onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Register As a Seller</MenuItem>
+            {!this.props.logged && <MenuItem  onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>}
+            {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Register As a Seller</MenuItem>}
 
 
           </Drawer>
