@@ -10,7 +10,7 @@ const auth = require('../Controller/auth');
 const sellerModification = require('../Controller/sellerModification');
 const getFoodItems = require('../Controller/food/getFoodItems');
 const seller = require('../Controller/seller/profile');
-
+const updateAccount = require('../Controller/updateAccount');
 // API
 // Base API Route
 router.get('/', apiHome.getApi);
