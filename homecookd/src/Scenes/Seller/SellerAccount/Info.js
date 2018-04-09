@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Card, Icon, Accordion} from 'semantic-ui-react'
 import AccordionExampleStandard from './Accordion'
 
+
 const extra = (
   <a handleClick={()=>{this.AccordionExampleStandard()}}>
     <Icon name='circle' />
@@ -14,10 +15,9 @@ const edit = (
   Edit Profile
   </a>
 )
-const SellerInfoCard = () => (
+const Cards = () => (
   <Card
     image='https://react.semantic-ui.com/assets/images/avatar/large/elliot.jpg'
-    edit={edit}
     header='Restaurant Name'
     description='About the chef:'
     extra={extra}>
@@ -26,4 +26,4 @@ const SellerInfoCard = () => (
 
 )
 
-export default SellerInfoCard;
+export default Cards;
