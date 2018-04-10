@@ -40,7 +40,7 @@ class StorePage extends Component{
       <ButtonExampleLabeledIcon/>
       <FoodItemGrid sellerID={this.props.match.params.sellerID}/>
       <StoreDescriptionCard name={this.state.storeData.name} />
-      
+
 
 
       </div>
