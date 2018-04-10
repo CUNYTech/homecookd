@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBar from '../../SearchInput/SearchBar';
 import { Card, Image } from 'semantic-ui-react';
 
 const sellers = [
@@ -58,20 +59,23 @@ class SellerList extends Component {
 
   render() {
     return (
-      <Card.Group style={containerStyle}>
-        {
-          this.state.sellers.map(seller =>
-            <Card style={cardStyle} >
-              <Card.Content>
-                <Image style={imageStyle} size='small' floated='right' src={seller.picture}/>
-                <Card.Header>{seller.name}</Card.Header>
-                <Card.Description>{seller.description}</Card.Description>
-                <Card.Meta style={deliveryFeeStyle}>{seller.deliveryFee}</Card.Meta>
-              </Card.Content>
-          </Card>
-          )
-        }
-      </Card.Group>
+      <div>
+        <SearchBar />
+        <Card.Group style={containerStyle}>
+          {
+            this.state.sellers.map(seller =>
+              <Card style={cardStyle} >
+                <Card.Content>
+                  <Image style={imageStyle} size='small' floated='right' src={seller.picture}/>
+                  <Card.Header>{seller.name}</Card.Header>
+                  <Card.Description>{seller.description}</Card.Description>
+                  <Card.Meta style={deliveryFeeStyle}>{seller.deliveryFee}</Card.Meta>
+                </Card.Content>
+            </Card>
+            )
+          }
+        </Card.Group>
+      </div>
     )
   }
 }
