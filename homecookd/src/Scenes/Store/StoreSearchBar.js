@@ -33,7 +33,7 @@ class MaterialUIAutocomplete extends Component {
     }
   }
 
-  /*onUpdateInput(inputValue) {
+  onUpdateInput(inputValue) {
     const self = this;
     this.setState({
       inputValue: inputValue
@@ -66,7 +66,7 @@ class MaterialUIAutocomplete extends Component {
     }
   }
 
-*/
+
 
   render() {
     return <MuiThemeProvider muiTheme={getMuiTheme()}>
