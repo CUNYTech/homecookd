@@ -11,7 +11,7 @@ const sellerModification = require('../Controller/sellerModification');
 const getFoodItems = require('../Controller/food/getFoodItems');
 const seller = require('../Controller/seller/profile');
 const updateAccount = require('../Controller/updateAccount');
-//const s3upload = require('../Controller/s3Upload');
+const s3upload = require('../Controller/s3Upload');
 const information = require('../Controller/getInfromation');
 
 // API
@@ -58,7 +58,7 @@ router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
 
-//router.post('/seller/uploadS3',s3upload.sign_s3);
+router.post('/seller/uploadS3',s3upload.sign_s3);
 // 404 paths
 router.use(apiHome.invalidPath);
 
