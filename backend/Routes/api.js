@@ -11,6 +11,7 @@ const sellerModification = require('../Controller/sellerModification');
 const getFoodItems = require('../Controller/food/getFoodItems');
 const seller = require('../Controller/seller/profile');
 const updateAccount = require('../Controller/updateAccount');
+
 const s3upload = require('../Controller/s3Upload');
 const information = require('../Controller/getInfromation');
 
@@ -51,6 +52,7 @@ router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
 // get all the stores/restaurants
 router.post('/seller/sellers', information.getAllSeller);
+
 
 // Get Seller information
 router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
