@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/CUNYTech/homecookd#readme",
   "dependencies": {
-    "aws-sdk": "^2.208.0",
+    "aws-sdk": "^2.223.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
