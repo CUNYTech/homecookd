@@ -8,13 +8,16 @@ import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
+
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
 import SellerProfileEdit from '../Scenes/Seller/SellerAccount/SellerProfileEdit';
 
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
 import SellerAccount from '../Scenes/Seller/SellerAccount/SellerAccount';
+
 import SellerList from '../Scenes/Seller/SellerAccount/SellerList';
+
 // ADMIN Imports
 
 import AdminLogin from '../Scenes/Admin/AdminLogin';
@@ -39,7 +42,6 @@ const RoutePaths= () => (
     <Route path = '/Store/:sellerID' component = {StorePage}/>
     <Route path = '/MySellerPortal' component = {SellerAccount}/>
     <Route path = '/Sellers' component = {SellerList}/>
-
 
 
     {/* ADMIN RoutePaths */}

@@ -19,7 +19,7 @@ class SellerAccount extends Component{
       <div>
         {/* <OrderList /> */}
       <header>
-        <center><h1>Your Kitchen</h1></center>
+        <center><h1>Welcome</h1></center>
       </header>
 
 
@@ -27,6 +27,7 @@ class SellerAccount extends Component{
          <SellerInfoCard style={{backgroundColor:'red'}}/>
 </center>
         <MenuItemBox style={{margin:50}}/>
+
       <br/><br/><br/>
     {/* <ButtonExampleSocial/>*/}
       </div>
