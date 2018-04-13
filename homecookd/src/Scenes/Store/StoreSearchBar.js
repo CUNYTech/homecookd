@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import { AutoComplete }   from 'material-ui';
 import getMuiTheme        from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider   from 'material-ui/styles/MuiThemeProvider';
+
 import JSONP              from 'jsonp';
+
 
 
 
@@ -65,10 +67,11 @@ class MaterialUIAutocomplete extends Component {
   }
 
 
+
   render() {
     return <MuiThemeProvider muiTheme={getMuiTheme()}>
       <AutoComplete style = {CenterAlign}
-        hintText= "What are you in the mood for?"
+
         dataSource    = {this.state.dataSource}
         onUpdateInput = {this.onUpdateInput} />
       </MuiThemeProvider>
