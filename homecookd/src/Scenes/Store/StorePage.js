@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FoodItemGrid from './FoodItemGrid';
 import ButtonExampleLabeledIcon from './CheckOut';
 import StoreInfo from './StoreInfo'
+import SearchExampleStandard from './StoreSearchBar';
 
 import StoreDescriptionCard from './StoreDescriptionCard';
 
@@ -39,6 +40,7 @@ class StorePage extends Component{
       <StoreDescriptionCard name={this.state.storeData.name} />
       </center>
       <FoodItemGrid sellerID={this.props.match.params.sellerID}/>
+
 
 
 
