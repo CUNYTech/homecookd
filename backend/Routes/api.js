@@ -11,6 +11,7 @@ const sellerModification = require('../Controller/sellerModification');
 const getFoodItems = require('../Controller/food/getFoodItems');
 const seller = require('../Controller/seller/profile');
 const updateAccount = require('../Controller/updateAccount')
+const searchBar = require('../Controller/searchBar')
 
 // API
 // Base API Route
@@ -50,6 +51,8 @@ router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
 // Get Seller information
 router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
+router.get('/searchBar/business/seller', searchBar.search);
+router.post('/searchBar/business/seller', searchBar.search);
 
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
