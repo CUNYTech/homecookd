@@ -52,6 +52,10 @@ router.post('/update/account/seller/password', updateAccount.updateSellerAccount
 // get all the stores/restaurants
 router.post('/seller/sellers', information.getAllSeller);
 
+
+// get all the stores/restaurants
+router.post('/seller/sellers', information.getAllSeller);
+
 // Get Seller information
 router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
 
