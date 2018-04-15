@@ -51,10 +51,6 @@ router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCr
 router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
 
 // get all the stores/restaurants
-router.post('/seller/sellers', information.getAllSeller);
-
-
-// get all the stores/restaurants
 router.get('/seller/sellers', sellers.getAllSeller);
 
 
