@@ -36,10 +36,11 @@ class StorePage extends Component{
       <header>
         <center><h1>Place An Order With </h1></center>
       </header>
-      <center><SearchExampleStandard/></center>
-      <ButtonExampleLabeledIcon/>
-      <FoodItemGrid sellerID={this.props.match.params.sellerID}/>
+      <center>
       <StoreDescriptionCard name={this.state.storeData.name} />
+      </center>
+      <FoodItemGrid sellerID={this.props.match.params.sellerID}/>
+
 
 
 
