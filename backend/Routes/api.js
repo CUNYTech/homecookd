@@ -49,9 +49,7 @@ router.get('/food/sellerID/:SellerID', getFoodItems.getFoodItemsBySellerID); // 
 router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
 router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
 router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
-
-// get all the stores/restaurants
-router.post('/seller/sellers', information.getAllSeller);
+router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
 
 // get all the stores/restaurants
