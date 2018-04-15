@@ -60,7 +60,7 @@ router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
 
-router.post('/seller/uploadS3',s3upload.sign_s3);
+router.post('/sign_s3',s3upload.sign_s3);
 // 404 paths
 router.use(apiHome.invalidPath);
 
