@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // app.js
 // Homecookd Main Server Code
 
@@ -27,7 +29,7 @@ var port = 3001;
 // Mongodb Config
 if(process.env.DB_URL != undefined){
   mongoose.connect(process.env.DB_URL); // Connect to database on Server
-  logger.log("info","Connecting too " + process.env.DB_URL)
+  logger.log("info","Connecting too " + process.env.DB_URL);
   var db = mongoose.connection;
   db.once('open', function() {
     // we're connected!

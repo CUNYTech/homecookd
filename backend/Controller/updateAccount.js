@@ -1,3 +1,6 @@
+
+/*jshint esversion: 6 */
+
 var User = require("../Models/userSchema");
 var Seller = require("../Models/sellerSchema");
 var bcrypt = require("bcryptjs");
@@ -5,6 +8,7 @@ var hat = require("hat");
 const saltRounds = 10;
 var rack = hat.rack(64, 16);
 var passwordRegex = new RegExp("^(?=.{4,})");
+
 
 exports.updateSellerAccount = (req, res) => {
   if(req.body.api_token === undefined || req.body.api_token === "" ){ //add if password is not filled
@@ -93,7 +97,7 @@ exports.updateSellerAccount = (req, res) => {
       }
     });
   }
-}
+};
 
 exports.updateSellerAccountPassword = (req, res) => {
   if(req.body.api_token === undefined || req.body.api_token === "" ){ //add if password is not filled
@@ -113,13 +117,17 @@ exports.updateSellerAccountPassword = (req, res) => {
           if (valid){
             updateSellerPassword(seller._id, req.body.newPassword, res);
           }else{
+
             res.status(401).json( {success:false, error: "Invalid password"} );                    
+
           }
         });
       }
     }
   }); // Seller.find
-} // export
+
+}; // export
+
 
 function updateSellerPassword(seller_id, newPassword, res)
 {
@@ -136,8 +144,10 @@ function updateSellerPassword(seller_id, newPassword, res)
               console.log("Error while saving to database ");
               res.status(500).send(err);
             }
+            
             console.log(seller);            
             res.json( {success: true, message: "Sucesfully changed password",data:{api_token: seller.api_token, user_type: "Seller"}} );            
+
           });
         });
       } //else close

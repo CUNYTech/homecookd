@@ -1,3 +1,5 @@
+
+/*jshint esversion: 6 */
 var Seller = require("../Models/sellerSchema");
 
 exports.getAllSeller = (req, res) =>{
@@ -7,5 +9,5 @@ exports.getAllSeller = (req, res) =>{
         }else{
           res.status(200).json( {success: true, message: "Successfuly Found Sellers",data:{sellers: docs}});
         }
-    })
-}
+    });
+};
