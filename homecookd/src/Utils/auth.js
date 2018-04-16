@@ -19,7 +19,7 @@ export {registerCustomer};
   }
 
   export {registerSeller};
-    function registerSeller(email,userName,password, firstName, lastName,business_name){
+    function registerSeller(email,userName,password, firstName, lastName,businessName){
       return axios.post(baseUrl + "/api/auth/register/seller", {
         email: email,
         userName: userName,
@@ -28,7 +28,7 @@ export {registerCustomer};
           first: firstName,
           last: lastName
         },
-        business_name : business_name
+        businessName : businessName
       })
       // .then(response => response.data.api_token)
       // .catch(error => error);
@@ -36,8 +36,7 @@ export {registerCustomer};
 
     export {loginSeller};
       function loginSeller(email,password){
-        return axios.post(baseUrl + "/api/auth/loginSeller", {
-
+        return axios.post(baseUrl + "/api/auth/login/seller", {
           email: email,
           password: password
         })
