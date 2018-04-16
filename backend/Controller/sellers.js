@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+
 var Seller = require("../Models/sellerSchema");
 
 exports.getAllSeller = (req, res) =>{
