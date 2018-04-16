@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var User = require("../Models/userSchema");
 var Seller = require("../Models/sellerSchema");
 var bcrypt = require("bcryptjs");
@@ -15,8 +16,6 @@ exports.updateSellerAccount = (req, res) => {
       res.status(401).json( {error: "Missing api_token in request"} );
   }
   Seller.findOne( {api_token: req.body.api_token}, function(err, seller){
-    console.log(req.body.api_token)
-    console.log(seller)
     if (!seller  || err){
       res.status(401).json( {error: "Could not find seller with this api token"} );
     }else {
@@ -40,7 +39,7 @@ exports.updateSellerAccount = (req, res) => {
       }
     }
   }); // Seller.find
-} // export
+}; // export
 
 function updateSellerPassword({ seller_id}, newPassword, res)
 {
