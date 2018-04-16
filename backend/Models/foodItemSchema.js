@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var foodItemSchema = new Schema ({
     name: String,
-    images: [String],
+    image: String,
     ingredients: [String],
     allergens: [String],
     seller_id: String,
@@ -14,5 +14,3 @@ var foodItemSchema = new Schema ({
 
 
 module.exports =  mongoose.model('FoodItem', foodItemSchema);
-
-
