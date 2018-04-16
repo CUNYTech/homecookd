@@ -2,13 +2,12 @@ var FoodItem = require("../../Models/foodItemSchema");
 var Seller = require("../../Models/sellerSchema");
 
 exports.updateFoodItem = (req, res) => {
-  console.log("req.body " + JSON.stringify(req.body) )
     if(req.body.api_token == undefined || req.params.foodID == undefined){
       res.json({success: false, error: "Missing FoodId in Request Body"});
     }else{
     Seller.findOne({api_token: req.body.api_token}, function(err,Seller){
       if(err || !Seller){
-        res.json({success: false, error: "Could not find the Seller Item with that ID"})
+        res.json({success: false, error: "Could not find the Seller Item with that ID"});
       }else{
         FoodItem.findById(req.params.foodID,function(err,foodItem){
           if(err){
