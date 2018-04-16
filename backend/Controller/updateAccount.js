@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var User = require("../Models/userSchema");
 var Seller = require("../Models/sellerSchema");
 var bcrypt = require("bcryptjs");
@@ -93,7 +94,7 @@ exports.updateSellerAccount = (req, res) => {
       }
     });
   }
-}
+};
 
 exports.updateSellerAccountPassword = (req, res) => {
   if(req.body.api_token === undefined || req.body.api_token === "" ){ //add if password is not filled
@@ -119,7 +120,7 @@ exports.updateSellerAccountPassword = (req, res) => {
       }
     }
   }); // Seller.find
-} // export
+}; // export
 
 function updateSellerPassword(seller_id, newPassword, res)
 {
