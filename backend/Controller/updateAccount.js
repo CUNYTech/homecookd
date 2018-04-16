@@ -9,7 +9,6 @@ const saltRounds = 10;
 var rack = hat.rack(64, 16);
 var passwordRegex = new RegExp("^(?=.{4,})");
 
-
 exports.updateSellerAccount = (req, res) => {
   if(req.body.api_token === undefined || req.body.api_token === "" ){ //add if password is not filled
     res.status(401).json( {success:false, error: "Missing api_token in request"} );
@@ -117,9 +116,7 @@ exports.updateSellerAccountPassword = (req, res) => {
           if (valid){
             updateSellerPassword(seller._id, req.body.newPassword, res);
           }else{
-
             res.status(401).json( {success:false, error: "Invalid password"} );                    
-
           }
         });
       }
@@ -143,11 +140,9 @@ function updateSellerPassword(seller_id, newPassword, res)
             if (err){
               console.log("Error while saving to database ");
               res.status(500).send(err);
-            }
-            
+            }            
             console.log(seller);            
             res.json( {success: true, message: "Sucesfully changed password",data:{api_token: seller.api_token, user_type: "Seller"}} );            
-
           });
         });
       } //else close
