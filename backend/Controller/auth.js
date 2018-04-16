@@ -63,6 +63,7 @@ exports.sellerInfo = (req, res) =>{
                     "business_type": docs[0].business_type,
                     "account_approved": docs[0].account_approved,
                     "reviews": docs[0].reviews,
+                    "orders": docs[0].orders,
                     "food_items_ids": docs[0].food_items_id,
                     "location": docs[0].location,
                 });
