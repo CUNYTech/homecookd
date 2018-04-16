@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Card} from 'semantic-ui-react'
+import {Card, Label} from 'semantic-ui-react'
 import {getFoodItemsBySellerID} from '../../Utils/storeData.js';
 
 const FoodItemGridStyle = {
@@ -9,6 +9,10 @@ const FoodItemGridStyle = {
 
 
 }
+
+const PriceLabel = (
+  <Label attached='bottom left'>User View</Label>
+)
 
 class FoodItemGrid extends Component{
   constructor(props) {
