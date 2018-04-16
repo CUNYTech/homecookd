@@ -1,12 +1,13 @@
+/*jshint esversion: 6 */
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema
+var Schema = mongoose.Schema;
 
 var orderSchema = new Schema({
     seller_id: String,
     user_id: String,
     foodItems: [String],
     orderPlaced: {
-        type: Date, 
+        type: Date,
         default: Date.now()
     },
     delivery_location: {

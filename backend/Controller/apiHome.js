@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 exports.getApi = (req, res) => {
   res.json({message: "Welcome to the homecookd API"});
   res.status(200);
@@ -13,4 +15,4 @@ exports.invalidPath = (req,res,next) => {
 
     res.status(404).json({"error": "Invalid Path"});
 
-}
+};

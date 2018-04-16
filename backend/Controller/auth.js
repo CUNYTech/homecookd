@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 var User = require("../Models/userSchema");
 var Seller = require("../Models/sellerSchema");
 
@@ -13,18 +15,18 @@ var rack = hat.rack(64, 16);
 
 exports.checkAuth = (req, res, next) => {
     if (req.body.api_token === undefined) {
-        res.status(400).json( {"error": "Missing api_token in request"} );
+        res.status(400).json( {success:false, error: "Missing api_token in request"} );        
     }else{
         console.log("Auth passed");
         next();
     }
-}
+};
 
 // use checkAuth as a midware
 exports.userInfo = (req, res) => {
     User.find({api_token: req.body.api_token}, function(err, docs){
         if (!docs.length || err){
-            res.status(401).json( {error: "Could not find user with this api token"} );
+            res.status(401).json( {success:false, error: "Could not find user with this api token"} );                    
         }else{
             res.status(200);
             res.json({
@@ -38,7 +40,7 @@ exports.userInfo = (req, res) => {
             });
         }
     });
-}
+};
 
 // use checkAuth as a midware
 exports.sellerInfo = (req, res) =>{
@@ -67,20 +69,21 @@ exports.sellerInfo = (req, res) =>{
             }
         });
     }
-}
+};
 
 
 exports.getLoginUser = (req, res) => {
     res.json( {message: "/login/user Route"} );
-}
+};
 
 
 exports.loginUser = (req, res) => {
     if (req.body.email === undefined || req.body.password === undefined){
         res.status(400).json( {error: "Missing email or password in request"} );
     }else{
-      User.find({$or: [{email: req.body.email}, {username: req.body.email}]}
-        ,
+      User.find({$or: [
+          {email: req.body.email},
+         {username: req.body.email}]},
         function (err, docs){
             if(!docs.length || err){
                 res.status(401).json( {error: "Could not find account"} );
@@ -96,11 +99,11 @@ exports.loginUser = (req, res) => {
             }
         });
     }
-}
+};
 
 exports.getLoginSeller = (req, res) => {
     res.json( {message: "/login/seller Route"} );
-}
+};
 
 
 exports.loginSeller = (req, res) => {
@@ -108,8 +111,7 @@ exports.loginSeller = (req, res) => {
     if (req.body.email === undefined || req.body.password === undefined){
         res.status(400).json( {error: "Missing email or password in request"} );
     }else{
-        Seller.find({$or: [{email: req.body.email}, {username: req.body.email}]}
-        ,
+        Seller.find({$or: [{email: req.body.email}, {username: req.body.email}]},
         function (err, docs){
             if(!docs.length || err){
                 res.status(401).json( {success: false,error: "Could not find account"} );
@@ -128,7 +130,7 @@ exports.loginSeller = (req, res) => {
             }
         });
     }
-}
+};
 
 
 // Regex validations
@@ -155,12 +157,11 @@ exports.validateRegistration = (req, res, next) => {
         console.log("Validation passed");
         next();
     }
-}
+};
 
 exports.registerUser = (req, res) => {
     User.find( {$or: [{email: {$regex : new RegExp(req.body.email,"i")}},
-    {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
-    ,
+    {userName: {$regex : new RegExp(req.body.userName,"i")}}]},
     function (err, docs){
 
         if(err){
@@ -189,12 +190,11 @@ exports.registerUser = (req, res) => {
             res.json( {error: "Username or Email belongs to another user"} );
         }
     });
-}
+};
 
 exports.registerSeller = (req, res) => {
     Seller.find( {$or: [{email: {$regex : new RegExp(req.body.email,"i")}},
-    {userName: {$regex : new RegExp(req.body.userName,"i")}}]}
-    ,
+    {userName: {$regex : new RegExp(req.body.userName,"i")}}]},
     function (err, docs){
         if(err){
             console.log("ERROR " + err);
@@ -227,4 +227,4 @@ exports.registerSeller = (req, res) => {
             res.json( {error: "Username or Email belongs to another user"} );
         }
     });
-}
+};
