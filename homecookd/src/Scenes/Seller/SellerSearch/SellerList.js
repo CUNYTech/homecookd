@@ -1,29 +1,12 @@
 import React, { Component } from 'react';
 import SearchBar from '../../SearchInput/SearchBar';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image,Button } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom'
+
+import {getSellers} from '../../../Utils/Sellers'
 
 const sellers = [
-  {
-    id: 0,
-    name: 'store1',
-    picture: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Central_Department_Store_ZUM_Sofia_20090406_004.JPG',
-    description: 'Yummy French food',
-    deliveryFee: 'free'
-  },
-  {
-    id: 1,
-    name: 'store2',
-    picture: 'https://upload.wikimedia.org/wikipedia/commons/9/92/Central_department_store_anchor.JPG',
-    description: 'Tasty Italian food',
-    deliveryFee: '$1.25'
-  },
-  {
-    id: 2,
-    name: 'store3',
-    picture: 'https://cdn.shopify.com/s/files/1/0130/8502/files/Center_Store_Interior_1024x1024.jpg?8644751376232999401',
-    description: 'Delicious Indian food',
-    deliveryFee: '$5.99'
-  }
+
 ]
 
 const containerStyle = {
@@ -53,23 +36,34 @@ class SellerList extends Component {
     }
   }
 
+
   componentDidMount() {
+
     this.setState({sellers: sellers})
+    getSellers()
+    .then (response =>{
+      this.setState({sellers: response.data.data.sellers})
+    })
+    .catch(error => {
+
+    })
   }
 
   render() {
     return (
       <div>
+      <center>
         <SearchBar />
+        </center>
         <Card.Group style={containerStyle}>
           {
             this.state.sellers.map(seller =>
-              <Card style={cardStyle} >
-                <Card.Content>
+              <Card  style={cardStyle} >
+                <Card.Content >
                   <Image style={imageStyle} size='small' floated='right' src={seller.picture}/>
-                  <Card.Header>{seller.name}</Card.Header>
+                  <Card.Header>{seller.business_name}</Card.Header>
                   <Card.Description>{seller.description}</Card.Description>
-                  <Card.Meta style={deliveryFeeStyle}>{seller.deliveryFee}</Card.Meta>
+                  <Card.Meta  style={deliveryFeeStyle}><a href={'/store/'+seller._id} ><Button color='green'>Visit</Button></a></Card.Meta>
                 </Card.Content>
             </Card>
             )
