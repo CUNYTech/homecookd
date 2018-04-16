@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var Seller = require("../../Models/sellerSchema");
 var User = require("../../Models/userSchema");
 var Order = require("../../Models/orderSchema");
