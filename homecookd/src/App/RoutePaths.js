@@ -16,13 +16,15 @@ import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
 import SellerAccount from '../Scenes/Seller/SellerAccount/SellerAccount';
 
-import SellerList from '../Scenes/Seller/SellerAccount/SellerList';
+import SellerList from '../Scenes/Seller/SellerSearch/SellerList';
+
 
 // ADMIN Imports
 
 import AdminLogin from '../Scenes/Admin/AdminLogin';
 import AdminPanel from '../Scenes/Admin/AdminPanel';
 
+import UploadImage from '../Scenes/test/UploadImage';
 import Error404 from '../Scenes/Error404';
 import {Router, Route,Switch} from 'react-router-dom';
 
@@ -48,6 +50,8 @@ const RoutePaths= () => (
     <Route path = '/Admin/Login' component = {AdminLogin}/>
     <Route path = '/Admin/AdminPanel' component = {AdminPanel}/>
 
+    {/*Test Routes*/}
+    <Route path="/test/uploadimage" component = {UploadImage}/>
     <Route component={Error404} /> {/* 404 Route*/}
 
     </Switch>
