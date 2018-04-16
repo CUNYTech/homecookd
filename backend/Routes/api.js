@@ -15,6 +15,7 @@ const updateAccount = require('../Controller/updateAccount');
 const s3upload = require('../Controller/s3Upload');
 
 const sellers = require('../Controller/sellers');
+const orders = require('../Controller/Order/createOrder');
 
 
 // API
@@ -53,6 +54,9 @@ router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCr
 router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
+//Order routes
+router.post('/order/userID/:UserID', orders.orderFoodById);
+router.post('/order/api_token', orders.orderFoodByApi);
 
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
