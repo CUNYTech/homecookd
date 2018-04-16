@@ -94,7 +94,7 @@ exports.updateSellerAccount = (req, res) => {
       }
     });
   }
-}
+};
 
 exports.updateSellerAccountPassword = (req, res) => {
   if(req.body.api_token === undefined || req.body.api_token === "" ){ //add if password is not filled
