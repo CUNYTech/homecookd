@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var User = require("../Models/userSchema");
 var Seller = require("../Models/sellerSchema");
 
@@ -19,23 +20,22 @@ exports.checkAuth = (req, res, next) => {
       User.find({api_token : req.body.api_token, admin:true},
       function(err,docs){
         if(!docs || err){
-          res.status(401).json({error: "Couldnt find this api_token in Admins"})
+          res.status(401).json({error: "Couldnt find this api_token in Admins"});
         }else{
           // console.log("Admin Auth passed");
           next();
         }
-      })
+      });
 
     }
-}
+};
 
 
 exports.loginAdmin = (req, res) => {
     if (req.body.email === undefined || req.body.password === undefined){
         res.status(400).json( {error: "Missing email or password in request"} );
     }else{
-      User.find({$or: [{email: req.body.email}, {username: req.body.email}]}
-        ,
+      User.find({$or: [{email: req.body.email}, {username: req.body.email}]},
         function (err, docs){
             if(!docs.length || err){
                 res.status(401).json( {error: "Could not find account"} );
@@ -55,7 +55,7 @@ exports.loginAdmin = (req, res) => {
             }
         });
     }
-}
+};
 
 exports.getUsers = (req,res) => {
   User.find({},'-password_hash',function(err,docs){
@@ -64,8 +64,8 @@ exports.getUsers = (req,res) => {
     }else{
       res.status(200).json({response: docs});
     }
-  })
-}
+  });
+};
 
 exports.getSellers = (req,res) => {
   Seller.find({},'-password_hash', function(err,docs){
@@ -74,8 +74,8 @@ exports.getSellers = (req,res) => {
     }else{
       res.status(200).json({response: docs});
     }
-  })
-}
+  });
+};
 
 exports.approveSeller = (req,res) => {
   Seller.findById(req.body.seller_id, function(err,doc){
@@ -89,10 +89,10 @@ exports.approveSeller = (req,res) => {
         }else{
           res.status(200).json({message: "Successfully Approved"});
         }
-      })
+      });
     }
-  })
-}
+  });
+};
 
 exports.rejectSeller = (req,res) => {
   Seller.findById(req.body.seller_id, function(err,doc){
@@ -106,7 +106,7 @@ exports.rejectSeller = (req,res) => {
         }else{
           res.status(200).json({message: "Successfully Rejected"});
         }
-      })
+      });
     }
-  })
-}
+  });
+};

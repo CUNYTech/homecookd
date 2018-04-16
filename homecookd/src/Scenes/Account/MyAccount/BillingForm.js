@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Segment } from 'semantic-ui-react'
+import { Form, Segment } from 'semantic-ui-react'
 
 const States= [
   { key: 'jan', text: 'January' },
@@ -34,7 +34,7 @@ class Billing extends Component {
       backgroundColor: '#00BCD4'
     }
 
-    const { value } = this.state
+    //const { value } = this.state
     return (
       <Segment style={style}>
       <Form>

@@ -3,14 +3,20 @@ import history from '../Utils/history';
 
 import AboutUs from '../Scenes/AboutUs/AboutUs';
 import HomePage from '../Scenes/Home/HomePage';
+import Menu from '../Scenes/Menu/Menu';
 import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
+
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
+import SellerProfileEdit from '../Scenes/Seller/SellerAccount/SellerProfileEdit';
 
 import AccountPage from '../Scenes/Account/MyAccount/AccountPage';
 import StorePage from '../Scenes/Store/StorePage';
+import SellerAccount from '../Scenes/Seller/SellerAccount/SellerAccount';
+
+import SellerList from '../Scenes/Seller/SellerSearch/SellerList';
 
 // ADMIN Imports
 
@@ -31,14 +37,14 @@ const RoutePaths= () => (
     <Route path = '/auth/RegisterSeller' component = {RegisterSeller} />
     <Route path = '/auth/LoginSeller' component = {LoginSellerForm}/>
     <Route path = '/AboutUs' component = {AboutUs} />
+    <Route path = '/Menu' component = {Menu} />
     <Route path = '/MyAccount' component = {AccountPage}/>
-    <Route path = '/Store' component = {StorePage}/>
+    <Route path = '/Store/:sellerID' component = {StorePage}/>
+    <Route path = '/MySellerPortal' component = {SellerAccount}/>
+    <Route path = '/Sellers' component = {SellerList}/>
 
 
-
-
-
-    // ADMIN RoutePaths
+    {/* ADMIN RoutePaths */}
     <Route path = '/Admin/Login' component = {AdminLogin}/>
     <Route path = '/Admin/AdminPanel' component = {AdminPanel}/>
 

@@ -1,11 +1,20 @@
 import { LOGIN_USER, ACCOUNT_TYPE } from '../actions/actionTypes';
 
-export default function accountReducer(state='', {type, payload}){
-  switch(type){
+const initialState = {
+  logged: false,
+  accountType: ''
+}
+
+export default function accountReducer(state = initialState, action){
+  let newState = Object.assign({}, state);
+
+  switch(action.type){
     case LOGIN_USER:
-      return payload.logged;
+      newState.logged = action.payload.logged;
+      return newState.logged;
     case ACCOUNT_TYPE:
-      return payload.accountType;
+      newState.accountType = action.payload.accountType;
+      return newState.accountType;
     default:
       return state;
   }
