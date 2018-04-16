@@ -17,23 +17,20 @@ class SellerAccount extends Component{
   render(){
     return(
       <div>
-<<<<<<< HEAD
-=======
+
         {/* <OrderList /> */}
->>>>>>> 479b16f6d485ae7d9932777eab142207361ebd63
+
       <header>
         <center><h1>Welcome</h1></center>
       </header>
 
-<<<<<<< HEAD
+
       <div align= "center">
       <SellerAccountMenu />
       </div>
-=======
->>>>>>> 479b16f6d485ae7d9932777eab142207361ebd63
 
       <center>
-         <SellerInfoCard style={{backgroundColor:'red'}}/>
+         <SellerAccountMenu style={{backgroundColor:'red'}}/>
 </center>
         <MenuItemBox style={{margin:50}}/>
 
