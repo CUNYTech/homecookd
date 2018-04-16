@@ -1,6 +1,4 @@
-
 /*jshint esversion: 6 */
-
 var aws = require('aws-sdk');
 var hat = require('hat');
 require('dotenv').config(); // Library to allow the importing of  enviromental variables in .env files
