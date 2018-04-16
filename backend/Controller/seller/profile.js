@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 var FoodItem = require("../../Models/foodItemSchema");
 var Seller = require("../../Models/sellerSchema");
 
@@ -19,6 +21,7 @@ exports.updateFoodItem = (req, res) => {
             if(req.body.description !== undefined)foodItem.description = req.body.description;
             if(req.body.price !== undefined)foodItem.price = req.body.price;
             if(req.body.image !== undefined)foodItem.image = req.body.image; // needs to be taken care later
+
             foodItem.ingredients = req.body.ingredients;
             foodItem.allergens = req.body.allergens;
             foodItem.foodType = req.body.foodType;
@@ -29,9 +32,9 @@ exports.updateFoodItem = (req, res) => {
                 console.log("Updated Successfully");
                 res.json({success:true, message: "Sucessfully Updated Food Items", data: foodItem});
               }
-            })
+            });
           }
-        })
+        });
       }
     });
   }
@@ -39,14 +42,14 @@ exports.updateFoodItem = (req, res) => {
 
 exports.sellerInfoBySellerID = (req,res) => {
   if(req.params.sellerID == undefined){
-    res.json({success: false, error: "Missing StoreID in Request Body"})
+    res.json({success: false, error: "Missing StoreID in Request Body"});
   }else{
     Seller.findById(req.params.sellerID,'-password_hash -email -api_token',function(err,Seller){
       if(err || !Seller){
-        res.json({success:false,error: "Database Error or Could Not find Seller"})
+        res.json({success:false,error: "Database Error or Could Not find Seller"});
       }else{
         res.json({success: true, data : Seller});
       }
-    })
+    });
   }
-}
+};
