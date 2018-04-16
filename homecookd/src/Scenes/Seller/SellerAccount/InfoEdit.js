@@ -16,7 +16,8 @@ class ProfileEdit extends Component {
       Address:'',
       City:'',
       State:'',
-      Zip:''
+      Zip:'',
+      Time:''
 
     };
 
@@ -31,6 +32,7 @@ class ProfileEdit extends Component {
     const City = this.state.City;
     const State = this.state.State;
     const Zip = this.state.Zip;
+    const Time = this.state.Time;
 
     const requestBody = {name: this.state.Name, restaurant: this.state.Restaurant, email: this.state.Email,
     address: this.state.Address, city: this.state.City, state: this.state.State, zip: this.state.Zip}
@@ -62,6 +64,13 @@ class ProfileEdit extends Component {
       <Table.Row>
         <Table.Cell>Restaurant Name:</Table.Cell>
         <Table.Cell><TextField name="Restaurant" autoFocus
+          onChange={this.handleFormChange}
+        /></Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell>Time:</Table.Cell>
+        <Table.Cell><TextField name="Time" autoFocus
           onChange={this.handleFormChange}
         /></Table.Cell>
       </Table.Row>
