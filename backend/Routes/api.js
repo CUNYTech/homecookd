@@ -50,6 +50,7 @@ router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
 router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
 router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
+router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
 
 // get all the stores/restaurants
