@@ -11,7 +11,7 @@ import JSONP              from 'jsonp';
 const CenterAlign = {
 
   width: 'auto',
-  marginRight: 50,
+  marginRight: 'auto',
   display: 'flex',
   justifyContent: 'flex-end',
   alignItems: 'flex-end',
@@ -29,7 +29,8 @@ class MaterialUIAutocomplete extends Component {
     this.onUpdateInput = this.onUpdateInput.bind(this);
     this.state = {
       dataSource : [],
-      inputValue : ''
+      inputValue : '',
+      foodItems : []
     }
   }
 

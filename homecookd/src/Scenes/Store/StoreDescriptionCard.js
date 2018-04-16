@@ -16,6 +16,7 @@ class StoreDescripitionCard extends Component{
   componentDidMount(){
   }
   render(){
+
     const extra = (
       <a>
         <Icon name='circle' />
