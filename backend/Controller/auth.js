@@ -227,4 +227,6 @@ exports.registerSeller = (req, res) => {
             res.json( {error: "Username or Email belongs to another user"} );
         }
     });
+
 };
+

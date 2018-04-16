@@ -28,7 +28,9 @@ class MenuItem extends Component{
       <Segment color={color}>
       <FavoriteStar onClick={this.onFavorite} active={this.state.favorite}/>
       <Image avatar spaced='right'
+
       src={this.props.foodItem.image}/>
+
       {this.props.foodItem.name}
       <MenuItemModal food={this.props.foodItem}/>
       </Segment>

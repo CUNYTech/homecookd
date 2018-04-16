@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
+
 import Dropzone from 'react-dropzone'
+
 import {Modal,Button,Image,Header, Input,Label, TextArea,Icon} from 'semantic-ui-react'
 import IconButton from 'material-ui/IconButton';
 import {updateFoodItem} from '../../../../Utils/storeData';
 
+
 import {getSignedUrl,uploadFile} from '../../../../Utils/upload';
+
 class MenuItemModal extends Component{
   constructor(props) {
     super(props);
     this.state = {
       modalOpen: false,
       itemName:this.props.food.name,
+
       price: this.props.food.price,
       description : this.props.food.description,
       imgUrl: this.props.food.image
@@ -80,9 +85,11 @@ class MenuItemModal extends Component{
     })
   }
 
+
   render(){
     return(
       <Modal trigger={<Button  tooltip="edit" floated="right" onClick={this.handleOpen}  closeOnEscape={this.handleClose}><Icon color='green' name="edit"/> </Button>} open={this.state.modalOpen}>
+
         <Modal.Header>Edit {this.state.itemName}</Modal.Header>
         <Modal.Content image>
           <Dropzone onDrop={this.onDrop}>

@@ -1,4 +1,6 @@
+
 /*jshint esversion: 6 */
+
 
 var FoodItem = require("../../Models/foodItemSchema");
 var Seller = require("../../Models/sellerSchema");
@@ -10,6 +12,7 @@ exports.getFoodItemByID = (req, res) => {
   }else{
   FoodItem.findById(req.params.FoodID, function(err,foodItem){
     if(err || !foodItem){
+
       res.json({success: false, error: "Ccould not find the Food Item with that ID"});
     }else{
       res.json({success: true, message: "Sucessfully Found that item", data: foodItem});
@@ -24,6 +27,7 @@ exports.getFoodItemsBySellerID = (req, res) => {
   }else{
   Seller.findById(req.params.SellerID, function(err,Seller){
     if(err || !Seller){
+
       res.json({success: false, error: "Could not find the Seller Item with that ID"});
     }else{
       FoodItem.find({"_id":{$in: Seller.food_items_id}},function(err,foodItems){
@@ -32,7 +36,9 @@ exports.getFoodItemsBySellerID = (req, res) => {
         }else{
           res.json({success:true, message: "Sucessfully found Food Items", data: foodItems});
         }
+
       });
+
     }
   });
 }
@@ -44,7 +50,9 @@ exports.getFoodItemsByAPItoken = (req, res) => {
   }else{
   Seller.findOne({api_token: req.body.api_token}, function(err,Seller){
     if(err || !Seller){
+
       res.json({success: false, error: "Could not find the Seller Item with that Api Token"});
+
     }else{
       FoodItem.find({"_id":{$in: Seller.food_items_id}},function(err,foodItems){
         if(err){
@@ -52,7 +60,9 @@ exports.getFoodItemsByAPItoken = (req, res) => {
         }else{
           res.json({success:true, message: "Sucessfully found Food Items", data: foodItems});
         }
+
       });
+
     }
   });
 }
