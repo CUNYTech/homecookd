@@ -28,7 +28,9 @@ class MenuItem extends Component{
       <Segment color={color}>
       <FavoriteStar onClick={this.onFavorite} active={this.state.favorite}/>
       <Image avatar spaced='right'
-      src='https://image.freepik.com/free-icon/restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle_318-61086.jpg'/>
+
+      src={this.props.foodItem.image}/>
+
       {this.props.foodItem.name}
       <MenuItemModal food={this.props.foodItem}/>
       </Segment>
