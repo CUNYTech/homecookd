@@ -23,7 +23,7 @@ class FoodItemGrid extends Component{
   }
 
   componentDidMount(){
-    getFoodItemsBySellerID('5abc2818b126136f67657802')
+    getFoodItemsBySellerID(this.props.sellerID)
       .then(response => {
         const responseBody = response.data;
         this.setState({foodItems: responseBody.data});

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Segment, Menu, Dropdown, Icon} from 'semantic-ui-react';
 import MenuItem from './MenuItem';
-import {getFoodItemsBySellerID} from '../../../../Utils/storeData';
+import NewMenuItemModal from './NewMenuItemModal';
+import {getFoodItemsBySellerID,getFoodItemsByAPItoken} from '../../../../Utils/storeData';
 
 class MenuItemBox extends Component{
   constructor(props) {
@@ -11,10 +12,12 @@ class MenuItemBox extends Component{
     };
   }
   componentDidMount(){
-    getFoodItemsBySellerID('5aafebcf73ed440b48eb4b6a')
+    getFoodItemsByAPItoken(localStorage.getItem('api_token'))
       .then(response => {
         const responseBody = response.data;
-        alert(JSON.stringify(responseBody));
+
+        console.log(JSON.stringify(responseBody.data));
+
         this.setState({foodItems: responseBody.data});
       })
       .catch(error => {
@@ -24,11 +27,10 @@ class MenuItemBox extends Component{
 
   render(){
     return(
-      <div>
+      <div style={{padding:50}}>
       <h1>Menu Items</h1>
       <Menu attached='top'>
-      <Dropdown item icon='plus' simple/>
-
+      <NewMenuItemModal/>
 
       <Menu.Menu position='right'>
         <div className='ui right aligned category search item'>
@@ -45,7 +47,9 @@ class MenuItemBox extends Component{
               this.state.foodItems.map(function(foodItem) {
                   return <MenuItem foodItem={foodItem}/>
               })
-          }
+
+        }
+
 
       </Segment>
       </div>

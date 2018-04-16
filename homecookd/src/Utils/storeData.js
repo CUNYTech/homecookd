@@ -20,3 +20,38 @@ export{getFoodItemsByAPItoken}
       api_token : api_token
     })
   }
+export{getStoreInfoByID}
+  function getStoreInfoByID(storeID){
+    return axios.get(baseUrl + "/api/seller/sellerID/" + storeID)
+  }
+
+  export{updateFoodItem}
+    function updateFoodItem(api_token, foodID, foodItem){
+      return axios.post(baseUrl + '/api/seller/foodUpdate/' + foodID , {
+        api_token : api_token,
+        name: foodItem.itemName,
+        price: foodItem.price,
+
+        description : foodItem.description,
+        image: foodItem.image
+
+      })
+    }
+
+    export{newFoodItem}
+    function newFoodItem(api_token, foodItem){
+      return axios.post(baseUrl + '/api/seller/foodItemCreate', {
+        seller_api_token : api_token,
+        name: foodItem.itemName,
+        price: foodItem.price,
+
+        description : foodItem.description,
+        image : foodItem.image
+
+      })
+    }
+
+    export{UpdateSellerInfo}
+    function UpdateSellerInfo(api_token, requestBody){
+      return axios.post(baseUrl + '', requestBody)
+    }
