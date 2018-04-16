@@ -111,7 +111,6 @@ exports.updateSellerAccountPassword = (req, res) => {
         res.status(401).json( {success:false, error: "New password is the same as old one"} );        
       }else if(!passwordRegex.test(req.body.newPassword)){
         res.status(401).json( {success:false, error: "invalid password, has to contain at least one lower, one upper case character and has to be at least 6 digits"} );                
-
       }else{
         console.log("Comparing passwords");
         bcrypt.compare(req.body.oldPassword, seller.password_hash, function(err, valid){
@@ -135,11 +134,9 @@ function updateSellerPassword(seller_id, newPassword, res)
   Seller.findOne({ _id: seller_id },
     function (err, seller) {
       if (err) {
-
         res.status(500).json( {success:false, error: "contact addMsg error: " + err} );                            
       }else{
         console.log(seller);                    
-
         bcrypt.hash(newPassword, saltRounds, function(err, hash){
           seller.password_hash = hash;
           seller.save(function(err){
@@ -147,7 +144,7 @@ function updateSellerPassword(seller_id, newPassword, res)
               console.log("Error while saving to database ");
               res.status(500).send(err);
             }
-
+            
             console.log(seller);            
             res.json( {success: true, message: "Sucesfully changed password",data:{api_token: seller.api_token, user_type: "Seller"}} );            
 

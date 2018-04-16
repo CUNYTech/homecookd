@@ -1,3 +1,4 @@
+
 /*jshint esversion: 6 */
 
 var aws = require('aws-sdk');
@@ -36,7 +37,6 @@ exports.sign_s3 = (req,res) => {
     if(err){
       console.log(err);
       res.json({success: false, error: err});
-
     }
     const returnData = {
       signedRequest: data,
@@ -46,4 +46,3 @@ exports.sign_s3 = (req,res) => {
   });
 }
 };
-

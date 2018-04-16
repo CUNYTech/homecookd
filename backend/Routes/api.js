@@ -51,6 +51,8 @@ router.get('/food/sellerID/:SellerID', getFoodItems.getFoodItemsBySellerID); // 
 router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
 router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
 router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
+router.post('/update/account/seller', updateAccount.updateSellerAccount);
+
 
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
@@ -59,13 +61,11 @@ router.post('/update/account/seller', updateAccount.updateSellerAccount);
 router.get('/seller/sellers', sellers.getAllSeller);
 
 
-
 // Get Seller information
 router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
 
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
-
 
 router.post('/sign_s3',s3upload.sign_s3);
 
