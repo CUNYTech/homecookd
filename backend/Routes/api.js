@@ -13,10 +13,8 @@ const seller = require('../Controller/seller/profile');
 const updateAccount = require('../Controller/updateAccount');
 
 const s3upload = require('../Controller/s3Upload');
-
 const sellers = require('../Controller/sellers');
 const orders = require('../Controller/Order/createOrder');
-
 
 // API
 // Base API Route
@@ -72,7 +70,6 @@ router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
 
 router.post('/sign_s3',s3upload.sign_s3);
-
 // 404 paths
 router.use(apiHome.invalidPath);
 
