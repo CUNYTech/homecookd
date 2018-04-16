@@ -15,7 +15,7 @@ exports.updateFoodItem = (req, res) => {
           if(err){
             res.json({success: false, error: "Database Error When searching for Food Items"});
           }else if(foodItem.seller_id != Seller._id){
-            res.json({success:false, error: "You do not have permission to edit this item"})
+            res.json({success:false, error: "You do not have permission to edit this item"});
           }else{
             if(req.body.name !== undefined)foodItem.name = req.body.name;
             if(req.body.description !== undefined)foodItem.description = req.body.description;
