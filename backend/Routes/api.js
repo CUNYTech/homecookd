@@ -13,10 +13,7 @@ const seller = require('../Controller/seller/profile');
 const updateAccount = require('../Controller/updateAccount');
 const searchBar = require('../Controller/searchBar');
 const s3upload = require('../Controller/s3Upload');
-
 const sellers = require('../Controller/sellers');
-
-
 
 // API
 // Base API Route
@@ -54,8 +51,6 @@ router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCr
 
 router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
-
-
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
 
@@ -71,7 +66,6 @@ router.post('/searchBar/business/seller', searchBar.search);
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
 
 router.post('/sign_s3',s3upload.sign_s3);
-
 // 404 paths
 router.use(apiHome.invalidPath);
 
