@@ -10,6 +10,11 @@ const auth = require('../Controller/auth');
 const sellerModification = require('../Controller/sellerModification');
 const getFoodItems = require('../Controller/food/getFoodItems');
 const seller = require('../Controller/seller/profile');
+const foodTypeModification = require('../Controller/foodTypeModification');
+const updateAccount = require('../Controller/updateAccount');
+const getSellerTime = require('../Controller/sellerTime');
+
+// const foodTypeModification = require('../Controller/foodTypeModification/')
 
 // API
 // Base API Route
@@ -53,6 +58,9 @@ router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
 // Get Seller information
 router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
+
+//Get Seller opening and closing time 
+route.post('/seller/sellerTime/schedule', getSellerTime.scheduleCreate);
 
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
