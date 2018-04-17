@@ -1,5 +1,4 @@
 /*jshint esversion: 6 */
-
 var aws = require('aws-sdk');
 var hat = require('hat');
 require('dotenv').config(); // Library to allow the importing of  enviromental variables in .env files
@@ -36,7 +35,6 @@ exports.sign_s3 = (req,res) => {
     if(err){
       console.log(err);
       res.json({success: false, error: err});
-
     }
     const returnData = {
       signedRequest: data,
@@ -46,4 +44,3 @@ exports.sign_s3 = (req,res) => {
   });
 }
 };
-
