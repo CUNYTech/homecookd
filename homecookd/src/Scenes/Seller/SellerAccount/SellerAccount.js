@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import OrderList from './OrderList';
 import SellerInfoCard from '../SellerAccount/Info'
 import ButtonExampleSocial from '../SellerAccount/SocialMedia'
 import SellerAccountMenu from '../SellerAccount/SellerAccountMenu'
@@ -13,15 +12,22 @@ class SellerAccount extends Component{
   }
 
   componentDidMount(){
+
   }
   render(){
     return(
       <div>
+
         {/* <OrderList /> */}
+
       <header>
         <center><h1>Welcome</h1></center>
       </header>
 
+
+      <div align= "center">
+      <SellerAccountMenu />
+      </div>
 
       <center>
          <SellerInfoCard style={{backgroundColor:'red'}}/>
@@ -31,7 +37,7 @@ class SellerAccount extends Component{
       <br/><br/><br/>
     {/* <ButtonExampleSocial/>*/}
       </div>
-    );
+    )
   }
 }
 export default SellerAccount;
