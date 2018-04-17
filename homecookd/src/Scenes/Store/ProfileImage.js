@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Image } from 'semantic-ui-react'
 
+const ProfileImageStyle ={
+  margin: 20
+}
+
 class ProfileImage extends Component{
   constructor(props) {
     super(props);
@@ -10,7 +14,7 @@ class ProfileImage extends Component{
   }
   render(){
     return(
-      <Image src={this.state.source} size='medium' bordered />
+      <Image style={ProfileImageStyle} src={this.state.source} size='medium' bordered />
     )
   }
 }
