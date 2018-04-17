@@ -52,6 +52,8 @@ class LoginSellerForm extends Component{
   }
 
   handleFormSubmit(e){
+    e.preventDefault();
+
       // alert("Logging in ");
       this.setState({loggingIn:true,errorOccured:false})
       const email = this.state.email;
@@ -59,22 +61,22 @@ class LoginSellerForm extends Component{
       const password = this.state.password;
 
       //call our axios promise, then retrieve the token from axios
-    this.loginSeller(email,password)
+    this.loginSeller(this.state.email,this.state.password)
         .then( response => {
-          var api_token = response.data.api_token;
+          var api_token = response.data.data.api_token;
           if(api_token.length > 0) {
             localStorage.setItem('api_token',api_token);
-
-            this.props.history.push('/');
+            this.props.history.push('/MySellerPortal');
             this.updateAccountType("seller");
             this.logInUser(true);
           }
-          else this.OpenPopUp();
+          else{this.OpenPopUp()};
         })
         .catch( error => {
+          alert(JSON.stringify(error))
           localStorage.removeItem('api_token');
           // alert(error.response.data.error);
-          if(error.response === undefined){
+          if(error.error === undefined){
             this.setState({loggingIn:false,errorOccured:true,errorMessage:'Couldnt Reach Server'});
           }else{
             this.setState({loggingIn:false,errorOccured:true,errorMessage:error.response.data.error});
@@ -83,7 +85,6 @@ class LoginSellerForm extends Component{
           // alert(error);
           // this.OpenPopUp();
         })
-      e.preventDefault();
   }
 
   render(){
@@ -130,10 +131,10 @@ class LoginSellerForm extends Component{
           type="password"
         />
         <br />
-        <RaisedButton onClick={this.handleFormSubmit} href="/"label="Login" type="submit" primary={true}  />
+        <RaisedButton onClick={this.handleFormSubmit} href="/" label="Login" type="submit" primary={true}  />
         <br/>
 
-        <Link to="/register">Make an Account</Link>
+        <Link to="/auth/registerSeller">Make an Account</Link>
         </Paper>
       </center>
 

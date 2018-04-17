@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -19,6 +20,7 @@ var sellerSchema = new Schema ({
     business_type: [], // What kind of food they sell
     account_approved: Boolean,
     reviews: [],
+    orders: [],
     food_items_id: [String], // what they sell
     api_token: String,
     location: {

@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { changeLogged } from '../../actions/account-actions';
-
-import {Link} from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-
 import { Message, Icon} from 'semantic-ui-react';
-
 import {loginAdmin} from '../../Utils/admin';
 
 class AdminLogin extends Component{

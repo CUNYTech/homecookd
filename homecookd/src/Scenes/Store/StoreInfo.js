@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Card, Feed } from 'semantic-ui-react'
 
+const StoreInfoStyle ={
+  margin: 20
+}
+
 class StoreInfo extends Component{
   constructor(props) {
     super(props);
@@ -39,7 +43,7 @@ class StoreInfo extends Component{
   }
   render(){
     return(
-      <Card size='medium'>
+      <Card style={StoreInfoStyle} size='medium'>
         <Card.Content>
           <Card.Header>
             About
