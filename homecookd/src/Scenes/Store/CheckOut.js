@@ -1,5 +1,6 @@
-import React from 'react'
-import { Button, Icon } from 'semantic-ui-react'
+import React, {Component}from 'react'
+import { Button, Icon} from 'semantic-ui-react'
+import CheckOutScreen from './CheckOutScreen'
 
 const RightAlignPage = {
 
@@ -14,13 +15,34 @@ const RightAlignPage = {
 
 }
 
-const ButtonExampleLabeledIcon = () => (
+class CheckOut extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+  toggleModal = () => {
+    this.setState({open: !this.state.open})
+  }
+  handleClose = () => {
+    this.setState({open : false})
+
+  }
+
+
+  render(){
+
+  return (
   <div style={RightAlignPage}>
-    <Button>
+  <CheckOutScreen open={this.state.open} handleClose={this.handleClose}/>
+    <Button compact raised onClick={this.toggleModal} color='blue'>
       Check Out
-      <Icon name='shopping cart' />
+      <Icon name='shopping cart'/>
     </Button>
   </div>
 )
+}
+}
 
-export default ButtonExampleLabeledIcon
+export default CheckOut
