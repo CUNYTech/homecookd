@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "install": "mkdir logs",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jshint ./",
     "start": "node app.js"
   },
   "repository": {
@@ -18,6 +18,9 @@
     "url": "https://github.com/CUNYTech/homecookd/issues"
   },
   "homepage": "https://github.com/CUNYTech/homecookd#readme",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  },
   "dependencies": {
     "aws-sdk": "^2.223.1",
     "bcryptjs": "^2.4.3",
