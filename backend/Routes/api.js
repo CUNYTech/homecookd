@@ -54,7 +54,6 @@ router.post('/update/account/seller/password', updateAccount.updateSellerAccount
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
 //Order routes
-router.post('/order/userID/:UserID', createOrder.orderFoodById);
 router.post('/order/api_token', createOrder.orderFoodByApi);
 router.post('/order/update', updateOrder.checkAuth, updateOrder.updateOrderStatus);
 router.post('/order/update/prepping', updateOrder.checkAuth, updateOrder.updateOrderStatusOrderPrepping);
