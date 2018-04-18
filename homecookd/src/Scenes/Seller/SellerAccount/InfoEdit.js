@@ -1,7 +1,9 @@
 import React,{Component} from 'react';
 import TextField from 'material-ui/TextField';
 import "./SellerProfileEdit.css"
-import {UpdateSellerInfo} from "../../../Utils/storeData"
+import {UpdateSellerInfo} from "../../../Utils/Sellers"
+import {getSellerInfo} from "../../../Utils/Sellers"
+
 
 import { Table } from 'semantic-ui-react'
 import { Button } from 'semantic-ui-react'
@@ -46,6 +48,7 @@ class ProfileEdit extends Component {
     })
     e.preventDefault;
   }
+
 
   render() {
 

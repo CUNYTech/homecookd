@@ -51,7 +51,4 @@ export{getStoreInfoByID}
       })
     }
 
-    export{UpdateSellerInfo}
-    function UpdateSellerInfo(api_token, requestBody){
-      return axios.post(baseUrl + '', requestBody)
-    }
+  
