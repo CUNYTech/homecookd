@@ -59,8 +59,9 @@ router.get('/seller/sellers', sellers.getAllSeller);
 
 // Get Seller information
 router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
-router.get('/searchBar/business/seller', searchBar.search);
-router.post('/searchBar/business/seller', searchBar.search);
+router.get('/search/business/', searchBar.searchBar);
+router.get('/search/business/:search', searchBar.searchBar);
+router.post('/searchBar/business/seller', searchBar.searchBar);
 
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
