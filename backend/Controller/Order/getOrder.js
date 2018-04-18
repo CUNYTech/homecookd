@@ -16,7 +16,7 @@ exports.getOrderByOrderID = (req, res) => {
             }
         });
     }
-}
+};
 
 //  /order/sellerID/:SellerID
 exports.getOrderBySellerID = (req, res) => {
@@ -31,7 +31,7 @@ exports.getOrderBySellerID = (req, res) => {
             }
         });
     }
-}
+};
 
 // /order/userID/:UserID
 exports.getOrderByUserID = (req, res) => {
@@ -46,7 +46,7 @@ exports.getOrderByUserID = (req, res) => {
             }
         });
     }
-}
+};
 
 /**
  * req: 
@@ -74,7 +74,7 @@ exports.getOrderBySellerApiToken = (req, res) => {
             }
         });
     }
-}
+};
 
 /**
  * req: 
@@ -102,5 +102,5 @@ exports.getOrderByUserApiToken = (req, res) => {
             }
         });
     }
-}
+};
 
