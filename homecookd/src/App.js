@@ -62,7 +62,7 @@ class App extends Component {
           title="HomeCookd"
           iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}
           onLeftIconButtonClick={this.handleToggle}/>
-
+    
           <Drawer
             docked={false}
             width={200}
