@@ -60,7 +60,7 @@ router.post('/update/account/seller', updateAccount.updateSellerAccount);
 router.get('/seller/sellerID/:sellerID', seller.sellerInfoBySellerID);
 
 //Get Seller opening and closing time 
-route.post('/seller/sellerTime/schedule', getSellerTime.scheduleCreate);
+router.post('/seller/sellerTime/schedule', getSellerTime.scheduleCreate);
 
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
