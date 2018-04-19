@@ -22,6 +22,7 @@ var sellerSchema = new Schema ({
     reviews: [],
     orders: [String],
     food_items_id: [String], // what they sell
+    schedule: [String], // opening and closing times
     api_token: String,
     location: {
         address: {
