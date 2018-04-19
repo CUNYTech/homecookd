@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import HomeJoinButtons from './HomeJoinButtons';
-import FoodChoiceGrid from './FoodChoices/FoodChoiceGrid';
 
 class HomePage extends Component{
   render(){
@@ -9,7 +8,6 @@ class HomePage extends Component{
           <h1>Homecookd</h1>
 
           <HomeJoinButtons/>
-          <FoodChoiceGrid/>
 
       </div>
     )
