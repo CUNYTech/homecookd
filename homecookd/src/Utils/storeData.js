@@ -31,10 +31,8 @@ export{getStoreInfoByID}
         api_token : api_token,
         name: foodItem.itemName,
         price: foodItem.price,
-
         description : foodItem.description,
         image: foodItem.image
-
       })
     }
 
@@ -44,10 +42,8 @@ export{getStoreInfoByID}
         seller_api_token : api_token,
         name: foodItem.itemName,
         price: foodItem.price,
-
         description : foodItem.description,
         image : foodItem.image
-
       })
     }
 

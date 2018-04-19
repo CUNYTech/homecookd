@@ -18,7 +18,6 @@ import SellerAccount from '../Scenes/Seller/SellerAccount/SellerAccount';
 
 import SellerList from '../Scenes/Seller/SellerSearch/SellerList';
 
-
 // ADMIN Imports
 
 import AdminLogin from '../Scenes/Admin/AdminLogin';
