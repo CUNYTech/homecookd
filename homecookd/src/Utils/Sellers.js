@@ -10,10 +10,10 @@ export {getSellers};
 
 export{UpdateSellerInfo}
     function UpdateSellerInfo(api_token, requestBody){
-      return axios.post(baseUrl + '/update/account/seller', requestBody)
+      return axios.post(baseUrl + '/api/update/account/seller', {api_token : api_token, requestBody})
     }
 
 export{getSellerInfo}
   function getSellerInfo(api_token){
-    return axios.post(baseUrl + '/auth/information/seller',)
+    return axios.post(baseUrl + '/api/auth/information/seller',{api_token: api_token})
   }
