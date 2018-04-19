@@ -1,5 +1,6 @@
-var Seller = require("../Models/sellerSchema");
+/*jshint esversion: 6 */
 
+var Seller = require("../Models/sellerSchema");
 
 // isOpen: Boolean,
     // schedule: {
@@ -31,4 +32,4 @@ exports.scheduleCreate = (req, res) => {
 			});
 		}	
 	});
-}
+};
