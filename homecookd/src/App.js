@@ -8,6 +8,7 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
+
 import Drawer from 'material-ui/Drawer'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
@@ -55,9 +56,10 @@ class App extends Component {
     render(){
 
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider >
 
       <AppBar
+          style={{backgroundColor:'#db2828'}}
           title="HomeCookd"
           iconElementRight={this.props.logged ? <LoggedInMenu /> : <Login />}
           onLeftIconButtonClick={this.handleToggle}/>

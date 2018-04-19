@@ -1,11 +1,10 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
+/*jshint esversion: 6 */
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var foodTypeSchema = new Schema ({
-	type: String,
-	seller_id: String,
-}); 
+	type: String
+});
 
-module.exports = mongoose.model('FoodType', foodTypeSchema);
-
+module.exports = mongoose.model('Food Type', foodTypeSchema);
 

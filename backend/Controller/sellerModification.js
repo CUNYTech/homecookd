@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var FoodItem = require("../Models/foodItemSchema");
 var Seller = require("../Models/sellerSchema");
 
@@ -34,7 +35,7 @@ exports.foodItemCreate = (req, res) => {
             });
         }
     });
-}
+};
 
 function sellerUpdateFoodItemId(seller_id, tempFoodItem_id , res, req)
 {

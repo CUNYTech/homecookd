@@ -16,6 +16,8 @@
     "react": "^16.2.0",
     "react-cropper": "^1.0.1",
     "react-dom": "^16.2.0",
+    "react-dropzone": "^4.2.9",
+    "react-dynamic-dropzone": "^1.0.1",
     "react-image-upload": "0.0.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",

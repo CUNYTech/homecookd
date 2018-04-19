@@ -15,6 +15,7 @@ class MenuItemBox extends Component{
     getFoodItemsByAPItoken(localStorage.getItem('api_token'))
       .then(response => {
         const responseBody = response.data;
+        console.log(JSON.stringify(responseBody.data));
         this.setState({foodItems: responseBody.data});
       })
       .catch(error => {
@@ -44,7 +45,8 @@ class MenuItemBox extends Component{
               this.state.foodItems.map(function(foodItem) {
                   return <MenuItem foodItem={foodItem}/>
               })
-          }
+
+        }
 
       </Segment>
       </div>
