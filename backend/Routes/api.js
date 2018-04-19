@@ -49,10 +49,6 @@ router.post('/auth/information/seller', auth.checkAuth, auth.sellerInfo);
 // try - delete later
 router.post('/seller/foodItemCreate', sellerModification.foodItemCreate);
 
-// test -- L
-router.post('/modification/foodTypeCreate/seller', foodTypeModification.foodTypeCreate);
-
-
 
 // Get Food information
 router.get('/food/foodID/:FoodID', getFoodItems.getFoodItemByID); // Returns a Food object
