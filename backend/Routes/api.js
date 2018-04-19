@@ -51,8 +51,7 @@ router.get('/food/foodID/:FoodID', getFoodItems.getFoodItemByID); // Returns a F
 router.get('/food/sellerID/:SellerID', getFoodItems.getFoodItemsBySellerID); // Returns an array of Food Objects
 router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
 router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
-router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
-router.post('/update/account/seller', updateAccount.updateSellerAccount);
+
 
 //Order routes
 router.post('/order/api_token', createOrder.orderFoodByApi);
@@ -68,7 +67,13 @@ router.get('/order/userID/:UserID', getOrder.getOrderByUserID);
 router.post('/order/seller/api_token', getOrder.getOrderBySellerApiToken);
 router.post('/order/user/api_token', getOrder.getOrderByUserApiToken);
 
+
+// update seller
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
+router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
+router.post('/update/account/seller/email', updateAccount.updateEmail);
+router.post('/update/account/seller/userName', updateAccount.updateUserName);
+
 
 
 // get all the stores/restaurants
