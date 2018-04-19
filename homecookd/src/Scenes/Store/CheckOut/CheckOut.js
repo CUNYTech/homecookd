@@ -11,8 +11,6 @@ const RightAlignPage = {
   alignItems: 'flex-end',
   alignSelf: 'flex-end',
   flexDirection: 'column'
-
-
 }
 
 class CheckOut extends Component{
@@ -27,22 +25,19 @@ class CheckOut extends Component{
   }
   handleClose = () => {
     this.setState({open : false})
-
   }
 
-
   render(){
-
-  return (
-  <div style={RightAlignPage}>
-  <CheckOutScreen open={this.state.open} handleClose={this.handleClose}/>
-    <Button compact raised onClick={this.toggleModal} color='blue'>
-      Check Out
-      <Icon name='shopping cart'/>
-    </Button>
-  </div>
-)
+    return (
+      <div style={RightAlignPage}>
+      <CheckOutScreen open={this.state.open} handleClose={this.handleClose}/>
+        <Button compact onClick={this.toggleModal} color='blue'>
+          Check Out
+          <Icon name='shopping cart'/>
+        </Button>
+      </div>
+    )
+  }
 }
-}
 
-export default CheckOut
+export default CheckOut;
