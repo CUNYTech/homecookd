@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FoodItemGrid from './FoodItemGrid/FoodItemGrid';
-import ButtonExampleLabeledIcon from './CheckOut';
+import ButtonExampleLabeledIcon from './CheckOut/CheckOut';
 import StoreInfo from './StoreInfo'
 import SearchExampleStandard from './StoreSearchBar';
 
@@ -37,7 +37,7 @@ class StorePage extends Component{
         <center><h1>Place An Order With </h1></center>
       </header>
       <center><SearchExampleStandard/></center>
-     <ButtonExampleLabeledIcon/>
+      <ButtonExampleLabeledIcon/>
       <FoodItemGrid sellerID={this.props.match.params.sellerID}/>
       <StoreDescriptionCard name={this.state.storeData.name} />
 
