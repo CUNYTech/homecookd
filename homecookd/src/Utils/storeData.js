@@ -51,3 +51,8 @@ export{getStoreInfoByID}
     function UpdateSellerInfo(api_token, requestBody){
       return axios.post(baseUrl + '', requestBody)
     }
+
+    export{CreateOrder}
+    function CreateOder(user_api_token, seller_api_token, foodItems){
+      return axios.post(baseUrl + '/order/api_token')
+    }
