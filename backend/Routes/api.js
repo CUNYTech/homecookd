@@ -17,6 +17,9 @@ const sellers = require('../Controller/sellers');
 const createOrder = require('../Controller/Order/createOrder');
 const updateOrder = require('../Controller/Order/updatesOrder');
 const getOrder = require('../Controller/Order/getOrder');
+const getSellerTime = require('../Controller/sellerTime');
+
+// const foodTypeModification = require('../Controller/foodTypeModification/')
 
 // API
 // Base API Route
@@ -46,14 +49,13 @@ router.post('/auth/information/seller', auth.checkAuth, auth.sellerInfo);
 // try - delete later
 router.post('/seller/foodItemCreate', sellerModification.foodItemCreate);
 
+
 // Get Food information
 router.get('/food/foodID/:FoodID', getFoodItems.getFoodItemByID); // Returns a Food object
 router.get('/food/sellerID/:SellerID', getFoodItems.getFoodItemsBySellerID); // Returns an array of Food Objects
 router.post('/food/api_token',getFoodItems.getFoodItemsByAPItoken);
 router.post('/modification/foodItemCreate/seller', sellerModification.foodItemCreate);
 
-router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
-router.post('/update/account/seller', updateAccount.updateSellerAccount);
 
 //Order routes
 router.post('/order/api_token', createOrder.orderFoodByApi);
@@ -69,7 +71,13 @@ router.get('/order/userID/:UserID', getOrder.getOrderByUserID);
 router.post('/order/seller/api_token', getOrder.getOrderBySellerApiToken);
 router.post('/order/user/api_token', getOrder.getOrderByUserApiToken);
 
+
+// update seller
 router.post('/update/account/seller', updateAccount.updateSellerAccount);
+router.post('/update/account/seller/password', updateAccount.updateSellerAccountPassword);
+router.post('/update/account/seller/email', updateAccount.updateEmail);
+router.post('/update/account/seller/userName', updateAccount.updateUserName);
+
 
 
 // get all the stores/restaurants
@@ -81,10 +89,14 @@ router.get('/search/business/', searchBar.searchBar);
 router.get('/search/business/:search', searchBar.searchBar);
 router.post('/searchBar/business/seller', searchBar.searchBar);
 
+//Get Seller opening and closing time 
+router.post('/seller/sellerTime/schedule', getSellerTime.scheduleCreate);
+
 // Update Seller
 router.post('/seller/foodUpdate/:foodID', seller.updateFoodItem);
 
 router.post('/sign_s3',s3upload.sign_s3);
+
 // 404 paths
 router.use(apiHome.invalidPath);
 
