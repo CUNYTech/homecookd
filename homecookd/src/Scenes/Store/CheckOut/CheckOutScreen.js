@@ -33,6 +33,7 @@ class CheckOutScreen extends Component {
     createOrder(user_api_token, seller_id, foodItems)
       .then(res => {
         this.clearCart();
+        this.props.handleClose();
       })
       .catch(err => {
         console.log(err);
