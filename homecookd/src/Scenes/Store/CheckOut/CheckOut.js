@@ -30,7 +30,7 @@ class CheckOut extends Component{
   render(){
     return (
       <div style={RightAlignPage}>
-      <CheckOutScreen open={this.state.open} handleClose={this.handleClose}/>
+      <CheckOutScreen seller_id={this.props.seller_id} open={this.state.open} handleClose={this.handleClose}/>
         <Button compact onClick={this.toggleModal} color='blue'>
           Check Out
           <Icon name='shopping cart'/>

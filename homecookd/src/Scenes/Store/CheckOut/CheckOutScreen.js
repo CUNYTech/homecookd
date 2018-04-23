@@ -1,27 +1,55 @@
 import React, { Component } from 'react';
+import history from '../../../Utils/history';
 import { Button, Modal, Header, Image, Item } from 'semantic-ui-react';
 import CheckOut from './CheckOut';
 import CheckOutItem from './CheckOutItem';
 import { connect } from 'react-redux';
+import { clearCart } from '../../../actions/cartActions';
+import { createOrder } from '../../../Utils/storeData';
 
 class CheckOutScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      user_api_token: ''
     };
+
+    this.getUserApiToken = this.getUserApiToken.bind(this);
+    this.checkOut = this.checkOut.bind(this);
+  }
+  getUserApiToken() {
+    if(localStorage.getItem('api_token') !== null) {
+      return localStorage.getItem('api_token');
+    } else {
+      // redirect to login page if user is not logged in
+      history.push('/Auth/Login');
+    }
+  }
+
+  checkOut() {
+    let user_api_token = this.getUserApiToken();
+    let seller_id = this.props.seller_id;
+    let foodItems = this.props.cart.cart;
+    createOrder(user_api_token, seller_id, foodItems)
+      .then(res => {
+        this.clearCart();
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  clearCart() {
+    this.props.clearCart();
   }
 
   state = { open: false }
-
   show = size => () => this.setState({ size, open: true })
   close = () => this.setState({ open: false })
 
 
   render() {
-
     return (
-
       <Modal open={this.props.open} >
         <Modal.Content scrolling>
           <Item.Group relaxed divided unstackable>
@@ -36,7 +64,7 @@ class CheckOutScreen extends Component {
           <Button onClick={this.props.handleClose} negative>
             Exit
           </Button>
-          <Button positive icon='checkmark' labelPosition='right' content='Check Out' />
+          <Button onClick={this.checkOut} positive icon='checkmark' labelPosition='right' content='Check Out' />
         </Modal.Actions>
       </Modal>
     )
@@ -50,4 +78,8 @@ const mapStateToProps = (reduxState) => {
   }
 }
 
-export default connect(mapStateToProps)(CheckOutScreen);
+const mapDispatchToProps = {
+  clearCart: clearCart
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckOutScreen);
