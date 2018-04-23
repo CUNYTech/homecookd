@@ -11,7 +11,7 @@ class CheckOutItem extends Component {
       name: '',
       price: '',
       image: '',
-      serllerId: ''
+      sellerId: ''
     }
   }
 

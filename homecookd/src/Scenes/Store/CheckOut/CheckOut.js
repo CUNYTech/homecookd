@@ -1,6 +1,7 @@
-import React, {Component}from 'react'
-import { Button, Icon} from 'semantic-ui-react'
-import CheckOutScreen from './CheckOutScreen'
+import React, {Component}from 'react';
+import { Button, Icon} from 'semantic-ui-react';
+import CheckOutScreen from './CheckOutScreen';
+import { connect } from 'react-redux'
 
 const RightAlignPage = {
 
@@ -30,9 +31,9 @@ class CheckOut extends Component{
   render(){
     return (
       <div style={RightAlignPage}>
-      <CheckOutScreen open={this.state.open} handleClose={this.handleClose}/>
+      <CheckOutScreen seller_id={this.props.seller_id} open={this.state.open} handleClose={this.handleClose}/>
         <Button compact onClick={this.toggleModal} color='blue'>
-          Check Out
+          Check Out ({this.props.cart.cart.length})
           <Icon name='shopping cart'/>
         </Button>
       </div>
@@ -40,4 +41,10 @@ class CheckOut extends Component{
   }
 }
 
-export default CheckOut;
+const mapStateToProps = (reduxState) => {
+  return{
+    cart: reduxState.cart
+  }
+}
+
+export default connect(mapStateToProps)(CheckOut);
