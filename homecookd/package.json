@@ -22,6 +22,7 @@
     "react-dropzone": "^4.2.9",
     "react-dynamic-dropzone": "^1.0.1",
     "react-image-upload": "0.0.1",
+    "react-parallax": "^1.7.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
@@ -31,7 +32,8 @@
     "reactstrap": "^5.0.0-beta.3",
     "redux": "^3.7.2",
     "redux-persist": "^5.9.1",
-    "semantic-ui-react": "^0.78.3"
+    "semantic-ui-react": "^0.78.3",
+    "video-react": "^0.10.4"
   },
   "scripts": {
     "start": "react-scripts start",
