@@ -70,6 +70,7 @@ class App extends Component {
             open={this.state.open}
             onRequestChange={(open) => this.setState({open})}
           >
+
             <MenuItem onClick={this.handleClose} href="/#">Home</MenuItem>
             <MenuItem onClick={this.handleClose}>Order</MenuItem>
             <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>

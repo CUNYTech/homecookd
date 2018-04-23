@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import HomeJoinButtons from './HomeJoinButtons';
 
+import HomeBg from './Parallax'
+import HomeSearchBar from './HomeSearchBar'
+
+
 class HomePage extends Component{
   render(){
     return(
-      <div style={{backgroundColor:"#db2828", height:"100%"}}>
-          <h1>Homecookd</h1>
-          <HomeJoinButtons/>
+
+      <div>
+        
+
+
+
+          <HomeBg/>
+
+
       </div>
     )
   }
