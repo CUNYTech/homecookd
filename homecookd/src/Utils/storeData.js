@@ -52,7 +52,7 @@ export{getStoreInfoByID}
       return axios.post(baseUrl + '', requestBody)
     }
 
-    export{CreateOrder}
-    function CreateOder(user_api_token, seller_api_token, foodItems){
+    export{createOrder}
+    function createOrder(user_api_token, seller_api_token, foodItems){
       return axios.post(baseUrl + '/order/api_token')
     }
