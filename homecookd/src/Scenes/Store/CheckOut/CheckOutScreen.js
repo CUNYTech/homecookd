@@ -27,6 +27,9 @@ class CheckOutScreen extends Component {
   }
 
   checkOut() {
+    if(this.props.cart.cart.length === 0) {
+      return;
+    }
     let user_api_token = this.getUserApiToken();
     let seller_id = this.props.seller_id;
     let foodItems = this.props.cart.cart;
