@@ -15,7 +15,7 @@ var rack = hat.rack(64, 16);
 
 exports.checkAuth = (req, res, next) => {
     if (req.body.api_token === undefined) {
-        res.status(400).json( {success:false, error: "Missing api_token in request"} );        
+        res.status(400).json( {success:false, error: "Missing api_token in request"} );
     }else{
         console.log("Auth passed");
         next();
@@ -26,7 +26,7 @@ exports.checkAuth = (req, res, next) => {
 exports.userInfo = (req, res) => {
     User.find({api_token: req.body.api_token}, function(err, docs){
         if (!docs.length || err){
-            res.status(401).json( {success:false, error: "Could not find user with this api token"} );                    
+            res.status(401).json( {success:false, error: "Could not find user with this api token"} );
         }else{
             res.status(200);
             res.json({
@@ -228,6 +228,4 @@ exports.registerSeller = (req, res) => {
             res.json( {error: "Username or Email belongs to another user"} );
         }
     });
-
 };
-

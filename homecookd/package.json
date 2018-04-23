@@ -18,7 +18,9 @@
     "react": "^16.3.2",
     "react-bootstrap": "^0.32.1",
     "react-cropper": "^1.0.1",
+
     "react-dom": "^16.3.2",
+
     "react-dropzone": "^4.2.9",
     "react-dynamic-dropzone": "^1.0.1",
     "react-image-upload": "0.0.1",

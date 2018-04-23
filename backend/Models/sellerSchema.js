@@ -20,7 +20,7 @@ var sellerSchema = new Schema ({
     business_type: [], // What kind of food they sell
     account_approved: Boolean,
     reviews: [],
-    orders: [],
+    orders: [String],
     food_items_id: [String], // what they sell
     api_token: String,
     location: {
@@ -31,6 +31,37 @@ var sellerSchema = new Schema ({
         },
         lat: Number,
         long: Number
+    },
+    isOpen: Boolean,
+    schedule: {
+        Monday: {
+            open: String,
+            close: String
+        },
+        Tuesday: {
+            open: String,
+            close: String
+        },
+        Wednesday: {
+            open: String,
+            close: String
+        },
+        Thursday: {
+            open: String,
+            close: String
+        },
+        Friday: {
+            open: String,
+            close: String
+        },
+        Saturday: {
+            open: String,
+            close: String
+        },
+        Sunday: {
+            open: String,
+            close: String
+        },
     }
 });
 

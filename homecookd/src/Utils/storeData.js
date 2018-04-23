@@ -10,7 +10,7 @@ export{getFoodItem}
 
 export{getFoodItemsBySellerID}
   function getFoodItemsBySellerID(seller_id){
-    console.log(baseUrl + "/api/food/sellerID/" + seller_id)
+    // console.log(baseUrl + "/api/food/sellerID/" + seller_id)
     return axios.get(baseUrl + "/api/food/sellerID/" + seller_id)
   }
 
@@ -31,10 +31,8 @@ export{getStoreInfoByID}
         api_token : api_token,
         name: foodItem.itemName,
         price: foodItem.price,
-
         description : foodItem.description,
         image: foodItem.image
-
       })
     }
 
@@ -44,10 +42,8 @@ export{getStoreInfoByID}
         seller_api_token : api_token,
         name: foodItem.itemName,
         price: foodItem.price,
-
         description : foodItem.description,
         image : foodItem.image
-
       })
     }
 
@@ -55,3 +51,13 @@ export{getStoreInfoByID}
     function UpdateSellerInfo(api_token, requestBody){
       return axios.post(baseUrl + '', requestBody)
     }
+
+    export{createOrder}
+      function createOrder(user_api_token, seller_id, foodItems){
+        return axios.post(baseUrl + '/api/order/api_token', {
+          user_api_token,
+          seller_id,
+          foodItems
+        })
+      }
+
