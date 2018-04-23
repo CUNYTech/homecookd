@@ -10,7 +10,7 @@ export{getFoodItem}
 
 export{getFoodItemsBySellerID}
   function getFoodItemsBySellerID(seller_id){
-    console.log(baseUrl + "/api/food/sellerID/" + seller_id)
+    // console.log(baseUrl + "/api/food/sellerID/" + seller_id)
     return axios.get(baseUrl + "/api/food/sellerID/" + seller_id)
   }
 
