@@ -14,7 +14,7 @@ const insideStyles = {fontSize: 70, fontWeight: 'bold', color:'ivory', padding: 
 const captionStyles = {fontSize: 30, color:'ivory',  position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)'};
 const buttonStyles = {fontSize: 30, color:'white',  position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%,-50%)'};
 const secondPicDescriptionStyles = {fontSize: 70, color:'ivory', position: 'absolute', top: '15%', left: '50%', transform: 'translate(-50%,-50%)'};
-const secondCaptionStyles = {fontSize: 24, color:'ivory', padding: 20,position: 'absolute', top: '35%', left: '50%', transform: 'translate(-50%,-50%)'};
+const secondCaptionStyles = {fontSize: 24, color:'ivory', padding: 20, position: 'absolute', top: '35%', left: '50%', transform: 'translate(-50%,-50%)'};
 const stepsStyles = {fontSize: 30, color:'ivory',  position: 'absolute', top: '70%', left: '50%', transform: 'translate(-50%,-50%)'};
 const faceBookLogoStyles = {position: 'absolute', top: '45%', left: '35%'}
 const instgramLogoStyles = {position: 'absolute', top: '45%', left: '45%'}
@@ -41,7 +41,7 @@ class HomeBg extends Component {
         <div style={captionStyles}>Because Home is where the heart is.</div>
       </div>
       <div style={buttonStyles}>
-      <GetStarted/>
+      <GetStarted />
       </div>
     </Parallax>
     <h1></h1>
