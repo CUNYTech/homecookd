@@ -36,7 +36,7 @@ exports.orderFoodByApi = (req, res) => {
                     res.status(400).json( {success: false, error: "Could not find user"} );
                   }
                   res.status(400).json({success: false, error: 'You are logged in as a seller. Please log in as a user.'});
-                })
+                });
             }else{
                 Seller.findOne({_id: req.body.seller_id}, function(err, seller){
                     if(err || !seller){
