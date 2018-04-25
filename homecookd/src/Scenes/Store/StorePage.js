@@ -41,7 +41,9 @@ class StorePage extends Component{
       </header>
       <center><SearchExampleStandard/></center>
       <CheckOut seller_id={this.state.seller_id}/>
+      <div>
       <FoodItemGrid sellerID={this.props.match.params.sellerID}/>
+      </div>
       <StoreDescriptionCard name={this.state.storeData.name} />
 
 
