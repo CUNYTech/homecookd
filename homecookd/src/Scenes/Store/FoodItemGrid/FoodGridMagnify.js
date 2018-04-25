@@ -17,24 +17,6 @@ class FoodGridMagnify extends Component {
   show = size => () => this.setState({ size, open: true })
   close = () => this.setState({ open: false })
 
-  addToCart(item) {
-    var found = false;
-    var updatedCart = this.state.cart.map((cartItem) => {
-      if (cartItem.name == item.name) {
-        found = true;
-        cartItem.quantity++;
-        return cartItem;
-      } else {
-        return cartItem;
-      }
-    });
-
-    if (!found) { updatedCart.push({id: item.id, name: item.name, price: item.price, quantity: 1}) }
-
-    this.setState({
-      cart: updatedCart
-    });
-  }
 
   render() {
 
@@ -53,7 +35,7 @@ class FoodGridMagnify extends Component {
             <Button onClick={this.props.handleClose} negative>
               Cancel
             </Button>
-            <Button positive  content='Add to Cart' onClick={this.refs.addToCart} />
+            <Button positive  content='Add to Cart' />
           </Modal.Actions>
         </Modal>
 

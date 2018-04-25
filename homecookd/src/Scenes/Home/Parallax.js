@@ -22,7 +22,10 @@ const twitterLogoStyles = {position: 'absolute', top: '45%', left: '55%'}
 const image1 = "https://cf.ua/m/blog/43b1da4a0a2302806bcc9702d1551645/images/gallery-1447358888-clx110114clkt-59a6da0936811.jpg";
 const image2 = "http://www.zastavki.com/pictures/originals/2015/Food___Bread_rolls_croissants_Christmas_apple_pie_105881_.jpg";
 const image3 = "https://i0.wp.com/blog.hellofresh.com/wp-content/uploads/2017/02/veggies-winter-food-gradient-table-banner-red.jpg?ssl=1";
-
+const style = {
+  marginTop: 0,
+  marginBottom: 0
+}
 
 class HomeBg extends Component {
   constructor(props) {
@@ -44,7 +47,7 @@ class HomeBg extends Component {
       <GetStarted />
       </div>
     </Parallax>
-    <h1></h1>
+    <h1 style={style}></h1>
     <Parallax bgImage={image3} blur={{min: -1,max:3}} >
       <div style={{height: 500}}>
       <div style={secondPicDescriptionStyles}>How It Works</div>
@@ -61,7 +64,7 @@ class HomeBg extends Component {
       <Steps/>
       </div>
     </Parallax>
-    <h1></h1>
+    <h1 style={style}></h1>
     <Parallax bgImage={image2} strength={-100}>
       <div style={{height: 500}}>
         <div style={insideStyles}>Follow Us On</div>

@@ -8,7 +8,7 @@ const arrow = {top: '50%', left: '-10%'}
 
 const SegmentExampleCircular = () => (
   <div>
-    <Segment circular style={square1}>
+    <Segment circular color="red" style={square1}>
       <Header as='h2'>
         Register
         <Header.Subheader>
@@ -16,9 +16,9 @@ const SegmentExampleCircular = () => (
         </Header.Subheader>
       </Header>
     </Segment>
-    
 
-    <Segment circular style={square2}>
+
+    <Segment circular color="orange" style={square2}>
       <Header as='h2' >
         Decide
         <Header.Subheader>
@@ -27,7 +27,7 @@ const SegmentExampleCircular = () => (
       </Header>
     </Segment>
 
-    <Segment circular style={square3}>
+    <Segment circular color="red" style={square3}>
       <Header as='h2'>
         Enjoy
         <Header.Subheader>

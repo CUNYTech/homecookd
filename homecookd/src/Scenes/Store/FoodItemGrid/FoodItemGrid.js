@@ -6,7 +6,8 @@ import FoodItemCard from './FoodItemCard';
 
 const FoodItemGridStyle = {
   width: '500px',
-  margin: '0 auto',
+  marginLeft: 375,
+  display: 'flex',
   height: 0
 
 

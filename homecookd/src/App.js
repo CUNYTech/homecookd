@@ -8,7 +8,6 @@ import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import RoutePaths from './App/RoutePaths'
 import LoggedInMenu from './Scenes/Home/LoggedInMenu';
-
 import Drawer from 'material-ui/Drawer'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
@@ -47,6 +46,9 @@ class App extends Component {
     this.logInUser(localStorage.getItem('api_token')!== null)
   }
 
+  handleClick() {
+  alert('onClick triggered on the title component');
+}
 
   handleChange = (event, logged) => {
     this.setState({logged: logged});
@@ -71,17 +73,14 @@ class App extends Component {
             onRequestChange={(open) => this.setState({open})}
           >
 
-            <MenuItem onClick={this.handleClose} href="/#">Home</MenuItem>
-            <MenuItem onClick={this.handleClose}>Order</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>
-            <MenuItem onClick={this.handleClose}>Location</MenuItem>
-            <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
-            <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
-            <MenuItem onClick={this.handleClose}>Help</MenuItem>
-
-            {!this.props.logged && <MenuItem  onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>}
-            {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Register As a Seller</MenuItem>}
-
+          <MenuItem onClick={this.handleClose} href="/#">Home</MenuItem>
+         {this.props.accountType !== "seller" && <MenuItem onClick={this.handleClose} href="/sellers">Search Sellers</MenuItem>}
+         {this.props.accountType == "seller" && <MenuItem onClick={this.handleClose} href="/MySellerPortal">Seller Portal</MenuItem>}
+         {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/login">Login</MenuItem>}
+         {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/register">Register</MenuItem>}
+         {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>}
+         {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Become a Seller</MenuItem>}
+         <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
 
           </Drawer>
         <RoutePaths/>
