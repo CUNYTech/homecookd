@@ -71,13 +71,11 @@ class App extends Component {
             onRequestChange={(open) => this.setState({open})}
           >
 
-            <MenuItem onClick={this.handleClose} href="/#">Home</MenuItem>
-            <MenuItem onClick={this.handleClose}>Order</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/">Home</MenuItem>
+            <MenuItem onClick={this.handleClose} href="/Sellers" >Order</MenuItem>
             <MenuItem onClick={this.handleClose} href="/Menu">Menu</MenuItem>
             <MenuItem onClick={this.handleClose}>Location</MenuItem>
-            <MenuItem onClick={this.handleClose}>Refresh</MenuItem>
             <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
-            <MenuItem onClick={this.handleClose}>Help</MenuItem>
 
             {!this.props.logged && <MenuItem  onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>}
             {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Register As a Seller</MenuItem>}
