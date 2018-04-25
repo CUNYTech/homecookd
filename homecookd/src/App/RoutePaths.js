@@ -43,7 +43,7 @@ const RoutePaths= () => (
     <Route path = '/Store/:sellerID' component = {StorePage}/>
     <Route path = '/MySellerPortal' component = {SellerAccount}/>
     <Route path = '/Sellers' component = {SellerList}/>
-
+    <Route path = '/SellerProfileEdit' component = {SellerProfileEdit}/>
 
     {/* ADMIN RoutePaths */}
     <Route path = '/Admin/Login' component = {AdminLogin}/>
