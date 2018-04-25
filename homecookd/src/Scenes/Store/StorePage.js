@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import FoodItemGrid from './FoodItemGrid/FoodItemGrid';
 import CheckOut  from './CheckOut/CheckOut';
-import StoreInfo from './StoreInfo'
 import SearchExampleStandard from './StoreSearchBar';
 
 import StoreDescriptionCard from './StoreDescriptionCard';

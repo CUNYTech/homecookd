@@ -44,7 +44,7 @@ exports.updateOrderStatus = (req, res) => {
                             if(err){
                                 res.status(500).send(err);
                             }else{
-                                res.status(400).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
+                                res.status(200).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
                             }
                         });
                     }
@@ -83,7 +83,7 @@ exports.updateOrderStatusOrderReceived = (req, res) => {
                             if(err){
                                 res.status(500).send(err);
                             }else{
-                                res.status(400).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
+                                res.status(200).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
                             }
                         });
                     }
@@ -120,7 +120,7 @@ exports.updateOrderStatusOrderPrepping = (req, res) => {
                             if(err){
                                 res.status(500).send(err);
                             }else{
-                                res.status(400).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
+                                res.status(200).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
                             }
                         });
                     }
@@ -157,7 +157,7 @@ exports.updateOrderStatusOutForDelivery = (req, res) => {
                             if(err){
                                 res.status(500).send(err);
                             }else{
-                                res.status(400).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
+                                res.status(200).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
                             }
                         });
                     }
@@ -194,7 +194,7 @@ exports.updateOrderStatusDelivered = (req, res) => {
                             if(err){
                                 res.status(500).send(err);
                             }else{
-                                res.status(400).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
+                                res.status(200).json( {success: true, data: {message: "Successfully, order is updated", order_info: order}} );
                             }
                         });
                     }

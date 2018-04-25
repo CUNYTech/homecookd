@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { getOrders } from '../../../../Utils/storeData';
 import { Segment } from 'semantic-ui-react';
 import OrderItem from './OrderItem';

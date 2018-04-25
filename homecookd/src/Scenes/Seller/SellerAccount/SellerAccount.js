@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SellerInfoCard from '../SellerAccount/Info';
-import ButtonExampleSocial from '../SellerAccount/SocialMedia';
 import OrderList from './Orders/OrderList';
 
 import MenuItemBox from './MenuItems/MenuItemBox';

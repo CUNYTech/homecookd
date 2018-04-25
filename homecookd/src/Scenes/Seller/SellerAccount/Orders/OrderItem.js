@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Divider, Segment } from 'semantic-ui-react';
+import { Divider, Button } from 'semantic-ui-react';
 import { getOrderInfo, updateOrderStatus } from '../../../../Utils/storeData';
 import StatusComplete from './OrderStatus/StatusComplete';
 import StatusNotComplete from './OrderStatus/StatusNotComplete';
 import OrderItemName from './OrderItemName';
-import { Button } from 'semantic-ui-react';
 
 class OrderItem extends Component {
   constructor(props) {

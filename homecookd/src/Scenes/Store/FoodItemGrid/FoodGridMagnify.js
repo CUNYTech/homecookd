@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { Button, Modal, Header, Image } from 'semantic-ui-react'
-import FoodItemGrid from './FoodItemGrid'
-import FoodItemCard from './FoodItemCard'
-
 
 class FoodGridMagnify extends Component {
   constructor(props) {
@@ -17,6 +14,24 @@ class FoodGridMagnify extends Component {
   show = size => () => this.setState({ size, open: true })
   close = () => this.setState({ open: false })
 
+  addToCart(item) {
+    var found = false;
+    var updatedCart = this.state.cart.map((cartItem) => {
+      if (cartItem.name === item.name) {
+        found = true;
+        cartItem.quantity++;
+        return cartItem;
+      } else {
+        return cartItem;
+      }
+    });
+
+    if (!found) { updatedCart.push({id: item.id, name: item.name, price: item.price, quantity: 1}) }
+
+    this.setState({
+      cart: updatedCart
+    });
+  }
 
   render() {
 

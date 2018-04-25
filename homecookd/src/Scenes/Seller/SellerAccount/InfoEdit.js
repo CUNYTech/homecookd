@@ -12,14 +12,14 @@ class ProfileEdit extends Component {
   constructor(props){
     super(props)
     this.state = {
-      Name: '',
-      Restaurant:'',
-      Email: '',
-      Address:'',
-      City:'',
-      State:'',
-      Zip:'',
-      Time:''
+      name: '',
+      restaurant:'',
+      email: '',
+      address:'',
+      city:'',
+      state:'',
+      zip:'',
+      time:''
 
     };
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -33,18 +33,18 @@ class ProfileEdit extends Component {
    }
 
   HandleFormSubmission(e){
-    alert("formChange")
-    const Name = this.state.Name;
-    const Restaurant = this.state.Restaurant;
-    const Email = this.state.Email;
-    const Address = this.state.Address;
-    const City = this.state.City;
-    const State = this.state.State;
-    const Zip = this.state.Zip;
-    const Time = this.state.Time;
+    const name = this.state.name;
+    const restaurant = this.state.restaurant;
+    const email = this.state.email;
+    const address = this.state.address;
+    const city = this.state.city;
+    const state = this.state.state;
+    const zip = this.state.zip;
+    // const Time = this.state.Time;
 
-    const requestBody = {name: this.state.Name, restaurant: this.state.Restaurant, email: this.state.Email,
-    address: this.state.Address, city: this.state.City, state: this.state.State, zip: this.state.Zip}
+    const requestBody = {
+      name, restaurant, email, address, city, state, zip
+    }
 
     UpdateSellerInfo(localStorage.getItem('api_token'),requestBody)
     .then(response => {
@@ -53,9 +53,13 @@ class ProfileEdit extends Component {
     .catch(error => {
       alert("Error " + JSON.stringify(error))
     })
-    e.preventDefault;
+    e.preventDefault();
   }
 
+  componentDidMount() {
+    getSellerInfo()
+      .then(res => console.log(res))
+  }
 
   render() {
 
