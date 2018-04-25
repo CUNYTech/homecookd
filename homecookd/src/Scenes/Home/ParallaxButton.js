@@ -9,7 +9,7 @@ const textColor = {
 const GetStarted = () => (
   <div style={textColor}>
 
-    <Button href="/auth/register" color='white' content='Get Started' />
+    <Button href="/auth/register" color='red' content='Get Started' />
   </div>
 )
 

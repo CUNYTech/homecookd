@@ -8,7 +8,7 @@ import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';
-
+import ForgotPassword from '../Scenes/Account/Login/ForgotPassword';
 import RegisterForm from '../Scenes/Account/Register/RegisterForm';
 import SellerProfileEdit from '../Scenes/Seller/SellerAccount/SellerProfileEdit';
 
@@ -37,6 +37,7 @@ const RoutePaths= () => (
     <Route path = '/auth/Register' component = {RegisterForm} />
     <Route path = '/auth/RegisterSeller' component = {RegisterSeller} />
     <Route path = '/auth/LoginSeller' component = {LoginSellerForm}/>
+    <Route path = '/ForgotPassword' component = {ForgotPassword}/>
     <Route path = '/AboutUs' component = {AboutUs} />
     <Route path = '/Menu' component = {Menu} />
     <Route path = '/MyAccount' component = {AccountPage}/>
