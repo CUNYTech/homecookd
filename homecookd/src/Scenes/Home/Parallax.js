@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { render } from 'react-dom';
 import {Icon} from 'semantic-ui-react'
 import { Parallax } from 'react-parallax';
 import GetStarted from './ParallaxButton';
@@ -44,7 +43,6 @@ class HomeBg extends Component {
       <GetStarted/>
       </div>
     </Parallax>
-    <h1></h1>
     <Parallax bgImage={image3} blur={{min: -1,max:3}} >
       <div style={{height: 500}}>
       <div style={secondPicDescriptionStyles}>How It Works</div>
@@ -61,7 +59,6 @@ class HomeBg extends Component {
       <Steps/>
       </div>
     </Parallax>
-    <h1></h1>
     <Parallax bgImage={image2} strength={-100}>
       <div style={{height: 500}}>
         <div style={insideStyles}>Follow Us On</div>

@@ -4,7 +4,6 @@ import history from '../Utils/history';
 import AboutUs from '../Scenes/AboutUs/AboutUs';
 import HomePage from '../Scenes/Home/HomePage';
 import Menu from '../Scenes/Menu/Menu';
-import GridListExampleSimple from '../Scenes/Menu/Menu'
 import LoginForm from '../Scenes/Account/Login/LoginForm';
 import RegisterSeller from '../Scenes/Account/Register/RegisterSeller';
 import LoginSellerForm from '../Scenes/Account/Login/LoginSellerForm';

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {Card,Button} from 'semantic-ui-react'
-import {getFoodItemsBySellerID} from '../../../Utils/storeData.js';
-import FoodGridMagnify from './FoodGridMagnify'
+import { Card } from 'semantic-ui-react';
+import { getFoodItemsBySellerID } from '../../../Utils/storeData.js';
 import FoodItemCard from './FoodItemCard';
 
 const FoodItemGridStyle = {
@@ -56,10 +55,6 @@ class FoodItemGrid extends Component{
 
 
   render(){
-    var FoodItemGrid = []
-
-    const src = 'https://dishes.menu/assets/img/tmp/food_default.jpg';
-    const style={margin:5}
     return(
       <div>
         {/* <FoodGridMagnify open={this.state.open} handleClose={this.handleClose}/> */}
