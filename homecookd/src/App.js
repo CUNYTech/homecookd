@@ -73,6 +73,7 @@ class App extends Component {
             onRequestChange={(open) => this.setState({open})}
           >
 
+
           <MenuItem onClick={this.handleClose} href="/#">Home</MenuItem>
          {this.props.accountType !== "seller" && <MenuItem onClick={this.handleClose} href="/sellers">Search Sellers</MenuItem>}
          {this.props.accountType == "seller" && <MenuItem onClick={this.handleClose} href="/MySellerPortal">Seller Portal</MenuItem>}
@@ -81,6 +82,7 @@ class App extends Component {
          {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/loginSeller">Login As a Seller</MenuItem>}
          {!this.props.logged && <MenuItem onClick={this.handleClose} href="/auth/registerSeller">Become a Seller</MenuItem>}
          <MenuItem onClick={this.handleClose} href="/AboutUs">About Us</MenuItem>
+
 
           </Drawer>
         <RoutePaths/>
