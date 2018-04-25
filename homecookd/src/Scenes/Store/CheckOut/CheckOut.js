@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const RightAlignPage = {
 
   width: 'auto',
-  marginRight: 50,
+  marginRight: 20,
   display: 'flex',
   justifyContent: 'flex-end',
   alignItems: 'flex-end',

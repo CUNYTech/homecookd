@@ -43,6 +43,9 @@ class App extends Component {
     this.logInUser(localStorage.getItem('api_token')!== null)
   }
 
+  handleClick() {
+  alert('onClick triggered on the title component');
+}
 
   handleChange = (event, logged) => {
     this.setState({logged: logged});

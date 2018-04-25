@@ -50,7 +50,7 @@ class FoodGridMagnify extends Component {
             <Button onClick={this.props.handleClose} negative>
               Cancel
             </Button>
-            <Button positive  content='Add to Cart' onClick={this.refs.addToCart} />
+            <Button positive  content='Add to Cart' />
           </Modal.Actions>
         </Modal>
 

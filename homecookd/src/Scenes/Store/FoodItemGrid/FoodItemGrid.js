@@ -5,7 +5,7 @@ import FoodItemCard from './FoodItemCard';
 
 const FoodItemGridStyle = {
   width: '500px',
-  margin: '0 auto',
+  marginLeft: 425,
   height: 0
 
 
@@ -37,17 +37,14 @@ class FoodItemGrid extends Component{
         this.setState({foodItems: responseBody.data});
         var FoodItemGrid = [];
         for(var i = 0; i<this.state.foodItems.length; i++){
-          FoodItemGrid.push(
-            <FoodItemCard
-              onClick={this.toggleModal}
-              key={this.state.foodItems[i]._id}
-              id={this.state.foodItems[i]._id}
-              foodItemName={this.state.foodItems[i].name}
-            />)
+          FoodItemGrid.push(<FoodItemCard onClick={this.toggleModal} foodItemName={this.state.foodItems[i].name}/>)
         }
         this.setState({FoodItemGrid: FoodItemGrid});
+
+
       })
       .catch(error => {
+
         console.log(error);
       })
   }
@@ -57,9 +54,12 @@ class FoodItemGrid extends Component{
   render(){
     return(
       <div>
-        {/* <FoodGridMagnify open={this.state.open} handleClose={this.handleClose}/> */}
+
+      <FoodGridMagnify open={this.state.open} handleClose={this.handleClose}/>
         <Card.Group style={FoodItemGridStyle} itemsPerRow={3}>
-          {this.state.FoodItemGrid}
+          {
+            this.state.FoodItemGrid
+        }
         </Card.Group>
       </div>
     )
