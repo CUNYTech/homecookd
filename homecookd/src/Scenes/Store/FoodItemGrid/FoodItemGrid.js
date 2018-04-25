@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import { getFoodItemsBySellerID } from '../../../Utils/storeData.js';
 import FoodItemCard from './FoodItemCard';
+// import FoodGridMagnify from './FoodGridMagnify';
 
 const FoodItemGridStyle = {
   width: '500px',
@@ -55,7 +56,7 @@ class FoodItemGrid extends Component{
     return(
       <div>
 
-      <FoodGridMagnify open={this.state.open} handleClose={this.handleClose}/>
+      {/* <FoodGridMagnify open={this.state.open} handleClose={this.handleClose}/> */}
         <Card.Group style={FoodItemGridStyle} itemsPerRow={3}>
           {
             this.state.FoodItemGrid
