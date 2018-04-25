@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import history from '../../../Utils/history';
-import { Button, Modal, Header, Image, Item } from 'semantic-ui-react';
-import CheckOut from './CheckOut';
+import { Button, Modal, Item } from 'semantic-ui-react';
 import CheckOutItem from './CheckOutItem';
 import { connect } from 'react-redux';
 import { clearCart } from '../../../actions/cartActions';
@@ -27,6 +26,9 @@ class CheckOutScreen extends Component {
   }
 
   checkOut() {
+    if(this.props.cart.cart.length === 0) {
+      return;
+    }
     let user_api_token = this.getUserApiToken();
     let seller_id = this.props.seller_id;
     let foodItems = this.props.cart.cart;

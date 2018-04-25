@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SellerInfoCard from '../SellerAccount/Info'
-import ButtonExampleSocial from '../SellerAccount/SocialMedia'
+import SellerInfoCard from '../SellerAccount/Info';
+import OrderList from './Orders/OrderList';
 
 import MenuItemBox from './MenuItems/MenuItemBox';
 class SellerAccount extends Component{
@@ -16,7 +16,6 @@ class SellerAccount extends Component{
   render(){
     return(
       <div>
-        {/* <OrderList /> */}
 
         <header>
           <center><h1>Welcome</h1></center>
@@ -25,6 +24,7 @@ class SellerAccount extends Component{
         <center>
            <SellerInfoCard style={{backgroundColor:'red'}}/>
         </center>
+        <OrderList />
         <MenuItemBox style={{margin:50}}/>
 
         <br/><br/><br/>
