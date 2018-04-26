@@ -10,7 +10,7 @@ export{getFoodItem}
 
 export{getFoodItemsBySellerID}
   function getFoodItemsBySellerID(seller_id){
-    console.log(baseUrl + "/api/food/sellerID/" + seller_id)
+    // console.log(baseUrl + "/api/food/sellerID/" + seller_id)
     return axios.get(baseUrl + "/api/food/sellerID/" + seller_id)
   }
 
@@ -51,3 +51,35 @@ export{getStoreInfoByID}
     function UpdateSellerInfo(api_token, requestBody){
       return axios.post(baseUrl + '', requestBody)
     }
+
+    export{createOrder}
+      function createOrder(user_api_token, seller_id, foodItems){
+        return axios.post(baseUrl + '/api/order/api_token', {
+          user_api_token,
+          seller_id,
+          foodItems
+        })
+      }
+
+    export {getOrders}
+      function getOrders(api_token){
+        return axios.post(baseUrl + "/api/auth/information/seller", {
+          api_token
+        })
+      }
+
+    export{getOrderInfo}
+      function getOrderInfo(OrderID) {
+        return axios.get(baseUrl + '/api/order/orderID/' + OrderID, {
+          OrderID
+        })
+      }
+
+    export{updateOrderStatus}
+      function updateOrderStatus(api_token, orderID, orderStatus) {
+        return axios.post(baseUrl + '/api/order/update', {
+          api_token,
+          orderID,
+          orderStatus
+        })
+      }

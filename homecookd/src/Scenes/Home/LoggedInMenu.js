@@ -35,9 +35,8 @@ class LoggedInMenu extends Component {
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
       >
-        <MenuItem onClick={this.handleClose} href="/Store">My Account</MenuItem>
-        <MenuItem primaryText="Refresh" />
-        <MenuItem primaryText="Help" />
+        <MenuItem onClick={this.handleClose} href="/MyAccount">My Account</MenuItem>
+        <MenuItem onClick={this.handleClose} href="/MySellerPortal">My Store</MenuItem>
         <MenuItem onClick={this.handleSignOut} primaryText="Sign out" />
       </IconMenu>
     )
