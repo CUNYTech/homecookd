@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import ProfileEdit from '../SellerAccount/InfoEdit.js'
+import MenuIcons from '../SellerAccount/SideMenu';
 
 
 class SellerProfileEdit extends Component {
@@ -8,6 +9,8 @@ class SellerProfileEdit extends Component {
     return (
 
       <div>
+
+  
 
       <ProfileEdit/>
 
