@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import "./SellerProfileEdit.css"
 import {UpdateSellerInfo} from "../../../Utils/Sellers"
 import {getSellerInfo} from "../../../Utils/Sellers"
+import MenuIcons from '../SellerAccount/SideMenu';
 
 
 import { Table } from 'semantic-ui-react'
@@ -66,6 +67,10 @@ class ProfileEdit extends Component {
     return (
     <div style={{padding: 150}}>
 <center><h2>Edit Account Page</h2></center>
+
+<MenuIcons/>
+
+
   <Table>
     <Table.Body>
       <Table.Row>
