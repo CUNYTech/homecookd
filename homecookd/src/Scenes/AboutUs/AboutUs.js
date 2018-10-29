@@ -34,7 +34,7 @@ class AboutUs extends Component{
           Homecookd is an innovative way for you to have a fresh home cooked meal
           delivered to you by people just like yourself. Tired eating the same foods
           from your neighborhood? With Homecookd, you can order various types of authentic ethnic foods from
-          people who know more about food than fast food restuarants do.
+          people who know more about food than fast food restuarants do. Say goodbye to old food and say hello to homecookd meals.
           </p>
       </div>
     )

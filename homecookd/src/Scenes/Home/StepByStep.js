@@ -30,7 +30,7 @@ const SegmentExampleCircular = () => (
       <Header as='h2'>
         Enjoy
         <Header.Subheader>
-          Enjoy some home cooked meals!
+          Now enjoy some home cooked meals!
         </Header.Subheader>
       </Header>
     </Segment>
