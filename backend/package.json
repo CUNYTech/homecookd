@@ -22,7 +22,7 @@
     "jshint": "^2.6.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.223.1",
+    "aws-sdk": "^2.814.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
